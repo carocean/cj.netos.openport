@@ -1,0 +1,28 @@
+apply plugin:'application'
+mainClassName = "cj.netos.openport.main.Main"
+sourceSets { 
+	 main { 
+	 	java{
+	 		srcDir "$projectDir/src"
+	 	}
+	 	resources{
+		 	srcDir "$projectDir/src"
+		 }
+	 } 
+ 	}
+ 		sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+ 	tasks.withType(JavaCompile) {  
+        options.encoding = "UTF-8"  
+    } 
+ repositories { 
+ 	mavenCentral();
+	 flatDir(dirs: "$projectDir/global/lib") 
+ } 
+
+dependencies {
+	compile(
+            'commons-cli:commons-cli:1.2'
+    )
+	compile fileTree('../global/runtime')
+}
