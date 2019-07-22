@@ -17,10 +17,10 @@ public interface IUCPort extends ISecurityService {
 			@CjPermissionParameter(name = "tenant", usage = "xxx") String tenant,
 			@CjPermissionParameter(name = "principals", usage = "xxx") String principals,
 			@CjPermissionParameter(name = "password", usage = "xxx") String password,
-			@CjPermissionParameter(name = "ttlMillis", usage = "xxx") long ttlMillis);
+			@CjPermissionParameter(name = "ttlMillis", usage = "xxx") long ttlMillis)throws CircuitException;
 
 	@CjPermission(usage = "")
-	int test(@CjPermissionParameter(name = "list",type = LinkedList.class, elementType = TestArg.class, usage = "xxx") List<TestArg> list,
+	Map<Integer,TestArg> test(@CjPermissionParameter(name = "list",type = LinkedList.class, elementType = TestArg.class, usage = "xxx") List<TestArg> list,
 			@CjPermissionParameter(name = "set", elementType = TestArg.class, usage = "xxx") List<TestArg> set,
 			@CjPermissionParameter(name = "map",type = TreeMap.class, elementType = {Integer.class,TestArg.class}, usage = "xxx") Map<Integer, TestArg> map)
 			throws CircuitException;

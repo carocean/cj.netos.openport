@@ -49,6 +49,9 @@ public class DefaultSecurityServiceContainer implements ISecurityServiceContaine
 			if (cjPermission == null) {
 				continue;
 			}
+			if(cjPermission.right()==Right.invisible) {
+				continue;
+			}
 			String key = String.format("%s#%s", servicepath, m.getName());
 			CJSystem.logging().info(String.format("\t\t服务命令：%s", m.getName()));
 			SecurityCommand cmd = new SecurityCommand(servicepath, face, ss, m);

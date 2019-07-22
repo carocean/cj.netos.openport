@@ -7,10 +7,13 @@ import java.lang.reflect.Parameter;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URLDecoder;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
@@ -18,6 +21,7 @@ import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.ecm.net.io.MemoryContentReciever;
+import cj.studio.security.annotation.CjPermission;
 import cj.studio.security.annotation.CjPermissionParameter;
 import cj.studio.security.util.ExceptionPrinter;
 import cj.ultimate.gson2.com.google.gson.Gson;
@@ -30,6 +34,7 @@ class SecurityCommand {
 	ISecurityService service;
 	Method method;
 	List<MethodParameter> parameters;
+	IAccessControlStrategy tokenchecker;
 
 	public SecurityCommand(String servicepath, Class<?> face, ISecurityService service, Method method) {
 		this.servicepath = servicepath;
@@ -55,6 +60,31 @@ class SecurityCommand {
 	}
 
 	public void doCommand(Frame frame, Circuit circuit) throws CircuitException {
+		CjPermission mperm = this.method.getAnnotation(CjPermission.class);
+		if (mperm == null) {
+			throw new CircuitException("801", "拒绝访问");
+		}
+//		if (this.tokenchecker == null) {
+//			try {
+//				this.tokenchecker = mperm.acs().newInstance();
+//			} catch (InstantiationException | IllegalAccessException e) {
+//				throw new CircuitException("500", e);
+//			}
+//			if (this.tokenchecker == null) {
+//				this.tokenchecker = null;// 默认的
+//			}
+//		}
+//		switch (mperm.tokenIn()) {
+//		case headersOfRequest:
+//			break;
+//		case parametersOfRequest:
+//			break;
+//		case none:
+//			break;
+//		}
+		if (mperm.right() == Right.deny) {
+			throw new CircuitException("801", "拒绝访问");
+		}
 		frame.content().accept(new MyMemoryContentReciever(this, frame, circuit));
 	}
 
@@ -133,9 +163,7 @@ class MyMemoryContentReciever extends MemoryContentReciever {
 			}
 
 			Object result = cmd.method.invoke(cmd.service, args);
-			ResponseClient<?> rc = new ResponseClient<>(200, "OK", result);
-			String json = new Gson().toJson(rc);
-			circuit.content().writeBytes(json.getBytes());
+			doResponse(result);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			ExceptionPrinter printer = new ExceptionPrinter();
 			printer.printException(e, circuit);
@@ -146,6 +174,48 @@ class MyMemoryContentReciever extends MemoryContentReciever {
 		this.circuit = null;
 		this.cmd = null;
 		this.frame = null;
+	}
+
+	private void doResponse(Object result) {
+		Class<?> dataType = null;
+		String[] dataElements = null;
+		String datastr = "";
+		if (result == null) {
+			dataType = Void.class;
+		} else {
+			dataType = result.getClass();
+			datastr = new Gson().toJson(result);
+			if (Collection.class.isAssignableFrom(dataType)) {
+				Collection<?> col = (Collection<?>) result;
+				if (!col.isEmpty()) {
+					Object obj = null;
+					for (Object o : col) {
+						obj = o;
+						break;
+					}
+					dataElements = new String[] { obj.getClass().getName() };
+				}
+			}
+			if (Map.class.isAssignableFrom(dataType)) {
+				@SuppressWarnings("unchecked")
+				Map<Object, Object> map = (Map<Object, Object>) result;
+				if (!map.isEmpty()) {
+					Set<Entry<Object, Object>> set = map.entrySet();
+					Entry<Object, Object> entry = null;
+					for (Entry<Object, Object> _entry : set) {
+						entry = _entry;
+						break;
+					}
+					dataElements = new String[] { entry.getKey().getClass().getName(),
+							entry.getValue().getClass().getName() };
+				}
+
+			}
+		}
+		ResponseClient<?> rc = new ResponseClient<>(200, "ok", dataType.getName(), dataElements, datastr);
+		String json = new Gson().toJson(rc);
+		circuit.content().writeBytes(json.getBytes());
+
 	}
 
 	private Object reflactValue(Object v, MethodParameter p) throws CircuitException {

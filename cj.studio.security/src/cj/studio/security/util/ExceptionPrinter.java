@@ -34,7 +34,7 @@ public class ExceptionPrinter {
 		PrintWriter pw = new PrintWriter(sw);
 		e.printStackTrace(pw);
 		pw.close();
-		ResponseClient<?> rc = new ResponseClient<>(status, e.getMessage(), sw.toString());
+		ResponseClient<?> rc = new ResponseClient<>(status, e.getMessage(), String.class.getName(),null,sw.toString());
 		String json = new Gson().toJson(rc);
 		circuit.content().writeBytes(json.getBytes());
 	}

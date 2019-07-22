@@ -35,4 +35,12 @@ public @interface CjPermission {
 	 */
 	Class<? extends IAccessControlStrategy> acs() default DefaultAccessControlStrategy.class;
 	String usage();
+	/**
+	 * 声明响应代码<br>
+	 * 声明响应代码主要用于描述可能发生的异常类型，是给使用者看的，并不替换原始异常，它仅是对原始异常的说明。<br>
+	 * 写法：<br>
+	 * CjPermission(responseStatus={"500 可能是内部哪错了.","200 说明成功,非200表示出错"})
+	 * @return
+	 */
+	String[] responseStatus() default {"200 ok"};
 }
