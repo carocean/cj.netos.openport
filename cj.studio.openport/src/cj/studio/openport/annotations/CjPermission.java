@@ -28,13 +28,24 @@ public @interface CjPermission {
 	 * deny zxt.user 拒绝用户为zxt的访问<br>
 	 * invisible * 表示方法不可见也不可用<br>
 	 * allow * 为方法默认权限
-	 * 
+	 * <pre>
+	 *
+	 *
+	 * </pre>
 	 * @return
 	 */
-	String[] acl() default "allow *";
+	String[] acl() default "allow *.*";
 
+	/**
+	 * 令牌在请求的哪里
+	 * @return
+	 */
 	TokenIn tokenIn() default TokenIn.headersOfRequest;
 
+	/**
+	 * 令牌的名字，在请求中令牌的键
+	 * @return
+	 */
 	String checkTokenName() default "cjtoken";
 
 	String usage();

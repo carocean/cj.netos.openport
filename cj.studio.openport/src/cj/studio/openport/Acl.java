@@ -29,7 +29,7 @@ public class Acl {
 		}
 		String rightText = aceText.substring(0, pos);
 
-		Right right = Right.valueOf(rightText);
+		Rights rights = Rights.valueOf(rightText);
 		
 		String remaining = aceText.substring(pos + 1, aceText.length());
 		while (remaining.startsWith(" ")) {
@@ -41,8 +41,8 @@ public class Acl {
 		if(remaining.indexOf(" ")>-1) {
 			throw new EcmException("ace声明错误，格式应为：allow whois，当前格式具有多个字："+aceText);
 		}
-		Ace e = new Ace(remaining, right);
-		switch (right) {
+		Ace e = new Ace(remaining, rights);
+		switch (rights) {
 		case allow:
 			allows.add(e);
 			break;

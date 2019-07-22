@@ -14,7 +14,7 @@ import cj.studio.ecm.net.Frame;
 import cj.studio.openport.annotations.CjPermission;
 import cj.ultimate.util.StringUtil;
 
-public class DefaultSecurityServiceContainer implements ISecurityServiceContainer {
+public class DefaultSecurityServiceContainer implements ISecurityServiceContainer,IAPIPrinter {
 	IAccessControlStrategy acsStrategy;
 	ICheckTokenStrategy ctstrategy;
 	Map<String, SecurityCommand> commands;// key为地址：/myservice.service#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
@@ -130,4 +130,8 @@ public class DefaultSecurityServiceContainer implements ISecurityServiceContaine
 		scmd.doCommand(frame, circuit);
 	}
 
+	@Override
+	public void printApi(APIContext context) {
+
+	}
 }

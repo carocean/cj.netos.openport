@@ -28,7 +28,7 @@ import cj.ultimate.gson2.com.google.gson.Gson;
 import cj.ultimate.gson2.com.google.gson.reflect.TypeToken;
 import cj.ultimate.util.StringUtil;
 
-class SecurityCommand implements IDisposable{
+class SecurityCommand implements IDisposable,IAPIPrinter{
 	String servicepath;
 	Class<?> face;
 	ISecurityService service;
@@ -131,6 +131,10 @@ class SecurityCommand implements IDisposable{
 
 	}
 
+	@Override
+	public void printApi(APIContext context) {
+
+	}
 }
 
 class MethodParameter {

@@ -17,10 +17,22 @@ import cj.studio.openport.InRequest;
 @Target(value = { ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CjPermissionParameter {
+	/**
+	 * 参数名
+	 * @return
+	 */
 	String name();
 
+	/**
+	 * 参数放在请求的哪里
+	 * @return
+	 */
 	InRequest in() default InRequest.parameter;
 
+	/**
+	 * 参数显式类型
+	 * @return
+	 */
 	Class<?> type() default Void.class;
 	/**
 	 * 集合元素的类型。只所以用数组表示，是因为Map的一个元素有key类型和value类型两种

@@ -7,7 +7,7 @@ class SecurityIndexService implements ISecurityIndexService {
 	}
 
 	@Override
-	public ResponseClient<SecurityServiceAPI> index() {
+	public ResponseClient<IAPIPrinter> index() {
 		// TODO Auto-generated method stub
 		return null;
 	}

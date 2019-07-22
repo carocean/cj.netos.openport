@@ -1,5 +1,5 @@
 package cj.studio.openport;
 
-public enum Right {
+public enum Rights {
 	allow,deny,invisible
 }
