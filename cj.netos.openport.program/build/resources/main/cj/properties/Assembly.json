@@ -8,7 +8,8 @@
 			name:'全安服务活动器',
 			class:'cj.studio.security.SecurityEntryPointActivator',
 			parameters:{
-					name:'xxxx'
+					accessControlStrategy:'',
+					checkTokenStrategy:''
 				}
 			}
 		]

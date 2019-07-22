@@ -15,11 +15,15 @@ import cj.studio.security.annotation.CjPermission;
 import cj.ultimate.util.StringUtil;
 
 public class DefaultSecurityServiceContainer implements ISecurityServiceContainer {
-
+	IAccessControlStrategy acsStrategy;
+	ICheckTokenStrategy ctstrategy;
 	Map<String, SecurityCommand> commands;// key为地址：/myservice.service#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
 
-	public DefaultSecurityServiceContainer(IServiceSite site) {
+	public DefaultSecurityServiceContainer(IServiceSite site, IAccessControlStrategy acsstrategy,
+			ICheckTokenStrategy ctstrategy) {
 		commands = new HashMap<>();
+		this.acsStrategy = acsstrategy;
+		this.ctstrategy = ctstrategy;
 		site.addService("$.security.container", this);
 		ServiceCollection<ISecurityService> col = site.getServices(ISecurityService.class);
 		for (ISecurityService ss : col) {
@@ -49,12 +53,13 @@ public class DefaultSecurityServiceContainer implements ISecurityServiceContaine
 			if (cjPermission == null) {
 				continue;
 			}
-			if(cjPermission.right()==Right.invisible) {
+			if (acsStrategy.isInvisible(cjPermission.acl())) {
+				CJSystem.logging().info(String.format("\t\t服务命令：%s 由于对所有人不可见因此被忽略", m.getName()));
 				continue;
 			}
 			String key = String.format("%s#%s", servicepath, m.getName());
 			CJSystem.logging().info(String.format("\t\t服务命令：%s", m.getName()));
-			SecurityCommand cmd = new SecurityCommand(servicepath, face, ss, m);
+			SecurityCommand cmd = new SecurityCommand(servicepath, face, ss, m,this.acsStrategy,this.ctstrategy);
 			commands.put(key, cmd);
 		}
 		String key = String.format("%s#index", servicepath);// 将服务本身设一个默认索引命令，用于打印当前安全服务的方法
@@ -65,7 +70,7 @@ public class DefaultSecurityServiceContainer implements ISecurityServiceContaine
 		} catch (NoSuchMethodException | SecurityException e) {
 		}
 		CJSystem.logging().info(String.format("\t\t服务命令：%s", m.getName()));
-		SecurityCommand cmd = new SecurityCommand(servicepath, face, index, m);
+		SecurityCommand cmd = new SecurityCommand(servicepath, face, index, m,this.acsStrategy,this.ctstrategy);
 		commands.put(key, cmd);
 
 	}

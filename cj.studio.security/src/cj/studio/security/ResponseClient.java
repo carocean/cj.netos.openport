@@ -24,7 +24,9 @@ public final class ResponseClient<T> {
 
 	public ResponseClient() {
 	}
-
+	public ResponseClient(int status, String message,  String dataText) {
+		this(status,message,String.class.getName(),null,dataText);
+	}
 	public ResponseClient(int status, String message, String dataType, String[] dataElementTyps, String dataText) {
 		if (dataType == null) {
 			throw new RuntimeException("dataType 为空");

@@ -7,7 +7,6 @@ import java.lang.reflect.Parameter;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URLDecoder;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -34,13 +33,17 @@ class SecurityCommand {
 	ISecurityService service;
 	Method method;
 	List<MethodParameter> parameters;
-	IAccessControlStrategy tokenchecker;
+	IAccessControlStrategy acsStrategy;
+	ICheckTokenStrategy ctstrategy;
 
-	public SecurityCommand(String servicepath, Class<?> face, ISecurityService service, Method method) {
+	public SecurityCommand(String servicepath, Class<?> face, ISecurityService service, Method method,
+			IAccessControlStrategy acsStrategy, ICheckTokenStrategy ctstrategy) {
 		this.servicepath = servicepath;
 		this.face = face;
 		this.service = service;
 		this.method = method;
+		this.acsStrategy = acsStrategy;
+		this.ctstrategy = ctstrategy;
 		parseMethodParameters();
 	}
 
@@ -64,28 +67,44 @@ class SecurityCommand {
 		if (mperm == null) {
 			throw new CircuitException("801", "拒绝访问");
 		}
-//		if (this.tokenchecker == null) {
-//			try {
-//				this.tokenchecker = mperm.acs().newInstance();
-//			} catch (InstantiationException | IllegalAccessException e) {
-//				throw new CircuitException("500", e);
-//			}
-//			if (this.tokenchecker == null) {
-//				this.tokenchecker = null;// 默认的
-//			}
-//		}
-//		switch (mperm.tokenIn()) {
-//		case headersOfRequest:
-//			break;
-//		case parametersOfRequest:
-//			break;
-//		case none:
-//			break;
-//		}
-		if (mperm.right() == Right.deny) {
-			throw new CircuitException("801", "拒绝访问");
+		String token = "";
+		Map<String, Object> tokenInfo = null;
+		switch (mperm.tokenIn()) {
+		case headersOfRequest:
+			token = frame.head(mperm.checkTokenName());
+			if (StringUtil.isEmpty(token)) {
+				throw new CircuitException("801", String.format("请求头中无名为%s的令牌，拒绝访问", mperm.checkTokenName()));
+			}
+			try {
+				tokenInfo = this.ctstrategy.checkToken(token);
+				this.acsStrategy.checkRight(tokenInfo,mperm.acl());
+			} catch (Throwable e) {
+				ExceptionPrinter printer = new ExceptionPrinter();
+				printer.printException(e, circuit);
+				return;
+			}
+			frame.content().accept(new MyMemoryContentReciever(this, frame, circuit));
+			break;
+		case parametersOfRequest:
+			token = frame.parameter(mperm.checkTokenName());
+			if (StringUtil.isEmpty(token)) {
+				throw new CircuitException("801", String.format("请求参数中无名为%s的令牌，拒绝访问", mperm.checkTokenName()));
+			}
+			try {
+				tokenInfo = this.ctstrategy.checkToken(token);
+				this.acsStrategy.checkRight(tokenInfo,mperm.acl());
+			} catch (Throwable e) {
+				ExceptionPrinter printer = new ExceptionPrinter();
+				printer.printException(e, circuit);
+				return;
+			}
+			frame.content().accept(new MyMemoryContentReciever(this, frame, circuit));
+			break;
+		case nope:
+			frame.content().accept(new MyMemoryContentReciever(this, frame, circuit));
+			break;
 		}
-		frame.content().accept(new MyMemoryContentReciever(this, frame, circuit));
+
 	}
 
 }

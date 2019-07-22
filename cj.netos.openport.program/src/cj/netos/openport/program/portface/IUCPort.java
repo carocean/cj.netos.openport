@@ -7,6 +7,7 @@ import java.util.TreeMap;
 
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.security.ISecurityService;
+import cj.studio.security.TokenIn;
 import cj.studio.security.annotation.CjPermission;
 import cj.studio.security.annotation.CjPermissionParameter;
 
@@ -19,7 +20,7 @@ public interface IUCPort extends ISecurityService {
 			@CjPermissionParameter(name = "password", usage = "xxx") String password,
 			@CjPermissionParameter(name = "ttlMillis", usage = "xxx") long ttlMillis)throws CircuitException;
 
-	@CjPermission(usage = "")
+	@CjPermission(usage = "",tokenIn = TokenIn.headersOfRequest,acl = {"invisible *.role"})
 	Map<Integer,TestArg> test(@CjPermissionParameter(name = "list",type = LinkedList.class, elementType = TestArg.class, usage = "xxx") List<TestArg> list,
 			@CjPermissionParameter(name = "set", elementType = TestArg.class, usage = "xxx") List<TestArg> set,
 			@CjPermissionParameter(name = "map",type = TreeMap.class, elementType = {Integer.class,TestArg.class}, usage = "xxx") Map<Integer, TestArg> map)
