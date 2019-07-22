@@ -6,7 +6,7 @@ import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.gateway.socket.app.IGatewayAppSiteResource;
 import cj.studio.gateway.socket.app.IGatewayAppSiteWayWebView;
-import cj.studio.security.ResponseClient;
+import cj.studio.openport.ResponseClient;
 import cj.ultimate.gson2.com.google.gson.Gson;
 /**
  * 

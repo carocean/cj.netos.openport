@@ -6,7 +6,7 @@
 		activators : [
 			{
 			name:'全安服务活动器',
-			class:'cj.studio.security.SecurityEntryPointActivator',
+			class:'cj.studio.openport.SecurityEntryPointActivator',
 			parameters:{
 					accessControlStrategy:'',
 					checkTokenStrategy:''

@@ -95,7 +95,7 @@ task release(type: Copy) {
 			println 'be 环境发布完毕!'
 		}
 }
-release.dependsOn ":cj.studio.security:release"
+release.dependsOn ":cj.studio.openport:release"
 release.dependsOn ":cj.netos.openport.program:release"
-tasks.getByPath(':cj.netos.openport.program:release').mustRunAfter tasks.getByPath(':cj.studio.security:release')
+tasks.getByPath(':cj.netos.openport.program:release').mustRunAfter tasks.getByPath(':cj.studio.openport:release')
 

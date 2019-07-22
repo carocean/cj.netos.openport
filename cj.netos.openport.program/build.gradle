@@ -18,13 +18,13 @@ sourceSets {
  } 
 
 dependencies {
-	compile project(':cj.studio.security');
+	compile project(':cj.studio.openport');
 	compile fileTree('../global/runtime')
 	//compile fileTree('src/cj/references')
 	
 }
 task releaseToHost(type: Copy) {
- dependsOn "build",":cj.studio.security:release"
+ dependsOn "build",":cj.studio.openport:release"
  from 'build/libs/'
 into '../cmdtools/gateway-2.2.4/assemblies/openport'
  include '**/*.jar'

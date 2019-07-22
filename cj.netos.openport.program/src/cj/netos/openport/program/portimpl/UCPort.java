@@ -7,7 +7,7 @@ import cj.netos.openport.program.portface.IUCPort;
 import cj.netos.openport.program.portface.TestArg;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.net.CircuitException;
-import cj.studio.security.ResponseClient;
+import cj.studio.openport.ResponseClient;
 
 @CjService(name = "/ucport")
 public class UCPort implements IUCPort {

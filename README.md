@@ -4,7 +4,7 @@
 
 ## 用法
 - cj.studio.sceurity-1.x.jar放入项目的cj.refrences
-- 注册活动器cj.studio.security.SecurityEntryPointActivator到项目Assembly.json
+- 注册活动器cj.studio.openport.SecurityEntryPointActivator到项目Assembly.json
 - 项目中声明valve并派生于SecurityInputValve
 - 使用注解@CjPermission,@CjPermissionParameter
 - 打印许可，派生于SecurityServiceAPI
