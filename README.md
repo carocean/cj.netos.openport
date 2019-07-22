@@ -11,7 +11,7 @@
 - 对许可服务的访问优先于webview
 
 	说明：Permission将服务和方法说明成“服务拥有什么许可”，许可概念类似于司法厅向社会生产单位发放许可执照一样概念，像卫生许可证，授予你之后方可经营，并限制你不能经营一些东西。
-	用法比如：MyService,声明为：@CjPermissionService(who='*',right=Right.Allow,checkTokenName="cjtoken")，意为：myService对所有人授预充许权限的许可。
+	用法比如：MyService,声明为：@CjPermissionService(acl={'verified *.role allow','unverified *.user deny'},checkTokenName="cjtoken")，意为：myService对所有人授预充许权限的许可。
 
 	缺点：该机制属于硬编码的服务编排机制。在运行期无法改变许可权限，所以也无法支持将来在微服务注册中心统一管理服务访问控制权限。但好处是这种硬包装访问控制开发起来非常简单，而且像stub存根一样，可以将api显式暴露给第三方开发者。
 
