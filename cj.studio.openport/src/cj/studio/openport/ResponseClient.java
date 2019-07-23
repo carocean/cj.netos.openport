@@ -21,8 +21,10 @@ public final class ResponseClient<T> {
 	String dataText;
 	String dataType;
 	String[] dataElementTypes;
-
+	long begintime;
+	long endtime;
 	public ResponseClient() {
+		begintime=System.currentTimeMillis();
 	}
 	public ResponseClient(int status, String message,  String dataText) {
 		this(status,message,String.class.getName(),null,dataText);
@@ -39,6 +41,22 @@ public final class ResponseClient<T> {
 		this.dataText = dataText;
 		this.dataType = dataType;
 		this.dataElementTypes = dataElementTyps;
+	}
+
+	public long getBegintime() {
+		return begintime;
+	}
+
+	public void setBegintime(long begintime) {
+		this.begintime = begintime;
+	}
+
+	public long getEndtime() {
+		return endtime;
+	}
+
+	public void setEndtime(long endtime) {
+		this.endtime = endtime;
 	}
 
 	public int getStatus() {

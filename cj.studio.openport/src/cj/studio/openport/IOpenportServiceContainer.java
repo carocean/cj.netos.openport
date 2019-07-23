@@ -7,10 +7,9 @@ import cj.ultimate.IDisposable;
 
 public interface IOpenportServiceContainer extends IDisposable, IOpenportPrinter {
 
-	boolean matchesAndSelectKey(Frame frame) throws CircuitException;
+    boolean matchesAndSelectKey(Frame frame) throws CircuitException;
 
-	void invokeService(Frame frame,Circuit circuit)throws CircuitException;
+    void invokeService(Frame frame, Circuit circuit) throws CircuitException;
 
-	boolean matchesAPI(Frame frame);
 
 }

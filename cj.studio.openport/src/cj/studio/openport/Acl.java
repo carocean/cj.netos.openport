@@ -106,7 +106,7 @@ public class Acl {
 	public boolean hasRoleOnInvisibles(List<String> roles) {
 		for(Ace e:invisibles) {
 			String[] whoisArr=e.whoisDetails();
-			if(!"role".equals(whoisArr[1])) {
+			if(!"role".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
 			if(roles.contains("*")&&"*".equals(whoisArr[0])) {
@@ -136,7 +136,7 @@ public class Acl {
 	public boolean hasRoleOnDenys(List<String> roles) {
 		for(Ace e:denys) {
 			String[] whoisArr=e.whoisDetails();
-			if(!"role".equals(whoisArr[1])) {
+			if(!"role".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
 			if(roles.contains("*")&&"*".equals(whoisArr[0])) {
@@ -166,7 +166,7 @@ public class Acl {
 	public boolean hasRoleOnAllows(List<String> roles) {
 		for(Ace e:allows) {
 			String[] whoisArr=e.whoisDetails();
-			if(!"role".equals(whoisArr[1])) {
+			if(!"role".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
 			if(roles.contains("*")&&"*".equals(whoisArr[0])) {

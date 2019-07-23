@@ -41,4 +41,17 @@ public @interface CjOpenportParameter {
 	Class<?>[] elementType() default Void.class;
 
 	String usage();
+	/**
+	 * 样例文件名<br>
+	 * 建议用样例数据告知开发者参数的输入格式<br>
+	 *     相对于openports声明的样例目录
+	 * @return
+	 */
+	String simpleRetFileName() default "";
+	/**
+	 * 参数默认值<br>
+	 *     参数默认值仅供api界面使用的初始值
+	 */
+
+	String defaultValue() default "";
 }

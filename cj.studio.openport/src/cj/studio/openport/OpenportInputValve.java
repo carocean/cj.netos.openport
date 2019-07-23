@@ -19,13 +19,15 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
     IOpenportServiceContainer container;
     @CjServiceSite
     IServiceSite site;
-
+    IOpenportAPIController controller;
     @Override
     public void onActive(String inputName, IIPipeline pipeline) throws CircuitException {
         if (container == null) {
             container = (IOpenportServiceContainer) site.getService("$.security.container");
         }
-
+        if(controller==null){
+            controller=new DefaultOpenportAPIController(site);
+        }
         pipeline.nextOnActive(inputName, this);
     }
 
@@ -36,8 +38,8 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
         }
         Frame frame = (Frame) request;
         Circuit circuit = (Circuit) response;
-        if (container.matchesAPI(frame)) {//注意实现的api时默认的index方法，即当访问一个安全服务的根时打印该服务api，另外返回值样本能让开发者通过注解关联json数据文件
-            printOpenportApi(frame, circuit);
+        if (controller.matchesAPI(frame)) {//注意实现的api时默认的index方法，即当访问一个安全服务的根时打印该服务api，另外返回值样本能让开发者通过注解关联json数据文件
+            controller.flow(frame, circuit);
             return;
         }
         if (!container.matchesAndSelectKey(frame)) {
@@ -54,36 +56,7 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
     }
 
     protected void printOpenportApi(Frame frame, Circuit circuit) throws CircuitException {
-        IOpenportResource resource = new OpenportResource(site);
-        String path = frame.relativePath();
-        switch (path) {
-            case "/cjstudio/openport/global.css":
-                resource.flush("cj/studio/openport/api/global.css", circuit.content());
-                break;
-            case "/cjstudio/openport/index.css":
-                resource.flush("cj/studio/openport/api/index.css", circuit.content());
-                break;
-            case "/cjstudio/openport/jquery.js":
-                resource.flush("cj/studio/openport/api/jquery-2.1.4.js", circuit.content());
-                break;
-            case "/cjstudio/openport/workspace.js":
-                resource.flush("cj/studio/openport/api/workspace.js", circuit.content());
-                break;
-            default:
-                Document canvas = resource.html("cj/studio/openport/api/index.html");
-                Elements cssSet = canvas.select("head>link");
-                for (Element css : cssSet) {
-                    css.attr("href",String.format("/%s/%s", frame.rootName(), css.attr("href")));
-                }
-                Elements jsSet = canvas.select("head>script");
-                for (Element js : jsSet) {
-                    js.attr("src",String.format("/%s/%s", frame.rootName(), js.attr("src")));
-                }
-                OpenportContext portContext = new OpenportContext(canvas);
-                container.printPort(portContext);
-                circuit.content().writeBytes(canvas.toString().getBytes());
-                break;
-        }
+
 
     }
 

@@ -8,16 +8,15 @@ import java.lang.annotation.Target;
 import cj.studio.openport.TokenIn;
 
 /**
- * 开放口声明
- * 将接口或接口方法声明为许可<br>
+ * 口声明
+ * 接口方法声明为口<br>
  * 该方法在注解类时依赖于cjservice注解，它将服务名声明为受保证地址<br>
  * 
- * 注意：该注解声明的安全服务接口必须派生于ISecurityService接口
- * 
+ *
  * @author caroceanjofers
  *
  */
-@Target(value = { ElementType.TYPE, ElementType.METHOD })
+@Target(value = { ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CjOpenport {
 	/**
@@ -60,4 +59,16 @@ public @interface CjOpenport {
 	 * @return
 	 */
 	String[] responseStatus() default { "200 ok" };
+
+	/**
+	 * 样例文件名<br>
+	 * 建议用样例数据告知开发者口的返回数据格式<br>
+	 *     相对于openports声明的样例目录
+	 * @return
+	 */
+	String simpleRetFileName() default "";
+	String command() default "get";
+
+	String protocol() default "http/1.1";
+
 }

@@ -32,7 +32,7 @@ public class OpenportEntryPointActivator implements IEntryPointActivator {
 			ctsclassStr = cts.getValue().getName();
 		}
 		if (StringUtil.isEmpty(ctsclassStr)) {
-			ctsclassStr = DefaultCheckTokenStrategy.class.getName();
+			ctsclassStr = EmptyTokenCheckerStrategy.class.getName();
 		}
 		try {
 			IAccessControlStrategy aclstrategy = (IAccessControlStrategy) Class.forName(acsclassStr).newInstance();
