@@ -1,52 +1,54 @@
 {
-	entryPoint : {
-		plugins:[
-			
-		],		
-		activators : [
-			{
-			name:'全安服务活动器',
-			class:'cj.studio.openport.SecurityEntryPointActivator',
-			parameters:{
-					accessControlStrategy:'',
-					checkTokenStrategy:''
-				}
-			}
-		]
-	},
-	assemblyInfo : {
-		assemblyTitle : "openport",
-		assemblyResource:"site=/site;http.root=$(site)/web;http.jss=$(site)/jss/http;ws.jss=$(site)/jss/ws",
-		assemblyDescription : "开放口，为移动端和第三方开放平台端口",
-		assemblyConfiguration : "",
-		assemblyCompany : "netos",
-		assemblyProduct : "cj.netos.openport.program",
-		assemblyCopyright : "Copyright   2011",
-		assemblyTrademark : "",
-		assemblyCulture : "",
-		guid : "D8089AF0-15BE-48D0-9F48-BAA26FA0498B",
-		assemblyVersion : "1.0.0.0",
-		assemblyFileVersion : "1.0.0.0"
-	},
-	global:{
-		default:"zh_CN",
-		desc:"如果系统环境要求各芯片采用的语言本芯片没有，则芯片可采用默认语言"
-		},
-	serviceContainer : {
-		name : "netContainer",
-		switchFilter:"off",
-		jss:[{
-			module:"services1",
-			package:"cj.netos.openport.program.jss",
-			unzip:"true",
-			searchMode:"link",
-			extName:".jss.js"
-		}],
-		scans : [{
-					package : "cj.netos.openport.program",
-					extName : ".class|.json|.xml",
-					exoterical:"true"
-				}]
-
-	}
+  entryPoint: {
+    plugins: [
+    ],
+    activators: [
+      {
+        name: '全安服务活动器',
+        class: 'cj.studio.openport.OpenportEntryPointActivator',
+        parameters: {
+          accessControlStrategy: '',
+          checkTokenStrategy: ''
+        }
+      }
+    ]
+  },
+  assemblyInfo: {
+    assemblyTitle: "openport",
+    assemblyResource: "site=/site;http.root=$(site)/web;http.jss=$(site)/jss/http;ws.jss=$(site)/jss/ws",
+    assemblyDescription: "开放口，为移动端和第三方开放平台端口",
+    assemblyConfiguration: "",
+    assemblyCompany: "netos",
+    assemblyProduct: "cj.netos.openport.program",
+    assemblyCopyright: "Copyright   2011",
+    assemblyTrademark: "",
+    assemblyCulture: "",
+    guid: "D8089AF0-15BE-48D0-9F48-BAA26FA0498B",
+    assemblyVersion: "1.0.0.0",
+    assemblyFileVersion: "1.0.0.0"
+  },
+  global: {
+    default: "zh_CN",
+    desc: "如果系统环境要求各芯片采用的语言本芯片没有，则芯片可采用默认语言"
+  },
+  serviceContainer: {
+    name: "netContainer",
+    switchFilter: "off",
+    jss: [
+      {
+        module: "services1",
+        package: "cj.netos.openport.program.jss",
+        unzip: "true",
+        searchMode: "link",
+        extName: ".jss.js"
+      }
+    ],
+    scans: [
+      {
+        package: "cj.netos.openport.program",
+        extName: ".class|.json|.xml",
+        exoterical: "true"
+      }
+    ]
+  }
 }

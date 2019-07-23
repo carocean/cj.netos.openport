@@ -4,6 +4,6 @@ package cj.studio.openport;
  * @author caroceanjofers
  *
  */
-public interface ISecurityService {
+public interface IOpenportService {
 
 }

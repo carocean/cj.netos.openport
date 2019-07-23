@@ -13,8 +13,8 @@ import cj.ultimate.util.StringUtil;
  * @author caroceanjofers
  *
  */
-public class SecurityEntryPointActivator implements IEntryPointActivator {
-	ISecurityServiceContainer container;
+public class OpenportEntryPointActivator implements IEntryPointActivator {
+	IOpenportServiceContainer container;
 
 	@Override
 	public void activate(IServiceSite site, IElement args) {
@@ -37,7 +37,7 @@ public class SecurityEntryPointActivator implements IEntryPointActivator {
 		try {
 			IAccessControlStrategy aclstrategy = (IAccessControlStrategy) Class.forName(acsclassStr).newInstance();
 			ICheckTokenStrategy ctstrategy = (ICheckTokenStrategy) Class.forName(ctsclassStr).newInstance();
-			container = new DefaultSecurityServiceContainer(site, aclstrategy, ctstrategy);
+			container = new DefaultOpenportServiceContainer(site, aclstrategy, ctstrategy);
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
 			throw new EcmException(e);
 		}

@@ -2,9 +2,9 @@ package cj.studio.openport;
 
 import org.jsoup.nodes.Document;
 
-public class APIContext {
+public class OpenportContext {
 
-    public APIContext(Document canvas) {
+    public OpenportContext(Document canvas) {
         this.canvas = canvas;
     }
 

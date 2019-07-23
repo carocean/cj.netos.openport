@@ -20,25 +20,25 @@ import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.ecm.net.io.MemoryContentReciever;
-import cj.studio.openport.annotations.CjPermission;
-import cj.studio.openport.annotations.CjPermissionParameter;
+import cj.studio.openport.annotations.CjOpenport;
+import cj.studio.openport.annotations.CjOpenportParameter;
 import cj.studio.openport.util.ExceptionPrinter;
 import cj.ultimate.IDisposable;
 import cj.ultimate.gson2.com.google.gson.Gson;
 import cj.ultimate.gson2.com.google.gson.reflect.TypeToken;
 import cj.ultimate.util.StringUtil;
 
-class SecurityCommand implements IDisposable,IAPIPrinter{
+class SecurityCommand implements IDisposable, IOpenportPrinter {
 	String servicepath;
 	Class<?> face;
-	ISecurityService service;
+	IOpenportService service;
 	Method method;
 	List<MethodParameter> parameters;
 	IAccessControlStrategy acsStrategy;
 	ICheckTokenStrategy ctstrategy;
 	Acl acl;
-	public SecurityCommand(String servicepath, Class<?> face, ISecurityService service, Method method,
-			IAccessControlStrategy acsStrategy, ICheckTokenStrategy ctstrategy) {
+	public SecurityCommand(String servicepath, Class<?> face, IOpenportService service, Method method,
+						   IAccessControlStrategy acsStrategy, ICheckTokenStrategy ctstrategy) {
 		this.servicepath = servicepath;
 		this.face = face;
 		this.service = service;
@@ -63,7 +63,7 @@ class SecurityCommand implements IDisposable,IAPIPrinter{
 		this.acl.empty();
 	}
 	private void parseMethodAcl() {
-		CjPermission mperm=method.getAnnotation(CjPermission.class);
+		CjOpenport mperm=method.getAnnotation(CjOpenport.class);
 		if(mperm==null)return ;
 		String[] aclarr=mperm.acl();
 		for(String aceText:aclarr) {
@@ -75,7 +75,7 @@ class SecurityCommand implements IDisposable,IAPIPrinter{
 		this.parameters = new ArrayList<>();
 		Parameter[] params = method.getParameters();
 		for (Parameter p : params) {
-			CjPermissionParameter pp = p.getAnnotation(CjPermissionParameter.class);
+			CjOpenportParameter pp = p.getAnnotation(CjOpenportParameter.class);
 			if (pp == null) {
 				continue;
 			}
@@ -87,7 +87,7 @@ class SecurityCommand implements IDisposable,IAPIPrinter{
 	}
 
 	public void doCommand(Frame frame, Circuit circuit) throws CircuitException {
-		CjPermission mperm = this.method.getAnnotation(CjPermission.class);
+		CjOpenport mperm = this.method.getAnnotation(CjOpenport.class);
 		if (mperm == null) {
 			throw new CircuitException("801", "拒绝访问");
 		}
@@ -132,18 +132,18 @@ class SecurityCommand implements IDisposable,IAPIPrinter{
 	}
 
 	@Override
-	public void printApi(APIContext context) {
+	public void printPort(OpenportContext context) {
 
 	}
 }
 
 class MethodParameter {
 	Class<?> useType;
-	CjPermissionParameter pp;
+	CjOpenportParameter pp;
 	Parameter p;
 	String position;
 
-	public MethodParameter(String position, Parameter p, CjPermissionParameter pp, Class<?> runType) {
+	public MethodParameter(String position, Parameter p, CjOpenportParameter pp, Class<?> runType) {
 		this.pp = pp;
 		this.p = p;
 		if (pp.type() != null) {

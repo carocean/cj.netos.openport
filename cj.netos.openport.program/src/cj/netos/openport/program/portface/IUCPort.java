@@ -6,23 +6,23 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import cj.studio.ecm.net.CircuitException;
-import cj.studio.openport.ISecurityService;
+import cj.studio.openport.IOpenportService;
 import cj.studio.openport.TokenIn;
-import cj.studio.openport.annotations.CjPermission;
-import cj.studio.openport.annotations.CjPermissionParameter;
+import cj.studio.openport.annotations.CjOpenport;
+import cj.studio.openport.annotations.CjOpenportParameter;
 
-@CjPermission(usage = "")
-public interface IUCPort extends ISecurityService {
-	@CjPermission(usage = "")
-	void authenticate(@CjPermissionParameter(name = "authName", usage = "xxx") String authName,
-			@CjPermissionParameter(name = "tenant", usage = "xxx") String tenant,
-			@CjPermissionParameter(name = "principals", usage = "xxx") String principals,
-			@CjPermissionParameter(name = "password", usage = "xxx") String password,
-			@CjPermissionParameter(name = "ttlMillis", usage = "xxx") long ttlMillis)throws CircuitException;
+@CjOpenport(usage = "")
+public interface IUCPort extends IOpenportService {
+	@CjOpenport(usage = "")
+	void authenticate(@CjOpenportParameter(name = "authName", usage = "xxx") String authName,
+			@CjOpenportParameter(name = "tenant", usage = "xxx") String tenant,
+			@CjOpenportParameter(name = "principals", usage = "xxx") String principals,
+			@CjOpenportParameter(name = "password", usage = "xxx") String password,
+			@CjOpenportParameter(name = "ttlMillis", usage = "xxx") long ttlMillis)throws CircuitException;
 
-	@CjPermission(usage = "",tokenIn = TokenIn.headersOfRequest,acl = {"allow *.role"})
-	Map<Integer,TestArg> test(@CjPermissionParameter(name = "list",type = LinkedList.class, elementType = TestArg.class, usage = "xxx") List<TestArg> list,
-			@CjPermissionParameter(name = "set", elementType = TestArg.class, usage = "xxx") List<TestArg> set,
-			@CjPermissionParameter(name = "map",type = TreeMap.class, elementType = {Integer.class,TestArg.class}, usage = "xxx") Map<Integer, TestArg> map)
+	@CjOpenport(usage = "",tokenIn = TokenIn.headersOfRequest,acl = {"allow *.role"})
+	Map<Integer,TestArg> test(@CjOpenportParameter(name = "list",type = LinkedList.class, elementType = TestArg.class, usage = "xxx") List<TestArg> list,
+			@CjOpenportParameter(name = "set", elementType = TestArg.class, usage = "xxx") List<TestArg> set,
+			@CjOpenportParameter(name = "map",type = TreeMap.class, elementType = {Integer.class,TestArg.class}, usage = "xxx") Map<Integer, TestArg> map)
 			throws CircuitException;
 }

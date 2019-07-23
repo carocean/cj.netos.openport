@@ -16,7 +16,7 @@ import cj.studio.openport.InRequest;
  */
 @Target(value = { ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CjPermissionParameter {
+public @interface CjOpenportParameter {
 	/**
 	 * 参数名
 	 * @return

@@ -11,32 +11,31 @@ import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
-import cj.studio.openport.annotations.CjPermission;
+import cj.studio.openport.annotations.CjOpenport;
 import cj.ultimate.util.StringUtil;
 
-public class DefaultSecurityServiceContainer implements ISecurityServiceContainer,IAPIPrinter {
+public class DefaultOpenportServiceContainer implements IOpenportServiceContainer, IOpenportPrinter {
 	IAccessControlStrategy acsStrategy;
 	ICheckTokenStrategy ctstrategy;
 	Map<String, SecurityCommand> commands;// key为地址：/myservice.service#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
-
-	public DefaultSecurityServiceContainer(IServiceSite site, IAccessControlStrategy acsstrategy,
-			ICheckTokenStrategy ctstrategy) {
+	public DefaultOpenportServiceContainer(IServiceSite site, IAccessControlStrategy acsstrategy,
+										   ICheckTokenStrategy ctstrategy) {
 		commands = new HashMap<>();
 		this.acsStrategy = acsstrategy;
 		this.ctstrategy = ctstrategy;
 		site.addService("$.security.container", this);
-		ServiceCollection<ISecurityService> col = site.getServices(ISecurityService.class);
-		for (ISecurityService ss : col) {
+		ServiceCollection<IOpenportService> col = site.getServices(IOpenportService.class);
+		for (IOpenportService ss : col) {
 			CjService cjService = ss.getClass().getAnnotation(CjService.class);
 			String sname = cjService.name();
 			Class<?>[] faces = ss.getClass().getInterfaces();
 			for (Class<?> c : faces) {
-				if (!ISecurityService.class.isAssignableFrom(c)) {
+				if (!IOpenportService.class.isAssignableFrom(c)) {
 					continue;
 				}
-				CjPermission perm = c.getAnnotation(CjPermission.class);
+				CjOpenport perm = c.getAnnotation(CjOpenport.class);
 				if (perm == null) {
-					CJSystem.logging().warn(getClass(), String.format("缺少注解@CjPermission，在接口：%s", c.getName()));
+					CJSystem.logging().warn(getClass(), String.format("缺少注解@CjOpenport，在接口：%s", c.getName()));
 					continue;
 				}
 				CJSystem.logging().info(String.format("发现安全服务：%s，类型：%s", sname, ss.getClass().getName()));
@@ -46,10 +45,10 @@ public class DefaultSecurityServiceContainer implements ISecurityServiceContaine
 		}
 	}
 
-	private void fillCommand(String servicepath, Class<?> face, ISecurityService ss) {
+	private void fillCommand(String servicepath, Class<?> face, IOpenportService ss) {
 		Method[] methods = face.getMethods();
 		for (Method m : methods) {
-			CjPermission cjPermission = m.getAnnotation(CjPermission.class);
+			CjOpenport cjPermission = m.getAnnotation(CjOpenport.class);
 			if (cjPermission == null) {
 				continue;
 			}
@@ -64,22 +63,16 @@ public class DefaultSecurityServiceContainer implements ISecurityServiceContaine
 			}
 			commands.put(key, cmd);
 		}
-		String key = String.format("%s#index", servicepath);// 将服务本身设一个默认索引命令，用于打印当前安全服务的方法
-		ISecurityIndexService index = new SecurityIndexService(servicepath, face);
-		Method m = null;
-		try {
-			m = ISecurityIndexService.class.getMethod("index");
-		} catch (NoSuchMethodException | SecurityException e) {
-		}
-		CJSystem.logging().info(String.format("\t\t服务命令：%s", m.getName()));
-		SecurityCommand cmd = new SecurityCommand(servicepath, face, index, m,this.acsStrategy,this.ctstrategy);
-		commands.put(key, cmd);
-
 	}
 
 	@Override
 	public void dispose() {
 		commands.clear();
+	}
+
+	@Override
+	public boolean matchesAPI(Frame frame) {
+		return frame.relativePath().startsWith("/cjstudio/openport/");
 	}
 
 	@Override
@@ -131,7 +124,7 @@ public class DefaultSecurityServiceContainer implements ISecurityServiceContaine
 	}
 
 	@Override
-	public void printApi(APIContext context) {
+	public void printPort(OpenportContext context) {
 
 	}
 }

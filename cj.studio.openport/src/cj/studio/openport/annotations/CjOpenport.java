@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 import cj.studio.openport.TokenIn;
 
 /**
+ * 开放口声明
  * 将接口或接口方法声明为许可<br>
  * 该方法在注解类时依赖于cjservice注解，它将服务名声明为受保证地址<br>
  * 
@@ -18,7 +19,7 @@ import cj.studio.openport.TokenIn;
  */
 @Target(value = { ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CjPermission {
+public @interface CjOpenport {
 	/**
 	 * 访问控制列表<br>
 	 * 默认为：充许所有访问者只要对token验证通过的,token未验证通过的则永远被拒绝<br>
@@ -54,7 +55,7 @@ public @interface CjPermission {
 	 * 声明响应代码<br>
 	 * 声明响应代码主要用于描述可能发生的异常类型，是给使用者看的，并不替换原始异常，它仅是对原始异常的说明。<br>
 	 * 写法：<br>
-	 * CjPermission(responseStatus={"500 可能是内部哪错了.","200 说明成功,非200表示出错"})
+	 * CjOpenport(responseStatus={"500 可能是内部哪错了.","200 说明成功,非200表示出错"})
 	 * 
 	 * @return
 	 */
