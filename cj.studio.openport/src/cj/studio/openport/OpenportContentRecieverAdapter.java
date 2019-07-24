@@ -20,6 +20,7 @@ class OpenportContentRecieverAdapter implements IContentReciever {
         this.circuit = circuit;
         this.openportCommand = openportCommand;
         this.target = target;
+        this.openportMethod = new DefaultOpenportMethod(openportCommand);
     }
 
 
@@ -32,14 +33,13 @@ class OpenportContentRecieverAdapter implements IContentReciever {
     @Override
     public void begin(Frame frame) {
         this.frame = frame;
-        this.openportMethod = new DefaultOpenportMethod(openportCommand);
         target.ondataBegin(openportMethod, frame);
     }
 
     @Override
     public void done(byte[] b, int pos, int length) throws CircuitException {
         target.ondataDone(b, pos, length);
-        target.oninvoke(openportCommand.openportService, openportMethod, frame, circuit);
+        target.oninvoke(openportMethod, frame, circuit);
     }
 
 }
@@ -73,11 +73,7 @@ class DefaultOpenportMethod implements IOpenportMethod {
         return target;
     }
 
-    /**
-     * 请解析请求并填充它。它是开放口方法的参数值
-     *
-     * @return
-     */
+
     @Override
     public Object[] getParametersArgsValues() {
         return parametersArgsValues;

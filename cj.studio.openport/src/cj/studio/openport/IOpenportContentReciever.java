@@ -52,10 +52,9 @@ public interface IOpenportContentReciever {
      * 执行开放口方法
      * <br>
      *
-     * @param openportService 开放口服务
      * @param openportMethod 开放口方法,可执行目标方法，在执行前完成其内parametersArgsValues的填充
      * @param frame 请求
      * @param circuit 响应，将执行目标方法的返回值解析并写回客户端
      */
-    void oninvoke(Object openportService, IOpenportMethod openportMethod,  Frame frame, Circuit circuit);
+    void oninvoke( IOpenportMethod openportMethod,  Frame frame, Circuit circuit);
 }

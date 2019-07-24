@@ -45,7 +45,7 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
     }
 
     @Override
-    public void oninvoke(Object openportService, IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
+    public void oninvoke(IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
         processDone(openportMethod, frame, circuit);
     }
 

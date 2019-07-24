@@ -25,6 +25,10 @@ public class MethodParameter {
         CJSystem.logging().info(String.format("\t\t\t\t参数：%s %s %s", parameterAnnotation.name(), useType.getName(), parameterAnnotation.in().name()));
     }
 
+    /**
+     * 物理参数与配置参数综合，最后启用的参数类型
+     * @return
+     */
     public Class<?> getUseType() {
         return useType;
     }
