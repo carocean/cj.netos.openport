@@ -113,7 +113,13 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         // 地址：/myservice.openportService#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
         String command = frame.head("Rest-Command");
         if (StringUtil.isEmpty(command)) {
+             command = frame.head("rest-command");
+        }
+        if (StringUtil.isEmpty(command)) {
             command = frame.parameter("Rest-Command");
+        }
+        if (StringUtil.isEmpty(command)) {
+            command = frame.parameter("rest-command");
         }
         if (StringUtil.isEmpty(command)) {
             command = "index";

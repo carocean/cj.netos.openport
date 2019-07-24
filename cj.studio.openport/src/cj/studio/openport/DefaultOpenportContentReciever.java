@@ -34,9 +34,20 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
     @Override
     public void ondataBegin(IOpenportMethod openportMethod, Frame frame) {
         this.openportMethod = openportMethod;
-        reciever = new MemoryContentReciever();
+        reciever = onCreateReciever();
+        if(reciever==null){
+            reciever= new MemoryContentReciever();
+        }
         reciever.begin(frame);
 
+    }
+
+    /**
+     * 创建接收器。默认使用MemoryContentReciever，派生类可以覆盖它。
+     * @return
+     */
+    protected IContentReciever onCreateReciever() {
+       return  new MemoryContentReciever();
     }
 
     @Override
@@ -46,10 +57,16 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
 
     @Override
     public void oninvoke(IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
-        processDone(openportMethod, frame, circuit);
+        doinvoke(openportMethod, frame, circuit);
     }
 
-    private void processDone(IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
+    /**
+     * 该类通过内存内容接收器接收参数并执行，派生类可用该类
+     * @param openportMethod
+     * @param frame
+     * @param circuit
+     */
+    protected void doinvoke(IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
         Object[] args = openportMethod.getParametersArgsValues();
         MemoryContentReciever reciever = (MemoryContentReciever) this.reciever;
         try {
