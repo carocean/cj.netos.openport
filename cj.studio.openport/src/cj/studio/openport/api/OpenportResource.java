@@ -1,5 +1,6 @@
 package cj.studio.openport.api;
 
+import cj.studio.ecm.IServiceProvider;
 import cj.studio.ecm.IServiceSite;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.ICircuitContent;
@@ -14,8 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class OpenportResource implements  IOpenportResource {
-    IServiceSite site;
-    public OpenportResource(IServiceSite site) {
+    IServiceProvider site;
+    public OpenportResource(IServiceProvider site) {
         this.site=site;
     }
 

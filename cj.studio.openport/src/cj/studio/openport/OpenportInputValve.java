@@ -26,7 +26,7 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
             container = (IOpenportServiceContainer) site.getService("$.security.container");
         }
         if(controller==null){
-            controller=new DefaultOpenportAPIController(site);
+            controller=(IOpenportAPIController)container.getService("$.cj.studio.openport.openportAPIController");
         }
         pipeline.nextOnActive(inputName, this);
     }

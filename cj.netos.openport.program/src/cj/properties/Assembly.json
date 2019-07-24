@@ -7,6 +7,7 @@
         name: '全安服务活动器',
         class: 'cj.studio.openport.OpenportEntryPointActivator',
         parameters: {
+          "publicAPIPath": '/portsapi',
           accessControlStrategy: '',
           checkTokenStrategy: ''
         }

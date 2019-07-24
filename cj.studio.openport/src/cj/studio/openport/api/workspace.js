@@ -25,6 +25,12 @@ $(document).ready(function(){
 		var porturl=$(this).parents('.pr-obj').attr('porturl');
 		$('.portlet').removeClass('showing');
 		$('.method-let[porturl=\"'+porturl+'\"]').addClass('showing');
+		$('.res-bar li[runtimes] span').html('0');
+		$('.res-bar li[taketime] span').html('-');
+		$('.res-bar li[ctime] span').html('-');
+		$('.res-bar li[state] span').html('-');
+		$('.res-bar li[message] span').html('');
+		$('.response > .content').empty();
 	});
 	$('.mask').on('click',function(){
 		$(this).toggle();
@@ -137,21 +143,25 @@ $(document).ready(function(){
         }
         var timesInt=parseInt(timesText);
         var ntervalInt=parseInt(intervalText);
-        if(timesInt==1){
-            run();
-            return;
-        }
+
         var processTimes=0;
         var runtimesLable=$('.res-bar li[runtimes] span');
+        if(timesInt==1){
+            run();
+            processTimes++;
+            runtimesLable.html(processTimes+'');
+            return;
+        }
+
         window.runnerButtonController = window.setInterval(function() {
             if(processTimes>=timesInt){
                 window.clearInterval(runnerButtonController);
                 return;
             }
             run();
-            runtimesLable.html(processTimes+'');
             processTimes++;
-        },ntervalInt)
+            runtimesLable.html(processTimes+'');
+        },ntervalInt);
 
 	});
 

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cj.studio.ecm.CJSystem;
+import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceSite;
 import cj.studio.ecm.ServiceCollection;
 import cj.studio.ecm.annotation.CjService;
@@ -22,15 +23,23 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
     ICheckTokenStrategy ctstrategy;
     Map<String, OpenportCommand> commands;// key为地址：/myservice.service#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
     Map<String, CjOpenports> portsMap;//收集服务注解为打印需要
-
-    public DefaultOpenportServiceContainer(IServiceSite site, IAccessControlStrategy acsstrategy,
-                                           ICheckTokenStrategy ctstrategy) {
+    IServiceSite site;
+    public DefaultOpenportServiceContainer(IServiceSite site) {
         portsMap = new HashMap<>();
         commands = new HashMap<>();
-        this.acsStrategy = acsstrategy;
-        this.ctstrategy = ctstrategy;
-
+        this.site=site;
+        String acsStr=(String)site.getService("$.cj.studio.openport.accessControlStrategy");
+        String ctsStr=(String)site.getService("$.cj.studio.openport.checkTokenStrategy");
+        try {
+            this.acsStrategy = (IAccessControlStrategy) Class.forName(acsStr).newInstance();
+            this.ctstrategy = (ICheckTokenStrategy) Class.forName(ctsStr).newInstance();
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+            throw new EcmException(e);
+        }
+        IOpenportAPIController controller=new DefaultOpenportAPIController(this);
+        site.addService("$.cj.studio.openport.openportAPIController",controller);
         site.addService("$.security.container", this);
+
         ServiceCollection<IOpenportService> col = site.getServices(IOpenportService.class);
         for (IOpenportService ss : col) {
             CjService cjService = ss.getClass().getAnnotation(CjService.class);
@@ -51,6 +60,19 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
                 break;
             }
         }
+    }
+
+    @Override
+    public <T> ServiceCollection<T> getServices(Class<T> serviceClazz) {
+        return this.site.getServices(serviceClazz);
+    }
+
+    @Override
+    public Object getService(String serviceId) {
+        if("$.security.container".equals(serviceId)){
+            return this;
+        }
+        return site.getService(serviceId);
     }
 
     private void fillCommand(String servicepath, Class<?> face, IOpenportService ss) {
