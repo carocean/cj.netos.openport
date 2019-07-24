@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * 该方法在注解类时依赖于cjservice注解，它将服务名声明为受保证地址<br>
  *
  * 注意：该注解声明的安全服务接口必须派生于ISecurityService接口
- *
+ *  <br>一个开放服务只能实现一个由CjOpenports注解声名的接口，但对非CjOpenports注解的接口个不限
  * @author caroceanjofers
  *
  */

@@ -21,30 +21,33 @@ import org.jsoup.select.Elements;
 public class DefaultOpenportServiceContainer implements IOpenportServiceContainer, IOpenportPrinter {
     IAccessControlStrategy acsStrategy;
     ICheckTokenStrategy ctstrategy;
-    Map<String, OpenportCommand> commands;// key为地址：/myservice.service#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
+    Map<String, OpenportCommand> commands;// key为地址：/myservice.openportService#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
     Map<String, CjOpenports> portsMap;//收集服务注解为打印需要
     IServiceSite site;
+
     public DefaultOpenportServiceContainer(IServiceSite site) {
         portsMap = new HashMap<>();
         commands = new HashMap<>();
-        this.site=site;
-        String acsStr=(String)site.getService("$.cj.studio.openport.accessControlStrategy");
-        String ctsStr=(String)site.getService("$.cj.studio.openport.checkTokenStrategy");
+        this.site = site;
+        String acsStr = (String) site.getService("$.cj.studio.openport.accessControlStrategy");
+        String ctsStr = (String) site.getService("$.cj.studio.openport.checkTokenStrategy");
         try {
             this.acsStrategy = (IAccessControlStrategy) Class.forName(acsStr).newInstance();
             this.ctstrategy = (ICheckTokenStrategy) Class.forName(ctsStr).newInstance();
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             throw new EcmException(e);
         }
-        IOpenportAPIController controller=new DefaultOpenportAPIController(this);
-        site.addService("$.cj.studio.openport.openportAPIController",controller);
+        IOpenportAPIController controller = new DefaultOpenportAPIController(this);
+        site.addService("$.cj.studio.openport.openportAPIController", controller);
         site.addService("$.security.container", this);
 
         ServiceCollection<IOpenportService> col = site.getServices(IOpenportService.class);
+
         for (IOpenportService ss : col) {
             CjService cjService = ss.getClass().getAnnotation(CjService.class);
             String sname = cjService.name();
             Class<?>[] faces = ss.getClass().getInterfaces();
+            int foundFace = 0;//一个开放服务只能实现一个开放接口
             for (Class<?> c : faces) {
                 if (!IOpenportService.class.isAssignableFrom(c)) {
                     continue;
@@ -54,10 +57,13 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
                     CJSystem.logging().warn(getClass(), String.format("缺少注解@CjOpenports，在接口：%s", c.getName()));
                     continue;
                 }
+                if (foundFace > 0) {
+                    throw new EcmException("发现类实现了多个开放口，一个服务只能实现一个开放口。在：" + ss.getClass().getName());
+                }
                 CJSystem.logging().info(String.format("发现安全服务：%s，类型：%s", sname, ss.getClass().getName()));
                 portsMap.put(sname, perm);
                 fillCommand(sname, c, ss);
-                break;
+                foundFace++;
             }
         }
     }
@@ -69,13 +75,13 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
 
     @Override
     public Object getService(String serviceId) {
-        if("$.security.container".equals(serviceId)){
+        if ("$.security.container".equals(serviceId)) {
             return this;
         }
         return site.getService(serviceId);
     }
 
-    private void fillCommand(String servicepath, Class<?> face, IOpenportService ss) {
+    private void fillCommand(String servicepath, Class<?> face, Object openportService) {
         Method[] methods = face.getMethods();
         for (Method m : methods) {
             CjOpenport cjPermission = m.getAnnotation(CjOpenport.class);
@@ -85,7 +91,7 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
 
             String key = String.format("%s#%s", servicepath, m.getName());
             CJSystem.logging().info(String.format("\t\t服务命令：%s", m.getName()));
-            OpenportCommand cmd = new OpenportCommand(servicepath, face, ss, m, this.acsStrategy, this.ctstrategy);
+            OpenportCommand cmd = new OpenportCommand(openportService, servicepath, face, m, this.acsStrategy, this.ctstrategy);
             if (acsStrategy.isInvisible(cmd.acl)) {
                 CJSystem.logging().warn(String.format("\t\t\t %s 由于对所有人不可见因此被忽略", m.getName()));
                 cmd.dispose();
@@ -104,7 +110,7 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
     @Override
     public boolean matchesAndSelectKey(Frame frame) throws CircuitException {
         // 根据相对路径要到服务实例，再根据command查找服务实现中的方法。
-        // 地址：/myservice.service#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
+        // 地址：/myservice.openportService#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
         String command = frame.head("Rest-Command");
         if (StringUtil.isEmpty(command)) {
             command = frame.parameter("Rest-Command");
@@ -160,29 +166,29 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
             CjOpenports ports = entry.getValue();
             Element cportsli = portsLI.clone();
             cportsli.select(".portsurl").html(path);
-            cportsli.attr("portsurl",path);
+            cportsli.attr("portsurl", path);
             cportsli.select(".usage").html(ports.usage() + "");
 //            cportsli.select(".simpleHome").html(ports.simpleHome()+"");//这是给开发者自己看的，没必要公开出来
-            printPortMethodTree(context,path, cportsli);
+            printPortMethodTree(context, path, cportsli);
             portsUL.appendChild(cportsli);
         }
 
-        Element e=context.canvas().select(".portlet.method-let").first();
-        Element portletLI= e.clone();
-        Elements letsEs=e.parents().select(".main-column-lets");
+        Element e = context.canvas().select(".portlet.method-let").first();
+        Element portletLI = e.clone();
+        Elements letsEs = e.parents().select(".main-column-lets");
         context.canvas().select(".portlet.method-let").remove();
         for (Map.Entry<String, OpenportCommand> entry : commands.entrySet()) {
             String path = entry.getKey();
             OpenportCommand cmd = entry.getValue();
-            portletLI=portletLI.clone();
-            portletLI.attr("porturl",path);
-            portletLI.attr("portname",cmd.method.getName());
-            portletLI.attr("request-url",String.format("%s%s",context.contextPath,cmd.servicepath));
-            CjOpenport cport=cmd.method.getAnnotation(CjOpenport.class);
-            portletLI.attr("tokenin",cport.tokenIn()+"");
-            portletLI.attr("checkTokenName",cport.checkTokenName()+"");
-            portletLI.attr("request-command",(cport.command()+"").toLowerCase());
-            OpenportContext ctx=new OpenportContext(portletLI,context.contextPath());
+            portletLI = portletLI.clone();
+            portletLI.attr("porturl", path);
+            portletLI.attr("portname", cmd.method.getName());
+            portletLI.attr("request-url", String.format("%s%s", context.contextPath, cmd.openportPath));
+            CjOpenport cport = cmd.method.getAnnotation(CjOpenport.class);
+            portletLI.attr("tokenin", cport.tokenIn() + "");
+            portletLI.attr("checkTokenName", cport.checkTokenName() + "");
+            portletLI.attr("request-command", (cport.command() + "").toLowerCase());
+            OpenportContext ctx = new OpenportContext(portletLI, context.contextPath());
             cmd.printPort(ctx);
             letsEs.append(ctx.canvas().outerHtml());
         }
@@ -197,13 +203,13 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         for (Map.Entry<String, OpenportCommand> entry : this.commands.entrySet()) {
             String path = entry.getKey();
             OpenportCommand cmd = entry.getValue();
-            if (!portPath.equals(cmd.servicepath)) {
+            if (!portPath.equals(cmd.openportPath)) {
                 continue;
             }
             Element cli = li.clone();
-            cli.attr("porturl",path);
+            cli.attr("porturl", path);
             cli.select(".obj-code.portname").html(cmd.method.getName());
-            CjOpenport cport=cmd.method.getAnnotation(CjOpenport.class);
+            CjOpenport cport = cmd.method.getAnnotation(CjOpenport.class);
             cli.select(".command").html(cport.command());
 
 

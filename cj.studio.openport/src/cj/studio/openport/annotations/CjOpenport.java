@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import cj.studio.openport.TokenIn;
+import cj.studio.openport.*;
 
 /**
  * 口声明
@@ -67,8 +67,29 @@ public @interface CjOpenport {
 	 * @return
 	 */
 	String simpleModelFile() default "";
+
+	/**
+	 * 请求命令，支持get|post命令
+	 * @return
+	 */
 	String command() default "get";
 
 	String protocol() default "http/1.1";
+
+	/**
+	 * 自定义接收器，
+	 * <pre>
+	 * 接收器要实现两种能力：
+	 * 1.接收请求数据
+	 * 2.完成对方法参数的赋值，并将返回值写给客户端。注意在写晌应时尽量使用 @see ResponseClient响应格式，否则将与该开放口框架的下游生态不兼容。
+	 *
+	 * 系统默认采用了 @see DefaultOpenportContentReciever 作为接收存，该接收器使用了 MemoryContentReciever 作为请求解析器，
+	 * 很明显它不支持大文件的上传和下载，如果您需要让openport实现大数据传输，就需要定义您自己的IOpenportContentReciever。
+	 * 注：ecm系统API中提供了请求处理的基本内容，包括用于FormData解析的MultipartFormContentReciever，它支持无限文件大小传输，
+	 * XwwwFormUrlencodedContentReciever，通过使用上述内容接收器，可让您实现IOpenportContentReciever更简单
+	 * </pre>
+	 * @return
+	 */
+	Class<? extends IOpenportContentReciever> reciever() default DefaultOpenportContentReciever.class;
 
 }
