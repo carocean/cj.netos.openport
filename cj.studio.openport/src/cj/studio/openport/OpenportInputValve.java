@@ -5,15 +5,9 @@ import cj.studio.ecm.annotation.CjServiceSite;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
-import cj.studio.ecm.net.ICircuitContent;
 import cj.studio.gateway.socket.pipeline.IAnnotationInputValve;
 import cj.studio.gateway.socket.pipeline.IIPipeline;
-import cj.studio.openport.api.IOpenportResource;
-import cj.studio.openport.api.OpenportResource;
 import cj.studio.openport.util.ExceptionPrinter;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 public abstract class OpenportInputValve implements IAnnotationInputValve {
     IOpenportServiceContainer container;

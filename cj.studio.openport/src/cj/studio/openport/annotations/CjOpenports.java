@@ -19,10 +19,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CjOpenports {
     String usage();
-
-    /**
-     * 本开放口用到的样例数据目录
-     * @return
-     */
-    String simpleHome() default "";
 }

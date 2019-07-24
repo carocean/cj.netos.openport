@@ -41,9 +41,13 @@ $(document).ready(function(){
 		return false;
 	})
 	$('input[type=button][action=viewSimple]').on('click',function(e){
-		var v=$('simples>simple.returnvalue-simple').html();
-		$('.mask>.content').html(v);
-		$('.mask').toggle();
+		var url=$(this).attr('simplemodelfile');
+        $.get(url,{},function(json){
+            $('.mask>.content').html(json);
+            $('.mask').toggle();
+        }).error(function(e){
+            alert(e.responseText);
+        });
 	})
 	$('input[type=button][action=run]').on('click',function(e){
 		var portlet=$('.portlet.method-let.showing');
@@ -168,4 +172,6 @@ $(document).ready(function(){
 	$('input[type=button][action=stop]').on('click',function(e){
        window.clearInterval(runnerButtonController);
 	});
+
+
 });

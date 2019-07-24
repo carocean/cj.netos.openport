@@ -22,7 +22,6 @@ import cj.studio.ecm.net.Frame;
 import cj.studio.ecm.net.io.MemoryContentReciever;
 import cj.studio.openport.annotations.CjOpenport;
 import cj.studio.openport.annotations.CjOpenportParameter;
-import cj.studio.openport.annotations.CjOpenports;
 import cj.studio.openport.util.ExceptionPrinter;
 import cj.ultimate.IDisposable;
 import cj.ultimate.gson2.com.google.gson.Gson;
@@ -77,7 +76,7 @@ class OpenportCommand implements IDisposable, IOpenportPrinter {
     }
 
     private void parseMethodParameters() {
-        CjOpenport port=method.getAnnotation(CjOpenport.class);
+        CjOpenport port = method.getAnnotation(CjOpenport.class);
         this.parameters = new ArrayList<>();
         Parameter[] params = method.getParameters();
         for (Parameter p : params) {
@@ -85,8 +84,8 @@ class OpenportCommand implements IDisposable, IOpenportPrinter {
             if (pp == null) {
                 continue;
             }
-            if(pp.in()==InRequest.content&&(!port.command().toLowerCase().equals("post"))){
-                throw new EcmException(String.format("声明的方法参数要求放入请求内容，但方法却未声明为post，参数：%s 在: %s",pp.name(),method));
+            if (pp.in() == InRequest.content && (!port.command().toLowerCase().equals("post"))) {
+                throw new EcmException(String.format("声明的方法参数要求放入请求内容，但方法却未声明为post，参数：%s 在: %s", pp.name(), method));
             }
             Class<?> runType = p.getType();
             String position = String.format("%s.%s->%s", face.getName(), method.getName(), pp.name());
@@ -156,18 +155,28 @@ class OpenportCommand implements IDisposable, IOpenportPrinter {
         e.select(".headline .cmd").html(ot.command() + "");
         e.select(".headline .url").html(this.servicepath + "");
         e.select(".headline .protocol").html(ot.protocol() + "");
-        if (StringUtil.isEmpty(ot.simpleRetFileName())) {
+
+        String simpleRetFileName = ot.simpleModelFile();
+        if (StringUtil.isEmpty(simpleRetFileName)) {
             e.select(".port-ret input[action=viewSimple]").remove();
         } else {
-            e.select(".port-ret input[action=viewSimple]").html(ot.simpleRetFileName() + "");
+            while (simpleRetFileName.startsWith("/")) {
+                simpleRetFileName = simpleRetFileName.substring(1, simpleRetFileName.length());
+            }
+            String cpath = context.contextPath;
+            while (cpath.endsWith("/")) {
+                cpath = cpath.substring(0, cpath.length() - 1);
+            }
+            String simpleurl = String.format("%s/%s", cpath, simpleRetFileName);
+            e.select(".port-ret input[action=viewSimple]").attr("simpleModelFile", simpleurl);
         }
         ResponseClient rc = new ResponseClient();
         rc.dataElementTypes = null;
-        if("void"!=method.getReturnType().getName()) {
+        if ("void" != method.getReturnType().getName()) {
             rc.dataText = String.format("这是%s类型的文本数据", method.getReturnType().getName());
         }
-        rc.status=200;
-        rc.message="ok";
+        rc.status = 200;
+        rc.message = "ok";
         rc.dataType = method.getReturnType().getName();
         String json = new Gson().toJson(rc);
         e.select(".port-ret .type").html(json);
@@ -187,11 +196,20 @@ class OpenportCommand implements IDisposable, IOpenportPrinter {
                 cli.select(".argument").attr("value", mp.pp.defaultValue());
             }
             cli.select("span.type").html(mp.useType + "");
-            String simpleRetFileName = mp.pp.simpleRetFileName();
+            simpleRetFileName = mp.pp.simpleModelFile();
             if (StringUtil.isEmpty(simpleRetFileName)) {
-                e.select("input[action=viewSimple]").remove();
+                cli.select("input[action=viewSimple]").remove();
             } else {
-                e.select("input[action=viewSimple]").html(simpleRetFileName + "");
+                while (simpleRetFileName.startsWith("/")) {
+                    simpleRetFileName = simpleRetFileName.substring(1, simpleRetFileName.length());
+                }
+                String cpath = context.contextPath;
+                while (cpath.endsWith("/")) {
+                    cpath = cpath.substring(0, cpath.length() - 1);
+                }
+                String simpleurl = String.format("%s/%s", cpath, simpleRetFileName);
+
+                cli.select("input[action=viewSimple]").attr("simpleModelFile", simpleurl);
             }
             ul.appendChild(cli);
         }
@@ -271,7 +289,7 @@ class MyMemoryContentReciever extends MemoryContentReciever {
             }
             ResponseClient<?> rc = new ResponseClient<>();
             Object result = cmd.method.invoke(cmd.service, args);
-            doResponse(result,rc);
+            doResponse(result, rc);
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             ExceptionPrinter printer = new ExceptionPrinter();
             printer.printException(e, circuit);
@@ -284,7 +302,7 @@ class MyMemoryContentReciever extends MemoryContentReciever {
         this.frame = null;
     }
 
-    private void doResponse(Object result,ResponseClient<?> rc ) {
+    private void doResponse(Object result, ResponseClient<?> rc) {
         Class<?> dataType = null;
         String[] dataElements = null;
         String datastr = "";
@@ -320,11 +338,11 @@ class MyMemoryContentReciever extends MemoryContentReciever {
 
             }
         }
-        rc.status=200;
-        rc.message="ok";
-        rc.dataType=dataType.getName();
-        rc.dataText=datastr;
-        rc.endtime=System.currentTimeMillis();
+        rc.status = 200;
+        rc.message = "ok";
+        rc.dataType = dataType.getName();
+        rc.dataText = datastr;
+        rc.endtime = System.currentTimeMillis();
         String json = new Gson().toJson(rc);
         circuit.content().writeBytes(json.getBytes());
 

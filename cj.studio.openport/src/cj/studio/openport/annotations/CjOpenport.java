@@ -63,10 +63,10 @@ public @interface CjOpenport {
 	/**
 	 * 样例文件名<br>
 	 * 建议用样例数据告知开发者口的返回数据格式<br>
-	 *     相对于openports声明的样例目录
+	 *     相对于site/web/目录
 	 * @return
 	 */
-	String simpleRetFileName() default "";
+	String simpleModelFile() default "";
 	String command() default "get";
 
 	String protocol() default "http/1.1";

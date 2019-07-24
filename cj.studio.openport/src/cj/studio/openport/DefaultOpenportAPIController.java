@@ -3,7 +3,6 @@ package cj.studio.openport;
 import cj.studio.ecm.IChip;
 import cj.studio.ecm.IChipInfo;
 import cj.studio.ecm.IServiceProvider;
-import cj.studio.ecm.IServiceSite;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
@@ -39,11 +38,11 @@ public class DefaultOpenportAPIController implements IOpenportAPIController {
         String global_css=String.format("%sglobal.css",apipath);
         String index_css=String.format("%sindex.css",apipath);
         String jquery_js=String.format("%sjquery.js",apipath);
-        String workspace_js=String.format("%sworkspace.js",apipath);
-        resources.put(global_css,"cj/studio/openport/api/global.css");
-        resources.put(index_css,"cj/studio/openport/api/index.css");
-        resources.put(jquery_js,"cj/studio/openport/api/jquery-2.1.4.js");
-        resources.put(workspace_js,"cj/studio/openport/api/workspace.js");
+        String openport_js=String.format("%sopenport.js",apipath);
+        resources.put(global_css, "cj/studio/openport/api/resource/global.css");
+        resources.put(index_css, "cj/studio/openport/api/resource/index.css");
+        resources.put(jquery_js, "cj/studio/openport/api/resource/jquery-2.1.4.js");
+        resources.put(openport_js, "cj/studio/openport/api/resource/openport.js");
     }
 
     @Override
@@ -55,7 +54,7 @@ public class DefaultOpenportAPIController implements IOpenportAPIController {
             resource.flush(resourcepath, circuit.content());
             return;
         }
-        Document canvas = resource.html("cj/studio/openport/api/index.html");
+        Document canvas = resource.html("cj/studio/openport/api/resource/index.html");
         Elements cssSet = canvas.select("head>link");
         for (Element css : cssSet) {
             String href=String.format("/%s%s%s",frame.rootName(), publicAPIPath, css.attr("href"));

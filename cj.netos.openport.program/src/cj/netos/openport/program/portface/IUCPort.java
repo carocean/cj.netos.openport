@@ -13,12 +13,12 @@ import cj.studio.openport.annotations.CjOpenport;
 import cj.studio.openport.annotations.CjOpenportParameter;
 import cj.studio.openport.annotations.CjOpenports;
 
-@CjOpenports(usage = "这是演示用的",simpleHome = "/models")
+@CjOpenports(usage = "这是演示用的")
 public interface IUCPort extends IOpenportService {
 	@CjOpenport(usage = "认证吧",command = "post")
 	void authenticate(@CjOpenportParameter(name = "authName", usage = "认证器名") String authName,
 			@CjOpenportParameter(name = "tenant", usage = "租户") String tenant,
-			@CjOpenportParameter(name = "principals",in = InRequest.header, usage = "当事人",simpleRetFileName = "principals.json") String principals,
+			@CjOpenportParameter(name = "principals",in = InRequest.header, usage = "当事人", simpleModelFile = "principals.json") String principals,
 			@CjOpenportParameter(name = "password",in=InRequest.content, usage = "密码") String password,
 			@CjOpenportParameter(name = "ttlMillis", usage = "过期毫秒数",defaultValue = "188383774949292") long ttlMillis)throws CircuitException;
 
