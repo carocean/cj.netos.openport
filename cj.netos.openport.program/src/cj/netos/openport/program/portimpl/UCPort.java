@@ -1,27 +1,49 @@
 package cj.netos.openport.program.portimpl;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-
 import cj.netos.openport.program.portface.IUCPort;
 import cj.netos.openport.program.portface.TestArg;
 import cj.studio.ecm.annotation.CjService;
+import cj.studio.ecm.annotation.CjServiceRef;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.openport.ResponseClient;
+import cj.studio.openport.client.IRequestAdapter;
+import cj.ultimate.gson2.com.google.gson.Gson;
+import cj.ultimate.gson2.com.google.gson.reflect.TypeToken;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @CjService(name = "/ucport")
 public class UCPort implements IUCPort {
-
-
+    @CjServiceRef(refByName = "$openports.cj.studio.openport.client.IRequestAdapter")
+    IRequestAdapter requestAdapter;
     @Override
-    public void authenticate(String authName, String tenant, String principals, String password, long ttlMillis)
+    public String authenticate(String authName, String tenant, String principals, String password, long ttlMillis)
             throws CircuitException {
+        String retvalue=requestAdapter.request("get","http/1.1", new HashMap() {
+            {
+                put("Rest-StubFace", "cj.studio.backend.uc.stub.IAuthenticationStub");
+                put("Rest-Command", "authenticate");
+                put("cjtoken", "xxx");
+            }
+        }, new HashMap() {
+            {
+                put("authName", "auth.password");
+                put("tenant", "netos.nettest");
+                put("principals", "cj");
+                put("password", "11");
+                put("ttlMillis", "188383774949292");
+            }
+        }, null);
 
-        System.out
-                .println(String.format("----------- %s %s %s %s %s", authName, tenant, principals, password, ttlMillis));
+        Map<String,String> response=new Gson().fromJson(retvalue,new TypeToken<HashMap<String,String>>(){}.getType());
+        if(!"200".equals(response.get("status"))){
+            throw new CircuitException(response.get("status"),"uc响应错误："+response.get("message"));
+        }
+        return response.get("result");
     }
 
     @Override

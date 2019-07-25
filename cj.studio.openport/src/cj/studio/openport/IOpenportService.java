@@ -5,5 +5,4 @@ package cj.studio.openport;
  *
  */
 public interface IOpenportService {
-
 }

@@ -1,10 +1,17 @@
 {
   entryPoint: {
     plugins: [
+      {
+        name:"$openports",
+        class:"cj.studio.openport.client.OpenportChipPlugin",
+        parameters:{
+          ports:"[{'openportInterface':'cj.studio.openport.client.IRequestAdapter','remoteOpenportsUrl':'ports://usercenter.com/uc/authentication.service','token':''}]"
+        }
+      }
     ],
     activators: [
       {
-        name: '全安服务活动器',
+        name: '开放口服务活动器',
         class: 'cj.studio.openport.OpenportEntryPointActivator',
         parameters: {
           "publicAPIPath": '/portsapi',

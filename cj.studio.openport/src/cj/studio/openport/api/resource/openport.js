@@ -127,8 +127,8 @@ $(document).ready(function(){
                             var text=JSON.stringify(obj);
                          	$('.response .content').html(text);
                          },
-                         error:function(e){
-                             console.log(e.responseText);
+                         error:function(e, textStatus, errorThrown){
+                             alert('错误:'+e.status+' '+e.responseText);
                          }
                      });
         };

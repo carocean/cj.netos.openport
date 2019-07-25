@@ -1,9 +1,5 @@
 package cj.studio.openport;
 
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-
 import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.IServiceSite;
@@ -17,6 +13,10 @@ import cj.studio.openport.annotations.CjOpenports;
 import cj.ultimate.util.StringUtil;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DefaultOpenportServiceContainer implements IOpenportServiceContainer, IOpenportPrinter {
     IAccessControlStrategy acsStrategy;
@@ -113,7 +113,7 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         // 地址：/myservice.openportService#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
         String command = frame.head("Rest-Command");
         if (StringUtil.isEmpty(command)) {
-             command = frame.head("rest-command");
+            command = frame.head("rest-command");
         }
         if (StringUtil.isEmpty(command)) {
             command = frame.parameter("Rest-Command");
@@ -186,15 +186,15 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         for (Map.Entry<String, OpenportCommand> entry : commands.entrySet()) {
             String path = entry.getKey();
             OpenportCommand cmd = entry.getValue();
-            portletLI = portletLI.clone();
-            portletLI.attr("porturl", path);
-            portletLI.attr("portname", cmd.method.getName());
-            portletLI.attr("request-url", String.format("%s%s", context.contextPath, cmd.openportPath));
+            Element pli = portletLI.clone();
+            pli.attr("porturl", path);
+            pli.attr("portname", cmd.method.getName());
+            pli.attr("request-url", String.format("%s%s", context.contextPath, cmd.openportPath));
             CjOpenport cport = cmd.method.getAnnotation(CjOpenport.class);
-            portletLI.attr("tokenin", cport.tokenIn() + "");
-            portletLI.attr("checkTokenName", cport.checkTokenName() + "");
-            portletLI.attr("request-command", (cport.command() + "").toLowerCase());
-            OpenportContext ctx = new OpenportContext(portletLI, context.contextPath());
+            pli.attr("tokenin", cport.tokenIn() + "");
+            pli.attr("checkTokenName", cport.checkTokenName() + "");
+            pli.attr("request-command", (cport.command() + "").toLowerCase());
+            OpenportContext ctx = new OpenportContext(pli, context.contextPath());
             cmd.printPort(ctx);
             letsEs.append(ctx.canvas().outerHtml());
         }

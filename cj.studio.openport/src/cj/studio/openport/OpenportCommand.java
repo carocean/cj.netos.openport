@@ -1,10 +1,5 @@
 package cj.studio.openport;
 
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.util.ArrayList;
-import java.util.List;
-
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
@@ -18,6 +13,11 @@ import cj.ultimate.IDisposable;
 import cj.ultimate.gson2.com.google.gson.Gson;
 import cj.ultimate.util.StringUtil;
 import org.jsoup.nodes.Element;
+
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OpenportCommand implements IDisposable, IOpenportPrinter {
     Object openportService;

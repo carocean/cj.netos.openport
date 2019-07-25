@@ -122,7 +122,7 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         String[] dataElements = null;
         String dataText = "";
 
-        if (dataType != null&&!void.class.equals(void.class) && !dataType.equals(Void.class)) {//有返回值类型，则计算元素可能的类型
+        if (dataType != null&&!void.class.equals(dataType) && !Void.class.equals(dataType)) {//有返回值类型，则计算元素可能的类型
             dataText = new Gson().toJson(result);//有返回值则生成文本
             CjOpenport openport = openportMethod.getOpenportAnnotation();
             Class<?>[] defElementTypes=openport.elementType();
