@@ -26,7 +26,7 @@ dependencies {
 task releaseToHost(type: Copy) {
  dependsOn "build",":cj.studio.openport:release"
  from 'build/libs/'
-into '../cmdtools/gateway-2.2.4/assemblies/openport'
+into '../cmdtools/gateway-2.3.6/assemblies/openport'
  include '**/*.jar'
   exclude '**/*-javadoc.jar','**/*-sources.jar'
  }

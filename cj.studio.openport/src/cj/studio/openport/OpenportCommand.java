@@ -20,7 +20,7 @@ import cj.ultimate.util.StringUtil;
 import org.jsoup.nodes.Element;
 
 public class OpenportCommand implements IDisposable, IOpenportPrinter {
-     Object openportService;
+    Object openportService;
     String openportPath;
     Class<?> openportInterface;//openportService实现的开放接口
     Method method;
@@ -28,23 +28,36 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
     IAccessControlStrategy acsStrategy;
     ICheckTokenStrategy ctstrategy;
     Acl acl;
+    Class<?> applyReturnType;
 
-    public OpenportCommand(Object openportService,String servicepath, Class<?> face,  Method method,
+    public OpenportCommand(Object openportService, String servicepath, Class<?> face, Method method,
                            IAccessControlStrategy acsStrategy, ICheckTokenStrategy ctstrategy) {
         this.openportPath = servicepath;
         this.openportInterface = face;
         this.method = method;
         this.acsStrategy = acsStrategy;
         this.ctstrategy = ctstrategy;
-        this.openportService=openportService;
+        this.openportService = openportService;
         this.acl = new Acl();
+        parseApplyReturnType();
         parseMethodAcl();
         parseMethodParameters();
     }
-    public CjOpenports getOpenportsAnnotation(){
+
+    private void parseApplyReturnType() {
+        CjOpenport openport = method.getAnnotation(CjOpenport.class);
+        Class<?> applyType = openport.type();
+        if (applyType == null||applyType.equals(Void.class)) {
+            applyType = method.getReturnType();
+        }
+        this.applyReturnType=applyType;
+    }
+
+    public CjOpenports getOpenportsAnnotation() {
         return openportInterface.getAnnotation(CjOpenports.class);
     }
-    public CjOpenport getOpenportAnnotation(){
+
+    public CjOpenport getOpenportAnnotation() {
         return method.getAnnotation(CjOpenport.class);
     }
 
@@ -152,7 +165,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         }
         try {
             IOpenportContentReciever target = clazz.newInstance();
-            IContentReciever reciever = new OpenportContentRecieverAdapter(target,this,circuit);
+            IContentReciever reciever = new OpenportContentRecieverAdapter(target, this, circuit);
             return reciever;
         } catch (InstantiationException e) {
             throw new CircuitException("404", e);
@@ -219,11 +232,11 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             cli.select(">span").html(mp.parameterAnnotation.name() + "");
             cli.select(".desc").html(mp.parameterAnnotation.usage() + "");
             cli.select(".notic .in").html(mp.parameterAnnotation.in() + "");
-            cli.select(".argument").attr("placeholder", "按类型" + mp.useType + "输入...");
+            cli.select(".argument").attr("placeholder", "按类型" + mp.applyType + "输入...");
             if (!StringUtil.isEmpty(mp.parameterAnnotation.defaultValue())) {
                 cli.select(".argument").attr("value", mp.parameterAnnotation.defaultValue());
             }
-            cli.select("span.type").html(mp.useType + "");
+            cli.select("span.type").html(mp.applyType + "");
             simpleRetFileName = mp.parameterAnnotation.simpleModelFile();
             if (StringUtil.isEmpty(simpleRetFileName)) {
                 cli.select("input[action=viewSimple]").remove();

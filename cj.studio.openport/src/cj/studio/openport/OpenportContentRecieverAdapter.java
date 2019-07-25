@@ -4,6 +4,7 @@ import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.ecm.net.IContentReciever;
+import cj.studio.openport.annotations.CjOpenport;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -49,13 +50,24 @@ class DefaultOpenportMethod implements IOpenportMethod {
     private final List<MethodParameter> parameters;
     private final Method invoker;
     private final Object[] parametersArgsValues;
+    private final Class<?> appyReturnType;
     private Object target;
-
+    
     public DefaultOpenportMethod(OpenportCommand openportCommand) {
         this.parameters = openportCommand.parameters;
         this.invoker = openportCommand.method;
         this.target = openportCommand.openportService;
         parametersArgsValues = new Object[openportCommand.parameters.size()];
+        this.appyReturnType=openportCommand.applyReturnType;
+    }
+
+    /**
+     * 实际生效的返回值类型<br>这是与配置的返回值类型比较
+     * @return
+     */
+    @Override
+    public Class<?> getAppyReturnType() {
+        return appyReturnType;
     }
 
     @Override
@@ -67,7 +79,10 @@ class DefaultOpenportMethod implements IOpenportMethod {
     public List<MethodParameter> getParameters() {
         return parameters;
     }
-
+    @Override
+    public CjOpenport getOpenportAnnotation(){
+        return this.invoker.getAnnotation(CjOpenport.class);
+    }
     @Override
     public Object getTarget() {
         return target;

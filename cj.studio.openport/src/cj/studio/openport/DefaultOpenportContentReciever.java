@@ -6,6 +6,7 @@ import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.ecm.net.IContentReciever;
 import cj.studio.ecm.net.io.MemoryContentReciever;
+import cj.studio.openport.annotations.CjOpenport;
 import cj.studio.openport.util.ExceptionPrinter;
 import cj.ultimate.gson2.com.google.gson.Gson;
 import cj.ultimate.gson2.com.google.gson.reflect.TypeToken;
@@ -14,10 +15,7 @@ import cj.ultimate.util.StringUtil;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URLDecoder;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 默认使用MemoryContentReciever接收器
@@ -35,8 +33,8 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
     public void ondataBegin(IOpenportMethod openportMethod, Frame frame) {
         this.openportMethod = openportMethod;
         reciever = onCreateReciever();
-        if(reciever==null){
-            reciever= new MemoryContentReciever();
+        if (reciever == null) {
+            reciever = new MemoryContentReciever();
         }
         reciever.begin(frame);
 
@@ -44,10 +42,11 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
 
     /**
      * 创建接收器。默认使用MemoryContentReciever，派生类可以覆盖它。
+     *
      * @return
      */
     protected IContentReciever onCreateReciever() {
-       return  new MemoryContentReciever();
+        return new MemoryContentReciever();
     }
 
     @Override
@@ -62,6 +61,7 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
 
     /**
      * 该类通过内存内容接收器接收参数并执行，派生类可用该类
+     *
      * @param openportMethod
      * @param frame
      * @param circuit
@@ -104,7 +104,7 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
             }
             ResponseClient<?> rc = new ResponseClient<>();
             Object result = openportMethod.invoke();
-            doResponse(circuit, result, rc);
+            doResponse(openportMethod, circuit, result, rc);
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             ExceptionPrinter printer = new ExceptionPrinter();
             printer.printException(e, circuit);
@@ -115,46 +115,61 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
 
     }
 
-    private void doResponse(Circuit circuit, Object result, ResponseClient<?> rc) {
-        Class<?> dataType = null;
-        String[] dataElements = null;
-        String datastr = "";
-        if (result == null) {
-            dataType = Void.class;
-        } else {
-            dataType = result.getClass();
-            datastr = new Gson().toJson(result);
-            if (Collection.class.isAssignableFrom(dataType)) {
-                Collection<?> col = (Collection<?>) result;
-                if (!col.isEmpty()) {
-                    Object obj = null;
-                    for (Object o : col) {
-                        obj = o;
-                        break;
-                    }
-                    dataElements = new String[]{obj.getClass().getName()};
-                }
-            }
-            if (Map.class.isAssignableFrom(dataType)) {
-                @SuppressWarnings("unchecked")
-                Map<Object, Object> map = (Map<Object, Object>) result;
-                if (!map.isEmpty()) {
-                    Set<Map.Entry<Object, Object>> set = map.entrySet();
-                    Map.Entry<Object, Object> entry = null;
-                    for (Map.Entry<Object, Object> _entry : set) {
-                        entry = _entry;
-                        break;
-                    }
-                    dataElements = new String[]{entry.getKey().getClass().getName(),
-                            entry.getValue().getClass().getName()};
-                }
+    private void doResponse(IOpenportMethod openportMethod, Circuit circuit, Object result, ResponseClient<?> rc) {
 
+
+        Class<?> dataType = openportMethod.getAppyReturnType();
+        String[] dataElements = null;
+        String dataText = "";
+
+        if (dataType != null&&!void.class.equals(void.class) && !dataType.equals(Void.class)) {//有返回值类型，则计算元素可能的类型
+            dataText = new Gson().toJson(result);//有返回值则生成文本
+            CjOpenport openport = openportMethod.getOpenportAnnotation();
+            Class<?>[] defElementTypes=openport.elementType();
+            if (defElementTypes != null&&defElementTypes.length>0&&!defElementTypes[0].equals(Void.class)) {//看看是否有配置的类型
+                dataElements = new String[defElementTypes.length];
+                for (int i = 0; i < dataElements.length; i++
+                ) {
+                    dataElements[i] = defElementTypes[i].getName();
+                }
+            } else {//没有配置的类型则只能尝试在现在的返回值中发现类型
+
+                if (Collection.class.isAssignableFrom(dataType)) {
+                    Collection<?> col = (Collection<?>) result;
+                    if (!col.isEmpty()) {
+                        Object obj = null;
+                        for (Object o : col) {
+                            obj = o;
+                            break;
+                        }
+                        dataElements = new String[]{obj.getClass().getName()};
+                    }
+                }
+                if (Map.class.isAssignableFrom(dataType)) {
+                    @SuppressWarnings("unchecked")
+                    Map<Object, Object> map = (Map<Object, Object>) result;
+                    if (!map.isEmpty()) {
+                        Set<Map.Entry<Object, Object>> set = map.entrySet();
+                        Map.Entry<Object, Object> entry = null;
+                        for (Map.Entry<Object, Object> _entry : set) {
+                            entry = _entry;
+                            break;
+                        }
+                        dataElements = new String[]{entry.getKey().getClass().getName(),
+                                entry.getValue().getClass().getName()};
+                    }
+
+                }
             }
         }
+
         rc.status = 200;
         rc.message = "ok";
-        rc.dataType = dataType.getName();
-        rc.dataText = datastr;
+        rc.dataType = dataType==null?Void.class.getName():dataType.getName();
+        rc.dataText = dataText;
+        if (dataElements != null && dataElements.length > 0) {
+            rc.dataElementTypes = dataElements;
+        }
         rc.endtime = System.currentTimeMillis();
         String json = new Gson().toJson(rc);
         circuit.content().writeBytes(json.getBytes());
@@ -163,24 +178,24 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
 
     private Object reflactValue(Object v, MethodParameter p) throws CircuitException {
         if (v == null || StringUtil.isEmpty(v + "")) {
-            if (p.useType.isPrimitive()) {
+            if (p.applyType.isPrimitive()) {
                 throw new CircuitException("500", "必须为基本型赋值");
             }
             return null;
         }
-        if (p.useType.equals(String.class)) {
+        if (p.applyType.equals(String.class)) {
             return v;
         }
         Class<?>[] eleType = p.parameterAnnotation.elementType();
         if (eleType == null || eleType[0] == Void.class) {
-            return new Gson().fromJson(v + "", p.useType);
+            return new Gson().fromJson(v + "", p.applyType);
         }
         if (Collection.class.isAssignableFrom(p.parameter.getType()) || Map.class.isAssignableFrom(p.parameter.getType())) {
             if (p.parameterAnnotation.type() != Void.class && !p.parameter.getType().isAssignableFrom(p.parameterAnnotation.type())) {
                 throw new EcmException(String.format("参数注解CjPermissionParameter声明的类型不是参数类型或其派生类型。在：%s", p.position));
             }
         }
-        MyParameterizedType pti = new MyParameterizedType(p.useType, eleType, p.position);
+        MyParameterizedType pti = new MyParameterizedType(p.applyType, eleType, p.position);
         return new Gson().fromJson(v + "", pti);
     }
 }

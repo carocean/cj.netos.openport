@@ -91,5 +91,15 @@ public @interface CjOpenport {
 	 * @return
 	 */
 	Class<? extends IOpenportContentReciever> reciever() default DefaultOpenportContentReciever.class;
-
+	/**
+	 * 返回值的显式类型
+	 * @return
+	 */
+	Class<?> type() default Void.class;
+	/**
+	 * 返回值如果是集合则声明其元素的类型<br>
+	 * 集合元素的类型。只所以用数组表示，是因为Map的一个元素有key类型和value类型两种
+	 * @return
+	 */
+	Class<?>[] elementType() default Void.class;
 }

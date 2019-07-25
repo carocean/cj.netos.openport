@@ -35,6 +35,7 @@
   serviceContainer: {
     name: "netContainer",
     switchFilter: "off",
+    monitor: "cj.studio.openport.client.DefaultOpenportsServicesMonitor",
     jss: [
       {
         module: "services1",

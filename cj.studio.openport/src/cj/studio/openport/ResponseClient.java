@@ -2,11 +2,13 @@ package cj.studio.openport;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 
 import cj.studio.ecm.EcmException;
 import cj.ultimate.gson2.com.google.gson.Gson;
+import cj.ultimate.gson2.com.google.gson.GsonBuilder;
 
 /**
  * 许可方法的返回值要么为空，要么必须为该类型
@@ -79,7 +81,7 @@ public final class ResponseClient<T> {
 	}
 	@SuppressWarnings("unchecked")
 	public T getData(ClassLoader cl) {
-		if(dataType==null) {
+		if(dataType==null||void.class.getName().equals(dataType)||dataType.equals(Void.class.getName())) {
 			return null;
 		}
 		Class<?> dataTypeClass;
@@ -104,7 +106,8 @@ public final class ResponseClient<T> {
 			MyParameterizedType pt = new MyParameterizedType(dataTypeClass, arr);
 			return (T) new Gson().fromJson(dataText, pt);
 		}
-		return (T) new Gson().fromJson(dataText, dataTypeClass);
+		Object obj=  new Gson().fromJson(dataText, dataTypeClass);
+		return (T)obj;
 	}
 
 	public void setData(T data) {
@@ -116,14 +119,10 @@ public final class ResponseClient<T> {
 		return new Gson().toJson(this);
 	}
 
-	public void fromJson(String json) {
+	public static <T> ResponseClient<T> createFromJson(String json) {
 		@SuppressWarnings("unchecked")
 		ResponseClient<T> obj = new Gson().fromJson(json, ResponseClient.class);
-		this.dataText = obj.dataText;
-		this.message = obj.message;
-		this.status = obj.status;
-		this.dataElementTypes=obj.dataElementTypes;
-		this.dataType=obj.dataType;
+		return obj;
 	}
 
 	class MyParameterizedType implements ParameterizedType {

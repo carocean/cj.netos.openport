@@ -1,9 +1,13 @@
 package cj.studio.openport;
 
+import cj.studio.openport.annotations.CjOpenport;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public interface IOpenportMethod {
+    Class<?> getAppyReturnType();
+
     String getMethodName();
 
     /**
@@ -11,6 +15,8 @@ public interface IOpenportMethod {
      * @return
      */
     List<MethodParameter> getParameters();
+
+    CjOpenport getOpenportAnnotation();
 
     /**
      * 可能是开放服务

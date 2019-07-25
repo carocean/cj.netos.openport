@@ -1,8 +1,10 @@
 package cj.netos.openport.program.portimpl;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import cj.netos.openport.program.portface.IUCPort;
 import cj.netos.openport.program.portface.TestArg;
@@ -23,6 +25,15 @@ public class UCPort implements IUCPort {
     }
 
     @Override
+    public List<TestArg> test2(TestArg arg, BigDecimal v) {
+//        List<TestArg> list=new ArrayList<>();
+//        list.add(arg);
+//        return list;
+        List<TestArg> list= Arrays.asList(arg);
+        return list;
+    }
+
+    @Override
     public Map<Integer, TestArg> test(List<TestArg> list, List<TestArg> set, Map<Integer, TestArg> map)
             throws CircuitException {
         System.out.println(String.format("--------list---%s", list));
@@ -34,7 +45,7 @@ public class UCPort implements IUCPort {
 //			throw new EcmException(new  InvocationTargetException(e));
 //		}
         ResponseClient<Map<Integer, TestArg>> rc = new ResponseClient<>();
-        rc.fromJson(
+        rc.createFromJson(
                 "{\"status\":200,\"message\":\"ok\",\"dataText\":\"{\\\"20\\\":{\\\"name\\\":\\\"zxt\\\",\\\"age\\\":20},\\\"23\\\":{\\\"name\\\":\\\"cj\\\",\\\"age\\\":23}}\",\"dataType\":\"java.util.TreeMap\",\"dataElementTypes\":[\"java.lang.Integer\",\"cj.netos.openport.program.portface.TestArg\"]}");
         Map<Integer, TestArg> data = rc.getData(this.getClass().getClassLoader());
         System.out.println("+++++++++" + data);

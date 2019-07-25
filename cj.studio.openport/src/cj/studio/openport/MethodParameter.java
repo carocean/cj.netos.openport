@@ -6,7 +6,7 @@ import cj.studio.openport.annotations.CjOpenportParameter;
 import java.lang.reflect.Parameter;
 
 public class MethodParameter {
-    Class<?> useType;
+    Class<?> applyType;//与配置的类型对比实际生效的参数类型
     Parameter parameter;
     String position;
     CjOpenportParameter parameterAnnotation;
@@ -15,22 +15,22 @@ public class MethodParameter {
         this.parameter = p;
         if (parameterAnnotation.type() != null) {
             if (runType.isAssignableFrom(parameterAnnotation.type())) {
-                useType = parameterAnnotation.type();
+                applyType = parameterAnnotation.type();
             } else {
-                useType = runType;
+                applyType = runType;
             }
         } else {
-            useType = runType;
+            applyType = runType;
         }
-        CJSystem.logging().info(String.format("\t\t\t\t参数：%s %s %s", parameterAnnotation.name(), useType.getName(), parameterAnnotation.in().name()));
+        CJSystem.logging().info(String.format("\t\t\t\t参数：%s %s %s", parameterAnnotation.name(), applyType.getName(), parameterAnnotation.in().name()));
     }
 
     /**
      * 物理参数与配置参数综合，最后启用的参数类型
      * @return
      */
-    public Class<?> getUseType() {
-        return useType;
+    public Class<?> getApplyType() {
+        return applyType;
     }
 
     public String getPosition() {

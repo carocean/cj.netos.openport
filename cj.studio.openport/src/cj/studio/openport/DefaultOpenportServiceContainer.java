@@ -84,8 +84,8 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
     private void fillCommand(String servicepath, Class<?> face, Object openportService) {
         Method[] methods = face.getMethods();
         for (Method m : methods) {
-            CjOpenport cjPermission = m.getAnnotation(CjOpenport.class);
-            if (cjPermission == null) {
+            CjOpenport openport = m.getAnnotation(CjOpenport.class);
+            if (openport == null) {
                 continue;
             }
 
@@ -122,7 +122,7 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
             command = frame.parameter("rest-command");
         }
         if (StringUtil.isEmpty(command)) {
-            command = "index";
+            return false;
         }
         String relpath = frame.relativePath();
 

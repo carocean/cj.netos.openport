@@ -1,0 +1,1 @@
+{"valids":[{"name":"/backend/uc/","uris":["http://localhost:9090"],"props":{}},{"name":"openport","uris":["app://openport:way"],"props":{}},{"name":"ports://openport.com","uris":["http://localhost:6701"],"props":{}}],"invalids":[]}
