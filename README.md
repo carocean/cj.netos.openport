@@ -13,6 +13,8 @@
 
 
 - 网关控制台窗口
+···
+
     2019年07月26日 01:56:45  信息 : -------------网关启动完毕-------------------
     0    [main] INFO  cj.studio.gateway.tools.GatewayEntrypoint  - 网关成功启动
     ——————————————使用说明——————————————
@@ -48,11 +50,12 @@
     2019年07月26日 01:56:49  信息 : 				参数：password java.lang.String content
     2019年07月26日 01:56:49  信息 : 				参数：ttlMillis long parameter
 
+···
 
 ## 用法
 - cj.studio.openport-1.x.jar放入项目的cj.refrences
 - 注册活动器cj.studio.openport.OpenportEntryPointActivator到项目Assembly.json
-
+``` json
     activators: [
           {
             name: '口服务活动器',
@@ -64,11 +67,16 @@
             }
           }
         ]
+```
 - 配置服务容器监视器（在Assembly.json）：
-    monitor: "cj.studio.openport.client.DefaultOpenportsServicesMonitor",
+```
+>>>>>>monitor: "cj.studio.openport.client.DefaultOpenportsServicesMonitor",
+
+```
 - 项目中声明valve并派生于OpenportInputValve
 - 使用注解@CjOpenports,@CjOpenport,@CjOpenportParameter
 - 如果你想与服务容器无缝集成在一起使用，就像使用普通服务一样去使用远程服务对象，则只需在Assembly.json加入插件：
+``` json
     {
             name:"$openports",插件名可以任意起，但在容器中用时要用到此名，见下：
             class:"cj.studio.openport.client.OpenportChipPlugin",
@@ -76,9 +84,9 @@
               ports:"{'openportInterface':'cj.studio.openport.client.IRequestAdapter','remoteOpenportsUrl':'ports://usercenter.com/uc/authentication.service','token':''}"
             }
           }
-
+```
     例：
-
+``` java
     @CjService(name = "/ucport")
     public class UCPort implements IUCPort {
         @CjServiceRef(refByName = "$openports.cj.studio.openport.client.IRequestAdapter")//$openports是前面配置的插件名。自动注入该服务，IRequestAdapter是调用任意接口的形式，当然可以返回具体接口对象，见后：
@@ -108,9 +116,10 @@
             }
             return response.get("result");
         }
-
+```
 
     具体接口例：
+```
         @CjService(name = "/uaacport.service")
         public class UAACPort implements IUAACPort {
             @Override
@@ -128,7 +137,7 @@
                 return map;
             }
         }
-
+```
 - 对开放口服务的访问优先于webview
 
 	说明：CjOpenport将服务和方法说明成开放口，即然要开放也要能保护隐私，因此其内隐含Permission概念，Permission为许可，许可概念类似于司法厅向社会生产单位发放许可执照一样概念，像卫生许可证，授予你之后方可经营，并限制你不能经营一些东西。
