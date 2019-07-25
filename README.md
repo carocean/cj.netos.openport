@@ -4,53 +4,16 @@
 - 它有着比spring swagger 更为友好的api调试界面
 ## 图：
 
-- api界面，能直接测试
-    ![网关控制台信息](https://github.com/carocean/cj.netos.openport/blob/master/documents/cmd.png)
+- api界面，能直接测试（有图，加载慢，稍候...）
+
     ![欢迎页](https://github.com/carocean/cj.netos.openport/blob/master/documents/welcome.png)
     ![口服务Api详情](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewports.png)
     ![查看返回值和参数样本数据](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewsimple.png)
     ![运行测试](https://github.com/carocean/cj.netos.openport/blob/master/documents/runtest.png)
 
 
-- 网关控制台窗口
-···
-
-    2019年07月26日 01:56:45  信息 : -------------网关启动完毕-------------------
-    0    [main] INFO  cj.studio.gateway.tools.GatewayEntrypoint  - 网关成功启动
-    ——————————————使用说明——————————————
-           如不记得命令，可用man命令查询
-    __________________________________
-
-    >2019年07月26日 01:56:48  信息 : 已装载共享库/Users/caroceanjofers/studio/github/cj.netos.openport/cmdtools/gateway-2.3.6/lib/share
-    2019年07月26日 01:56:49  信息 : openports插件发现配置：
-    2019年07月26日 01:56:49  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
-    2019年07月26日 01:56:49  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
-    3910 [nioEventLoopGroup-5-1] INFO  cj.studio.ecm.script.JssServiceInstanceFactory  - 发现web芯片openport-1.0.0.0，尝试解压
-    3913 [nioEventLoopGroup-5-1] INFO  cj.studio.ecm.script.JssServiceInstanceFactory  - 解压web芯片openport-1.0.0.0，到：
-    /Users/caroceanjofers/studio/github/cj.netos.openport/cmdtools/gateway-2.3.6/assemblies/openport/work/site
-    3913 [nioEventLoopGroup-5-1] INFO  cj.studio.ecm.script.JssServiceInstanceFactory  - 模块services1的包cj.netos.openport.program.jss不存在，或为空包。
-    2019年07月26日 01:56:49  信息 : 系统开放api地址是：/portsapi
-    2019年07月26日 01:56:49  信息 : 发现安全服务：/uaacport.service，类型：cj.netos.openport.program.portimpl.UAACPort
-    2019年07月26日 01:56:49  信息 : 		服务命令：getAcl
-    2019年07月26日 01:56:49  信息 : 				参数：list java.util.LinkedList parameter
-    2019年07月26日 01:56:49  信息 : 				参数：set java.util.List parameter
-    2019年07月26日 01:56:49  信息 : 				参数：map java.util.TreeMap parameter
-    2019年07月26日 01:56:49  信息 : 发现安全服务：/ucport，类型：cj.netos.openport.program.portimpl.UCPort
-    2019年07月26日 01:56:49  信息 : 		服务命令：test
-    2019年07月26日 01:56:49  信息 : 				参数：list java.util.LinkedList parameter
-    2019年07月26日 01:56:49  信息 : 				参数：set java.util.List parameter
-    2019年07月26日 01:56:49  信息 : 				参数：map java.util.TreeMap parameter
-    2019年07月26日 01:56:49  信息 : 		服务命令：test2
-    2019年07月26日 01:56:49  信息 : 				参数：arg cj.netos.openport.program.portface.TestArg content
-    2019年07月26日 01:56:49  信息 : 				参数：v java.math.BigDecimal parameter
-    2019年07月26日 01:56:49  信息 : 		服务命令：authenticate
-    2019年07月26日 01:56:49  信息 : 				参数：authName java.lang.String parameter
-    2019年07月26日 01:56:49  信息 : 				参数：tenant java.lang.String parameter
-    2019年07月26日 01:56:49  信息 : 				参数：principals java.lang.String header
-    2019年07月26日 01:56:49  信息 : 				参数：password java.lang.String content
-    2019年07月26日 01:56:49  信息 : 				参数：ttlMillis long parameter
-
-···
+- 网关控制台窗口（有图，加载慢，稍候...）
+    ![网关控制台信息](https://github.com/carocean/cj.netos.openport/blob/master/documents/cmd.png)
 
 ## 用法
 - cj.studio.openport-1.x.jar放入项目的cj.refrences
