@@ -6,6 +6,10 @@
 
 - api界面，能直接测试
 
+    ![欢迎页](https://github.com/carocean/cj.netos.openport/blob/master/documents/welcome.png)
+    ![口服务Api详情](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewports.png)
+    ![查看返回值和参数样本数据](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewsimple.png)
+    ![运行测试](https://github.com/carocean/cj.netos.openport/blob/master/documents/runtest.png)
 
 
 - 网关控制台窗口
