@@ -5,7 +5,7 @@
 ## 图：
 
 - api界面，能直接测试
-
+    ![网关控制台信息](https://github.com/carocean/cj.netos.openport/blob/master/documents/cmd.png)
     ![欢迎页](https://github.com/carocean/cj.netos.openport/blob/master/documents/welcome.png)
     ![口服务Api详情](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewports.png)
     ![查看返回值和参数样本数据](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewsimple.png)
