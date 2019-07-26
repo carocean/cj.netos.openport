@@ -109,7 +109,8 @@ $(document).ready(function(){
         var url=porturl+'?'+parseParam(parameters);
 
 
-        function run(){
+        function run(processTimes){
+            headers['OpenportsTester-Counter']=processTimes;
             $.ajax({
                          type: reqcmd,
                          url: url,
@@ -151,7 +152,7 @@ $(document).ready(function(){
         var processTimes=0;
         var runtimesLable=$('.res-bar li[runtimes] span');
         if(timesInt==1){
-            run();
+            run(processTimes);
             processTimes++;
             runtimesLable.html(processTimes+'');
             return;
@@ -162,7 +163,7 @@ $(document).ready(function(){
                 window.clearInterval(runnerButtonController);
                 return;
             }
-            run();
+            run(processTimes);
             processTimes++;
             runtimesLable.html(processTimes+'');
         },ntervalInt);
