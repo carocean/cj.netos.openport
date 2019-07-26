@@ -7,6 +7,7 @@ import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.gateway.socket.pipeline.IAnnotationInputValve;
 import cj.studio.gateway.socket.pipeline.IIPipeline;
+import cj.studio.openport.client.Openports;
 import cj.studio.openport.util.ExceptionPrinter;
 
 public abstract class OpenportInputValve implements IAnnotationInputValve {
@@ -14,13 +15,14 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
     @CjServiceSite
     IServiceSite site;
     IOpenportAPIController controller;
+
     @Override
     public void onActive(String inputName, IIPipeline pipeline) throws CircuitException {
         if (container == null) {
             container = (IOpenportServiceContainer) site.getService("$.security.container");
         }
-        if(controller==null){
-            controller=(IOpenportAPIController)container.getService("$.cj.studio.openport.openportAPIController");
+        if (controller == null) {
+            controller = (IOpenportAPIController) container.getService("$.cj.studio.openport.openportAPIController");
         }
         pipeline.nextOnActive(inputName, this);
     }
@@ -33,11 +35,23 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
         Frame frame = (Frame) request;
         Circuit circuit = (Circuit) response;
         if (controller.matchesAPI(frame)) {//注意实现的api时默认的index方法，即当访问一个安全服务的根时打印该服务api，另外返回值样本能让开发者通过注解关联json数据文件
-            controller.flow(frame, circuit);
+            try {
+                controller.flow(frame, circuit);
+            }catch (Throwable e){
+                throw e;
+            } finally {
+                Openports.close();
+            }
             return;
         }
         if (!container.matchesAndSelectKey(frame)) {
-            pipeline.nextFlow(request, response, this);
+            try {
+                pipeline.nextFlow(request, response, this);
+            }catch (Throwable e){
+                throw e;
+            } finally {
+                Openports.close();
+            }
             return;
         }
 
@@ -46,6 +60,8 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
         } catch (Throwable e) {
             ExceptionPrinter printer = new ExceptionPrinter();
             printer.printException(e, circuit);
+        } finally {
+            Openports.close();
         }
     }
 

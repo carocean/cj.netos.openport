@@ -10,6 +10,13 @@ public class MyOpenportContentReciever extends DefaultOpenportContentReciever {
     @Override
     public void oninvoke(IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
         super.oninvoke(openportMethod, frame, circuit);
-        CJSystem.logging().info("当前请求次数："+frame.head("OpenportsTester-Counter"));
+        Class<? extends cj.studio.openport.IOpenportContentReciever> clazz=openportMethod.getOpenportAnnotation().reciever();
+
+        if(clazz!=null&&clazz.equals(this.getClass())) {
+            String conter=frame.head("OpenportsTester-Counter");
+            if(conter!=null) {
+                CJSystem.logging().info("当前请求次数：" + frame.head("OpenportsTester-Counter"));
+            }
+        }
     }
 }

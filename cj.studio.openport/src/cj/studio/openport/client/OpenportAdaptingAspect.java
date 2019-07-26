@@ -7,6 +7,7 @@ import cj.studio.ecm.net.IInputChannel;
 import cj.studio.ecm.net.io.MemoryContentReciever;
 import cj.studio.ecm.net.io.MemoryInputChannel;
 import cj.studio.ecm.net.io.MemoryOutputChannel;
+import cj.studio.gateway.socket.pipeline.IOutputSelector;
 import cj.studio.gateway.socket.pipeline.IOutputer;
 import cj.studio.gateway.socket.util.SocketContants;
 import cj.studio.openport.ResponseClient;
@@ -21,35 +22,74 @@ import java.util.Map;
 
 class OpenportAdaptingAspect implements IAdaptingAspect {
     Class<?> openportInterface;
-    IOutputer outputer;
+    IOutputSelector selector;
+    String dest;
+    ThreadLocal<Map<String, IOutputer>> local;
     String portsUrl;
     String token;
 
-    private boolean isClosed() {
-        if(outputer==null)return true;
-        return outputer.isDisposed();
+
+    @Override
+    public void init(ThreadLocal<Map<String, IOutputer>> local, IOutputSelector selector, Class<?> openportInterface, String dest, String portsUrl, String token) {
+        this.openportInterface = openportInterface;
+        this.portsUrl = portsUrl;
+        this.token = token;
+        this.selector = selector;
+        this.local = local;
+        this.dest = dest;
     }
 
     @Override
-    public void init(IOutputer outputer, Class<?> openportInterface, String portsUrl, String token) {
-        this.openportInterface = openportInterface;
-        this.outputer = outputer;
-        this.portsUrl = portsUrl;
-        this.token = token;
+    public String toString() {
+        String str=String.format("%s->%s%s",openportInterface.getSimpleName(),dest,portsUrl);
+        return str;
     }
 
     @Override
     public Object invoke(Object adapter, Method method, Object[] args) throws Throwable {
-        if(method.getName().equals("__$_is_$_closed_$_outputer___")){
-            return isClosed();
-        }
         Class<?>[] argsType = method.getParameterTypes();
         Method openportMethod = null;
         try {
             openportMethod = openportInterface.getMethod(method.getName(), argsType);//就是让抛NoSuchMethodException异常，这样告诉开发者接口不匹配。
         } catch (NoSuchMethodException e) {
+            Method m=null;
+            try {
+                m= Object.class.getMethod(method.getName(), argsType);
+               return m.invoke(this);
+            } catch (NoSuchMethodException e2) {
+                //什么都不做
+            }
             throw new NoSuchMethodException("调用的方法在开放接口中不存在。在：" + method);
         }
+
+        Map<String, IOutputer> outmap = local.get();
+        if (outmap == null) {
+            outmap = new HashMap<>();
+            local.set(outmap);
+        }
+        try {
+            IOutputer out = outmap.get(this.dest);
+            if (out == null) {
+                out = selector.select(this.dest);
+                outmap.put(this.dest, out);
+                System.out.println("openport选择新管道："+this.dest);
+                return invokeImpl(out, adapter, openportMethod, args);
+            }
+            if (out.isDisposed()) {
+                outmap.remove(this.dest);
+                out = selector.select(this.dest);
+                outmap.put(this.dest, out);
+                System.out.println("openport选择新管道："+this.dest);
+                return invokeImpl(out, adapter, openportMethod, args);
+            }
+            return invokeImpl(out, adapter, openportMethod, args);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    private Object invokeImpl(IOutputer outputer, Object adapter, Method openportMethod, Object[] args) throws Throwable {
+
         CjOpenport openport = openportMethod.getAnnotation(CjOpenport.class);//有注解了就知道怎么装入了
         if (openport == null) {
             throw new CircuitException("405", "接口方法没有CjOpenport注解。在：" + openportMethod);

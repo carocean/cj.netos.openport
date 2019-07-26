@@ -23,19 +23,19 @@ public class UCPorts implements IUCPorts {
     @Override
     public String authenticate(String authName, String tenant, String principals, String password, long ttlMillis)
             throws CircuitException {
-        String retvalue=requestAdapter.request("get","http/1.1", new HashMap() {
+        String retvalue=requestAdapter.request("get","http/1.1", new HashMap<String,String>() {
             {
                 put("Rest-StubFace", "cj.studio.backend.uc.stub.IAuthenticationStub");
                 put("Rest-Command", "authenticate");
                 put("cjtoken", "xxx");
             }
-        }, new HashMap() {
+        }, new HashMap<String,String>() {
             {
-                put("authName", "auth.password");
-                put("tenant", "netos.nettest");
-                put("principals", "cj");
-                put("password", "11");
-                put("ttlMillis", "188383774949292");
+                put("authName", authName);
+                put("tenant",tenant);
+                put("principals", principals);
+                put("password", password);
+                put("ttlMillis", ttlMillis+"");
             }
         }, null);
 

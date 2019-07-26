@@ -11,7 +11,6 @@ import cj.ultimate.net.sf.cglib.proxy.Enhancer;
 import cj.ultimate.util.StringUtil;
 
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 代表远程的任意开放口<br>
@@ -19,56 +18,45 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Openports {
     static IServiceSite _site;
-    static Map<String, IOutputer> outputers;//一个目标一个outputer
     static IOutputSelector selector;
-    static Map<Class<?>, Object> openportMap;
+    /*
+     * output在系统中不关闭生成的管道不释放会导致问题，所以又必须释放。
+     * 而放给上层开发者释放，由于他们不知何时要释放管道，所以在使用已释放管道的ports对象导致网络关闭异常
+     * 而如果每次都释放时，如果当ports方法调用port方法这样一层层调用下去的时候，会导致一次根方法的调用生成多个output
+     * 因而，必须使用本地线程，使用它可以在一次执行序共享管道
+     */
+    static ThreadLocal<Map<String, IOutputer>> local;
 
     private Openports() {
     }
 
     Openports(IServiceSite site) {
         this._site = site;
-        outputers = new ConcurrentHashMap<>();
-        openportMap = new ConcurrentHashMap<>();
-
-    }
-
-    public static boolean checkPortsInstanceIsClosed(Object ports) {
-        if (!(ports instanceof IClosed)) {
-            return false;
-        }
-        IClosed closed = (IClosed) ports;
-        return closed.__$_is_$_closed_$_outputer___();
-    }
-
-    public static boolean checkPortsInterfaceIsClosed(Class<?> portsClazz) {
-        Object ports = openportMap.get(portsClazz);
-        if (ports == null) return true;
-        if (!(ports instanceof IClosed)) {
-            return false;
-        }
-        IClosed closed = (IClosed) ports;
-        return closed.__$_is_$_closed_$_outputer___();
-    }
-
-    public static <T> T ports(Class<T> openportInterface) {
-        if (checkPortsInterfaceIsClosed(openportInterface)) {
-            openportMap.remove(openportInterface);
-        }
-        return (T) openportMap.get(openportInterface);
+        local = new ThreadLocal<>();
     }
 
     /**
-     * 检查接口是否已打开
-     *
-     * @param openportInterface
-     * @return
+     * 在出线程时关闭<br>
+     *     如果忘记关闭也没关系，最后内核会调用该方法<br>
+     *     注意：如果主动调用了该方法关闭也没问题，只是在关闭后又使用了先前创建的口对象，则口对象会重新建立管道，最后由内核回收。
+     * @throws CircuitException
      */
-    public boolean isOpened(Class<?> openportInterface) {
-        if (checkPortsInterfaceIsClosed(openportInterface)) {
-            openportMap.remove(openportInterface);
+    public static synchronized void close() throws CircuitException {
+        Map<String, IOutputer> map = local.get();
+        if (map == null||map.isEmpty()) {
+            return;
         }
-        return openportMap.containsKey(openportInterface);
+        String[] keys = map.keySet().toArray(new String[0]);
+        for (String key : keys) {
+            IOutputer outputer = map.get(key);
+            if (outputer == null || outputer.isDisposed()) {
+                continue;
+            }
+            outputer.releasePipeline();
+        }
+        map.clear();
+        local.remove();
+        System.out.println("关闭"+local);
     }
 
     /**
@@ -82,7 +70,7 @@ public class Openports {
      * @return 返回的任何对象均可强制转换为IClosed接口以判断对象是否关闭了远程访问
      * @throws CircuitException
      */
-    public static <T> T open(Class<T> openportInterface, String remoteOpenportsUrl, String token) throws CircuitException {
+    public synchronized static <T> T open(Class<T> openportInterface, String remoteOpenportsUrl, String token) throws CircuitException {
         if (openportInterface == null) {
             throw new CircuitException("406", "参数openportInterface为空");
         }
@@ -95,14 +83,6 @@ public class Openports {
         if (!openportInterface.isInterface()) {
             throw new CircuitException("406", "参数openportInterface为不是接口");
         }
-        if (openportMap.containsKey(openportInterface)) {
-            if (checkPortsInterfaceIsClosed(openportInterface)) {
-                openportMap.remove(openportInterface);
-            } else {
-                return (T) openportMap.get(openportInterface);
-            }
-        }
-
         if (selector == null) {
             selector = (IOutputSelector) _site.getService("$.output.selector");
         }
@@ -137,30 +117,16 @@ public class Openports {
         String logichost = remaining.substring(0, pos);
         String selectdest = String.format("%s://%s", logicprotocol, logichost);
         String portsUrl = remaining.substring(pos, remaining.length());
-        IOutputer outputer = outputers.get(selectdest);
-        if (outputer == null) {
-            outputer = selector.select(selectdest);
-            outputers.put(selectdest, outputer);
-        }else{
-            if(outputer.isDisposed()){
-                outputers.remove(selectdest);
-                outputer = selector.select(selectdest);
-                outputers.put(selectdest, outputer);
-            }
-        }
 
         IAdaptingAspect aspect = selectAsepct(openportInterface);
-        aspect.init(outputer, openportInterface, portsUrl, token);
+        aspect.init(local, selector, openportInterface, selectdest, portsUrl, token);
 
         IResource resource = (IResource) _site.getService(IResource.class.getName());
         Enhancer enhancer = new Enhancer();
         enhancer.setClassLoader(resource.getClassLoader());
         enhancer.setCallback(aspect);
-        enhancer.setInterfaces(new Class<?>[]{openportInterface, IClosed.class});
+        enhancer.setInterfaces(new Class<?>[]{openportInterface});
         T obj = (T) enhancer.create();
-        if (!(obj instanceof IRequestAdapter)) {//不是万能接口则缓冲，万能接口可以匹配无穷远程目标，因此需要特别的缓冲区，干脆留给应用层开发者实现
-            openportMap.put(openportInterface, obj);
-        }
         return obj;
     }
 
@@ -185,40 +151,6 @@ public class Openports {
      */
     public IServiceSite site() {
         return _site;
-    }
-
-    /**
-     * 关闭所有。
-     *
-     * @throws CircuitException
-     */
-    public static void close() throws CircuitException {
-        for(Map.Entry<String,IOutputer> entry:outputers.entrySet()){
-            entry.getValue().releasePipeline();
-        }
-        outputers.clear();
-        removeClosedPorts();
-    }
-
-    /**
-     * 清除缓冲区中的已关闭的对象
-     */
-    public static void removeClosedPorts() {
-        Class<?>[] keys = openportMap.keySet().toArray(new Class<?>[0]);
-        for (Class<?> key : keys) {
-            Object v = openportMap.get(key);
-            IClosed closed = (IClosed) v;
-            if (closed.__$_is_$_closed_$_outputer___()) {
-                openportMap.remove(key);
-            }
-        }
-    }
-
-    /**
-     * 清空缓冲区中的口对象
-     */
-    public static void emptyCachePorts() {
-        openportMap.clear();
     }
 
 

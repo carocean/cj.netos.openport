@@ -7,37 +7,63 @@ import cj.studio.ecm.net.IInputChannel;
 import cj.studio.ecm.net.io.MemoryContentReciever;
 import cj.studio.ecm.net.io.MemoryInputChannel;
 import cj.studio.ecm.net.io.MemoryOutputChannel;
+import cj.studio.gateway.socket.pipeline.IOutputSelector;
 import cj.studio.gateway.socket.pipeline.IOutputer;
 import cj.ultimate.gson2.com.google.gson.Gson;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 
 class RequestAdapterAspect implements IAdaptingAspect {
-    IOutputer outputer;
+    IOutputSelector selector;
+    String dest;
+    ThreadLocal<Map<String, IOutputer>> local;
     String portsUrl;
     String token;
 
-    private boolean isClosed() {
-        if(outputer==null)return true;
-        return outputer.isDisposed();
-    }
 
     @Override
-    public void init(IOutputer outputer, Class<?> openportInterface, String portsUrl, String token) {
-        this.outputer = outputer;
+    public void init(ThreadLocal<Map<String, IOutputer>> local, IOutputSelector selector, Class<?> openportInterface, String dest, String portsUrl, String token) {
         this.portsUrl = portsUrl;
         this.token = token;
+        this.selector = selector;
+        this.dest = dest;
+        this.local=local;
     }
 
     @Override
     public Object invoke(Object adapter, Method method, Object[] args) throws Throwable {
-        if(method.getName().equals("__$_is_$_closed_$_outputer___")){
-            return isClosed();
-        }
         if (!"request".equals(method.getName())) {
             return null;
         }
+        Map<String, IOutputer> outmap = local.get();
+        if (outmap == null) {
+            outmap = new HashMap<>();
+            local.set(outmap);
+        }
+        try {
+            IOutputer out = outmap.get(this.dest);
+            if (out == null) {
+                out = selector.select(this.dest);
+                outmap.put(this.dest, out);
+                System.out.println("req选择新管道："+this.dest);
+                return doRequest(out, adapter, method, args);
+            }
+            if (out.isDisposed()) {
+                outmap.remove(this.dest);
+                out = selector.select(this.dest);
+                outmap.put(this.dest, out);
+                System.out.println("req选择新管道："+this.dest);
+                return doRequest(out, adapter, method, args);
+            }
+            return doRequest(out, adapter, method, args);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    private Object doRequest(IOutputer outputer,Object adapter, Method method, Object[] args) throws Throwable {
         //String command, String protocol, Map<String, String> headers, Map<String, String> parameters, byte[] data
         String command = (String) args[0];
         String protocol = (String) args[1];

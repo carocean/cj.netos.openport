@@ -62,7 +62,11 @@ public class OpenportChipPlugin implements IChipPlugin {
     @Override
     public void unload() {
         map.clear();
-        Openports.removeClosedPorts();
+        try {
+            Openports.close();
+        } catch (CircuitException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
