@@ -122,11 +122,13 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         String token = "";
         TokenInfo tokenInfo = null;
         IContentReciever reciever = null;
+        String portsurl=frame.relativePath();
+        String methodName=method.getName();
         switch (mperm.tokenIn()) {
             case headersOfRequest:
                 token = frame.head(mperm.checkTokenName());
                 try {
-                    tokenInfo = this.ctstrategy.checkToken(token);
+                    tokenInfo = this.ctstrategy.checkToken(portsurl,methodName,mperm,token);
                     this.acsStrategy.checkRight(tokenInfo, acl);
                 } catch (Throwable e) {
                     ExceptionPrinter printer = new ExceptionPrinter();
@@ -139,7 +141,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             case parametersOfRequest:
                 token = frame.parameter(mperm.checkTokenName());
                 try {
-                    tokenInfo = this.ctstrategy.checkToken(token);
+                    tokenInfo = this.ctstrategy.checkToken(portsurl,methodName,mperm,token);
                     this.acsStrategy.checkRight(tokenInfo, acl);
                 } catch (Throwable e) {
                     ExceptionPrinter printer = new ExceptionPrinter();
@@ -181,8 +183,16 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         e.select(".port-title span").html(method.getName());
         e.select(".port-usage .desc .usage").html(ot.usage() + "");
         e.select(".port-usage .desc .command").html(method.getName());
-        e.select(".port-usage .desc .tokenin").html(ot.tokenIn() + "");
-        e.select(".port-usage .desc .tokenname").html(ot.checkTokenName() + "");
+        if(ot.tokenIn()==TokenIn.nope){
+            String tokenInfo=String.format("%s(<b style='color:red;'>注：<b/>nope表示该方法不需要领牌)",ot.tokenIn());
+            e.select(".port-usage .desc .tokenin").html(tokenInfo);
+            e.select(".port-usage .desc .tokenname").html(ot.checkTokenName() + "");
+            e.select(".request-token").attr("style","display:none;");
+            e.select(".port-usage .desc .tokenname").html("无");
+        }else{
+            e.select(".port-usage .desc .tokenin").html(ot.tokenIn()+"");
+            e.select(".port-usage .desc .tokenname").html(ot.checkTokenName() + "");
+        }
         StringBuffer sb = new StringBuffer();
         for (String ace : ot.acl()) {
             sb.append(ace + "; ");

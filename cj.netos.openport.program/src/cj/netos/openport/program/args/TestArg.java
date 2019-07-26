@@ -1,4 +1,4 @@
-package cj.netos.openport.program.portface;
+package cj.netos.openport.program.args;
 
 public class TestArg {
 	String name;

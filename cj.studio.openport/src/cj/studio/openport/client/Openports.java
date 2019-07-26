@@ -10,8 +10,8 @@ import cj.studio.openport.annotations.CjOpenports;
 import cj.ultimate.net.sf.cglib.proxy.Enhancer;
 import cj.ultimate.util.StringUtil;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 代表远程的任意开放口<br>
@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class Openports {
     static IServiceSite _site;
-    static ThreadLocal<IOutputer> localOutputers;
+    static Map<String, IOutputer> outputers;//一个目标一个outputer
     static IOutputSelector selector;
     static Map<Class<?>, Object> openportMap;
 
@@ -28,8 +28,8 @@ public class Openports {
 
     Openports(IServiceSite site) {
         this._site = site;
-        localOutputers = new ThreadLocal<>();
-        openportMap = new HashMap<>();
+        outputers = new ConcurrentHashMap<>();
+        openportMap = new ConcurrentHashMap<>();
 
     }
 
@@ -52,7 +52,7 @@ public class Openports {
     }
 
     public static <T> T ports(Class<T> openportInterface) {
-        if(checkPortsInterfaceIsClosed(openportInterface)){
+        if (checkPortsInterfaceIsClosed(openportInterface)) {
             openportMap.remove(openportInterface);
         }
         return (T) openportMap.get(openportInterface);
@@ -60,11 +60,12 @@ public class Openports {
 
     /**
      * 检查接口是否已打开
+     *
      * @param openportInterface
      * @return
      */
     public boolean isOpened(Class<?> openportInterface) {
-        if(checkPortsInterfaceIsClosed(openportInterface)){
+        if (checkPortsInterfaceIsClosed(openportInterface)) {
             openportMap.remove(openportInterface);
         }
         return openportMap.containsKey(openportInterface);
@@ -136,10 +137,16 @@ public class Openports {
         String logichost = remaining.substring(0, pos);
         String selectdest = String.format("%s://%s", logicprotocol, logichost);
         String portsUrl = remaining.substring(pos, remaining.length());
-        IOutputer outputer = localOutputers.get();
+        IOutputer outputer = outputers.get(selectdest);
         if (outputer == null) {
             outputer = selector.select(selectdest);
-            localOutputers.set(outputer);
+            outputers.put(selectdest, outputer);
+        }else{
+            if(outputer.isDisposed()){
+                outputers.remove(selectdest);
+                outputer = selector.select(selectdest);
+                outputers.put(selectdest, outputer);
+            }
         }
 
         IAdaptingAspect aspect = selectAsepct(openportInterface);
@@ -151,7 +158,7 @@ public class Openports {
         enhancer.setCallback(aspect);
         enhancer.setInterfaces(new Class<?>[]{openportInterface, IClosed.class});
         T obj = (T) enhancer.create();
-        if (!(obj instanceof IRequestAdapter) ){//不是万能接口则缓冲，万能接口可以匹配无穷远程目标，因此需要特别的缓冲区，干脆留给应用层开发者实现
+        if (!(obj instanceof IRequestAdapter)) {//不是万能接口则缓冲，万能接口可以匹配无穷远程目标，因此需要特别的缓冲区，干脆留给应用层开发者实现
             openportMap.put(openportInterface, obj);
         }
         return obj;
@@ -173,6 +180,7 @@ public class Openports {
 
     /**
      * 获取当前服务站
+     *
      * @return
      */
     public IServiceSite site() {
@@ -180,27 +188,27 @@ public class Openports {
     }
 
     /**
-     * 释放当前线程下的通讯线路,会同时移除已关闭的口对象
+     * 关闭所有。
+     *
      * @throws CircuitException
      */
-    public static void closeCurrent() throws CircuitException {
-        IOutputer outputer = localOutputers.get();
-        if (outputer == null) {
-            return;
+    public static void close() throws CircuitException {
+        for(Map.Entry<String,IOutputer> entry:outputers.entrySet()){
+            entry.getValue().releasePipeline();
         }
-        localOutputers.remove();
-        outputer.releasePipeline();
+        outputers.clear();
         removeClosedPorts();
     }
+
     /**
      * 清除缓冲区中的已关闭的对象
      */
-    public static  void removeClosedPorts(){
-        Class<?>[] keys=openportMap.keySet().toArray(new Class<?>[0]);
-        for(Class<?> key:keys){
-            Object v=openportMap.get(key);
-            IClosed closed=(IClosed)v;
-            if(closed.__$_is_$_closed_$_outputer___()){
+    public static void removeClosedPorts() {
+        Class<?>[] keys = openportMap.keySet().toArray(new Class<?>[0]);
+        for (Class<?> key : keys) {
+            Object v = openportMap.get(key);
+            IClosed closed = (IClosed) v;
+            if (closed.__$_is_$_closed_$_outputer___()) {
                 openportMap.remove(key);
             }
         }

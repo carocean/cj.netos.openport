@@ -72,7 +72,7 @@ public class OpenportChipPlugin implements IChipPlugin {
         }
         String openportsInterface = serviceId;
         if (!map.containsKey(openportsInterface)) {
-            throw new EcmException("没有Openports的相关配置，请求：" + openportsInterface);
+            throw new EcmException(String.format("Openports芯片插件中没有发现(%s)的相关配置， 在：%s 请到Assembly.json中检查插件配置。",openportsInterface,this.getClass().getName()));
         }
         OpenportsConfig config = map.get(openportsInterface);
         try {

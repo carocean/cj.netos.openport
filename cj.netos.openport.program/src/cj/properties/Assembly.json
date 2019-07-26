@@ -5,7 +5,7 @@
         name:"$openports",
         class:"cj.studio.openport.client.OpenportChipPlugin",
         parameters:{
-          ports:"[{'openportInterface':'cj.studio.openport.client.IRequestAdapter','remoteOpenportsUrl':'ports://usercenter.com/uc/authentication.service','token':''}]"
+          ports:"[{'openportInterface':'cj.studio.openport.client.IRequestAdapter','remoteOpenportsUrl':'ports://usercenter.com/uc/authentication.service','token':''},{'openportInterface':'cj.netos.microapp.ports.IGberaSearcherPorts','remoteOpenportsUrl':'rest://gbera.com/microapp/searcher.ports','token':'xx'}]"
         }
       }
     ],

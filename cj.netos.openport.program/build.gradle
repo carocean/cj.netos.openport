@@ -1,36 +1,47 @@
-sourceSets { 
-	 main { 
-	 	java{
-	 		srcDir "$projectDir/src"
-	 	}
-	 	resources{
-		 	srcDir "$projectDir/site-src"
-		 }
-	 } 
- 	}
- 	sourceCompatibility = 1.8
-    targetCompatibility = 1.8
- 	tasks.withType(JavaCompile) {  
-        options.encoding = "UTF-8"  
-    } 
- repositories { 
-	 flatDir(dirs: "../global/lib") 
- } 
+sourceSets {
+    main {
+        java {
+            srcDir "$projectDir/src"
+        }
+        resources {
+            srcDir "$projectDir/site-src"
+        }
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+repositories {
+    flatDir(dirs: "../global/lib")
+}
 
 dependencies {
-	compile project(':cj.studio.openport');
-	compile fileTree('../global/runtime')
-	//compile fileTree('src/cj/references')
-	
+    compile group: 'cj.netos.microapp', name: 'cj.netos.microapp.ports', version: ref_cj_microapp_ports_version
+    compile project(':cj.studio.openport');
+    compile fileTree('../global/runtime')
+    //compile fileTree('src/cj/references')
+
+}
+task copyReferences(type: Copy) {
+    into 'src/cj/references'
+    from(configurations.all) {
+        include 'cj.netos.microapp.ports-*.jar'
+        //下面在执行uploadArchives方法时只执行删除缺不拷贝，因此注释掉
+        // delete fileTree("src/cj/refembeds").matching {
+        // 	include "cj.studio.orm.mongodb-*.jar"
+        //}
+    }
 }
 task releaseToHost(type: Copy) {
- dependsOn "build",":cj.studio.openport:release"
- from 'build/libs/'
-into '../cmdtools/gateway-2.3.6/assemblies/openport'
- include '**/*.jar'
-  exclude '**/*-javadoc.jar','**/*-sources.jar'
- }
- 
- task release(type:Copy){
-  dependsOn "releaseToHost"
- }
+    dependsOn 'copyReferences', ":cj.studio.openport:release", "build"
+    from 'build/libs/'
+    into '../cmdtools/gateway-2.3.6/assemblies/openport'
+    include '**/*.jar'
+    exclude '**/*-javadoc.jar', '**/*-sources.jar'
+}
+
+task release(type: Copy) {
+    dependsOn "releaseToHost"
+}

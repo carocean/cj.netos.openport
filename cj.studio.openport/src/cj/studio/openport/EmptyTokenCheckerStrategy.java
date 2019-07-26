@@ -1,7 +1,7 @@
 package cj.studio.openport;
 
 import cj.studio.ecm.IServiceSite;
-import cj.studio.ecm.net.CircuitException;
+import cj.studio.openport.annotations.CjOpenport;
 import cj.ultimate.util.StringUtil;
 
 /**
@@ -19,7 +19,12 @@ public class EmptyTokenCheckerStrategy implements ICheckTokenStrategy {
     }
 
     @Override
-    public TokenInfo checkToken(String token) throws CheckTokenException {
+    public TokenInfo checkToken(String portsurl,String methodName,CjOpenport openport, String token) throws CheckTokenException {
+        if(openport.tokenIn()==TokenIn.nope){//放行
+            TokenInfo ti = new TokenInfo("*");
+            ti.getRoles().add("*");
+            return ti;
+        }
         //注掉原因：让令牌检查器决定为空时如何处理吧，否则内核要求上层开发者必输令牌岂不是太没天理了。
         if (StringUtil.isEmpty(token)) {
             throw new CheckTokenException("801", String.format("令牌为空，拒绝访问"));

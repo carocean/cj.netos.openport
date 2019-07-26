@@ -1,7 +1,7 @@
 package cj.netos.openport.program.portimpl;
 
-import cj.netos.openport.program.portface.IUCPort;
-import cj.netos.openport.program.portface.TestArg;
+import cj.netos.openport.program.portface.IUCPorts;
+import cj.netos.openport.program.args.TestArg;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
 import cj.studio.ecm.net.CircuitException;
@@ -16,8 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CjService(name = "/ucport")
-public class UCPort implements IUCPort {
+@CjService(name = "/uc.ports")
+public class UCPorts implements IUCPorts {
     @CjServiceRef(refByName = "$openports.cj.studio.openport.client.IRequestAdapter")
     IRequestAdapter requestAdapter;
     @Override
@@ -69,7 +69,7 @@ public class UCPort implements IUCPort {
 //		}
         ResponseClient<Map<Integer, TestArg>> rc = new ResponseClient<>();
         rc.createFromJson(
-                "{\"status\":200,\"message\":\"ok\",\"dataText\":\"{\\\"20\\\":{\\\"name\\\":\\\"zxt\\\",\\\"age\\\":20},\\\"23\\\":{\\\"name\\\":\\\"cj\\\",\\\"age\\\":23}}\",\"dataType\":\"java.util.TreeMap\",\"dataElementTypes\":[\"java.lang.Integer\",\"cj.netos.openport.program.portface.TestArg\"]}");
+                "{\"status\":200,\"message\":\"ok\",\"dataText\":\"{\\\"20\\\":{\\\"name\\\":\\\"zxt\\\",\\\"age\\\":20},\\\"23\\\":{\\\"name\\\":\\\"cj\\\",\\\"age\\\":23}}\",\"dataType\":\"java.util.TreeMap\",\"dataElementTypes\":[\"java.lang.Integer\",\"cj.netos.openport.program.args.TestArg\"]}");
         Map<Integer, TestArg> data = rc.getData(this.getClass().getClassLoader());
         System.out.println("+++++++++" + data);
         return map;
