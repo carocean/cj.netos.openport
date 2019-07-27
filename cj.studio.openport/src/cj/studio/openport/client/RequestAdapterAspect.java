@@ -47,14 +47,12 @@ class RequestAdapterAspect implements IAdaptingAspect {
             if (out == null) {
                 out = selector.select(this.dest);
                 outmap.put(this.dest, out);
-                System.out.println("req选择新管道："+this.dest);
                 return doRequest(out, adapter, method, args);
             }
             if (out.isDisposed()) {
                 outmap.remove(this.dest);
                 out = selector.select(this.dest);
                 outmap.put(this.dest, out);
-                System.out.println("req选择新管道："+this.dest);
                 return doRequest(out, adapter, method, args);
             }
             return doRequest(out, adapter, method, args);

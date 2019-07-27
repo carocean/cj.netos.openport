@@ -72,14 +72,12 @@ class OpenportAdaptingAspect implements IAdaptingAspect {
             if (out == null) {
                 out = selector.select(this.dest);
                 outmap.put(this.dest, out);
-                System.out.println("openport选择新管道："+this.dest);
                 return invokeImpl(out, adapter, openportMethod, args);
             }
             if (out.isDisposed()) {
                 outmap.remove(this.dest);
                 out = selector.select(this.dest);
                 outmap.put(this.dest, out);
-                System.out.println("openport选择新管道："+this.dest);
                 return invokeImpl(out, adapter, openportMethod, args);
             }
             return invokeImpl(out, adapter, openportMethod, args);

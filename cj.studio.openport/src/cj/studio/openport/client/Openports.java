@@ -56,7 +56,6 @@ public class Openports {
         }
         map.clear();
         local.remove();
-        System.out.println("关闭"+local);
     }
 
     /**
