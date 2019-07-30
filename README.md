@@ -97,7 +97,7 @@
                 List<TestArg> test2=iucPort.test2(arg,new BigDecimal("2000.00"));
                 iucPort.authenticate("auth.password", "netos.nettest", "dog", "1343", 83283L);
 
-                Openports.closeCurrent();
+                Openports.close();
                 return map;
             }
         }
@@ -105,7 +105,7 @@
 - 对开放口服务的访问优先于webview
 
 	说明：CjOpenport将服务和方法说明成开放口，即然要开放也要能保护隐私，因此其内隐含Permission概念，Permission为许可，许可概念类似于司法厅向社会生产单位发放许可执照一样概念，像卫生许可证，授予你之后方可经营，并限制你不能经营一些东西。
-	用法比如：MyService,声明为：@CjOpenPort(acl={'allow *.role','deny *.user '},checkTokenName='cjtoken')，意为：myService对所有人授预充许权限的许可。
+	用法比如：MyService,声明为：@CjOpenPort(acl={'allow *.role','deny *.user '},checkTokenName='cjtoken')，意为：myService对所有人授预拒绝权限的许可。
 
 	缺点：该机制属于硬编码的服务编排机制。在运行期无法改变许可权限，所以也无法支持将来在微服务注册中心统一管理服务访问控制权限。但好处是这种硬包装访问控制开发起来非常简单，而且像stub存根一样，可以将api显式暴露给第三方开发者。
 
