@@ -42,6 +42,9 @@ public class Openports {
      * @throws CircuitException
      */
     public static synchronized void close() throws CircuitException {
+        if(local==null){
+            return;
+        }
         Map<String, IOutputer> map = local.get();
         if (map == null||map.isEmpty()) {
             return;
