@@ -1,7 +1,9 @@
 package cj.studio.openport;
 
+import cj.studio.ecm.IRuntimeServiceCreator;
 import cj.studio.ecm.IServiceSite;
-import cj.studio.ecm.annotation.CjServiceSite;
+import cj.studio.ecm.Scope;
+import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
@@ -13,11 +15,20 @@ import cj.studio.openport.util.ExceptionPrinter;
 /**
  * 该类在openport服务器端才用到，用于调度ports请求
  */
-public abstract class OpenportInputValve implements IAnnotationInputValve {
+@CjService(name="___$____openportInputValve",scope = Scope.multiton)
+ final class OpenportInputValve implements IAnnotationInputValve, IRuntimeServiceCreator {
     IOpenportServiceContainer container;
-    @CjServiceSite
     IServiceSite site;
     IOpenportAPIController controller;
+
+    public OpenportInputValve(IServiceSite site) {
+        this.site = site;
+    }
+
+    @Override
+    public Object create() {
+        return new OpenportInputValve(site);
+    }
 
     @Override
     public void onActive(String inputName, IIPipeline pipeline) throws CircuitException {

@@ -1,8 +1,10 @@
 package cj.studio.openport;
 
 import cj.studio.ecm.*;
+import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.context.IElement;
 import cj.studio.ecm.context.IProperty;
+import cj.studio.gateway.socket.pipeline.IAnnotationInputValve;
 import cj.ultimate.util.StringUtil;
 
 import java.util.HashMap;
@@ -56,6 +58,9 @@ public class OpenportEntryPointActivator implements IEntryPointActivator {
         DefaultServiceSite dsite = new DefaultServiceSite(site, props);
         container = new DefaultOpenportServiceContainer(dsite);
 
+        IAnnotationInputValve invalve = new OpenportInputValve(site);
+        CjService closedservice = OpenportInputValve.class.getAnnotation(CjService.class);
+        site.addService(closedservice.name(), invalve);
     }
 
     @Override

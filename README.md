@@ -133,7 +133,6 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
           }
         ]
 ```
-- 项目中声明valve并派生于OpenportInputValve
 - 使用注解@CjOpenports,@CjOpenport,@CjOpenportParameter,声明您的port接口，该接口必须派生于IOpenportService，例：
 ``` java
     @CjOpenports(usage = "用户中心的ports")
