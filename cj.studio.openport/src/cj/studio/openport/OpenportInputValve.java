@@ -1,6 +1,8 @@
 package cj.studio.openport;
 
 import cj.studio.ecm.IServiceSite;
+import cj.studio.ecm.Scope;
+import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceSite;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
@@ -10,7 +12,11 @@ import cj.studio.gateway.socket.pipeline.IIPipeline;
 import cj.studio.openport.client.Openports;
 import cj.studio.openport.util.ExceptionPrinter;
 
-public abstract class OpenportInputValve implements IAnnotationInputValve {
+/**
+ * 该类在openport服务器端才用到，用于调度ports请求
+ */
+@CjService(name = "___$____openportInputValve", scope = Scope.multiton)
+public class OpenportInputValve implements IAnnotationInputValve {
     IOpenportServiceContainer container;
     @CjServiceSite
     IServiceSite site;
@@ -37,7 +43,7 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
         if (controller.matchesAPI(frame)) {//注意实现的api时默认的index方法，即当访问一个安全服务的根时打印该服务api，另外返回值样本能让开发者通过注解关联json数据文件
             try {
                 controller.flow(frame, circuit);
-            }catch (Throwable e){
+            } catch (Throwable e) {
                 throw e;
             } finally {
                 Openports.close();
@@ -47,7 +53,7 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
         if (!container.matchesAndSelectKey(frame)) {
             try {
                 pipeline.nextFlow(request, response, this);
-            }catch (Throwable e){
+            } catch (Throwable e) {
                 throw e;
             } finally {
                 Openports.close();
@@ -65,20 +71,19 @@ public abstract class OpenportInputValve implements IAnnotationInputValve {
         }
     }
 
-    protected void printOpenportApi(Frame frame, Circuit circuit) throws CircuitException {
-
-
-    }
-
 
     @Override
     public void onInactive(String inputName, IIPipeline pipeline) throws CircuitException {
         pipeline.nextOnInactive(inputName, this);
     }
 
+    /**
+     * 该vavle顺序永远是1
+     * @return
+     */
     @Override
-    public int getSort() {
-        return 0;
+    public final int getSort() {
+        return 1;
     }
 
 
