@@ -1,8 +1,6 @@
 package cj.studio.openport;
 
 import cj.studio.ecm.IServiceSite;
-import cj.studio.ecm.Scope;
-import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceSite;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
@@ -15,8 +13,7 @@ import cj.studio.openport.util.ExceptionPrinter;
 /**
  * 该类在openport服务器端才用到，用于调度ports请求
  */
-@CjService(name = "___$____openportInputValve", scope = Scope.multiton)
-public class OpenportInputValve implements IAnnotationInputValve {
+public abstract class OpenportInputValve implements IAnnotationInputValve {
     IOpenportServiceContainer container;
     @CjServiceSite
     IServiceSite site;
