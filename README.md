@@ -19,14 +19,15 @@
 ## 用法
 ### 客户端调用远程ports
 - 一种是通过httpclient,dia等第三方客户端调用，请参考开放api界面中的描述，注：openport的请求头或参数中不再需要：Rest-StubFace
-- 一种是通过网关2应用调远程ports，又分为直接使用Openports帮助类直接调用和服务注入式调用。
+- 一种是通过网关2应用调远程ports，又分为直接使用Openports帮助类和服务注入式调用。
 >>> 直接使用Openports
 - 只需在项目的Assembly.json中配置服务容器监视器。 
-```
+``` json
     monitor: "cj.studio.openport.client.DefaultOpenportsServicesMonitor",
 ```
 - 然后在代码段里即可像下面这样写：
-```IUCPorts iucPort = Openports.open(IUCPorts.class, "ports://openport.com/openport/uc.ports", "xx");
+``` java
+            IUCPorts iucPort = Openports.open(IUCPorts.class, "ports://openport.com/openport/uc.ports", "xx");
            
            List<TestArg> test2=iucPort.test2(arg,new BigDecimal("2000.00"));
            
@@ -41,7 +42,8 @@
 >>> 服务注入式调用
 - 需要jar: cj.studio.openport-1.x.jar放入项目的cj.refrences
 - 需要在Assembly.json中添加芯片插件：
-```plugins: [
+``` json
+       plugins: [
          {
            name:"$openports",//名字是任意起
            class:"cj.studio.openport.client.OpenportChipPlugin",//插件类必须
@@ -53,7 +55,7 @@
 
 ```
 - 然后即可按下面方法使用：
-```
+``` java
 @CjService(name="xxx")
 public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
        @CjServiceRef(refByName = "$openports.cj.netos.microapp.ports.IGberaSearcherPorts")//$openports是您配置的插件名，后面是在插件中配置的接口
@@ -83,7 +85,8 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
 
 ```
 
-```也可以使用请求适配器调用远程ports：
+``` java
+    也可以使用请求适配器调用远程ports：
 
     @CjServiceRef(refByName = "$openports.cj.studio.openport.client.IRequestAdapter")//IRequestAdapter是请求适配器
     IRequestAdapter requestAdapter;
@@ -131,13 +134,14 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
         ]
 ```
 - 配置服务容器监视器（在Assembly.json）：
-```
+``` json
     monitor: "cj.studio.openport.client.DefaultOpenportsServicesMonitor",
 
 ```
 - 项目中声明valve并派生于OpenportInputValve
 - 使用注解@CjOpenports,@CjOpenport,@CjOpenportParameter,声明您的port接口，该接口必须派生于IOpenportService，例：
-```@CjOpenports(usage = "用户中心的ports")
+``` java
+    @CjOpenports(usage = "用户中心的ports")
    public interface IUCPorts extends IOpenportService {
        @CjOpenport(usage = "认证 port", command = "post",tokenIn = TokenIn.nope)
        String authenticate(@CjOpenportParameter(name = "authName", defaultValue = "auth.password", usage = "认证器名") String authName,
@@ -160,6 +164,7 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
 ```
 - 如果你想与服务容器无缝集成在一起使用，就像使用普通服务一样去使用远程服务对象，则只需在Assembly.json加入插件：
 ``` json
+    
     {
             name:"$openports",插件名可以任意起，但在容器中用时要用到此名，见下：
             class:"cj.studio.openport.client.OpenportChipPlugin",
@@ -202,7 +207,7 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
 ```
 
     具体接口例：
-```
+``` java
         @CjService(name = "/uaacport.service")
         public class UAACPort implements IUAACPort {
             @Override
