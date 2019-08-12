@@ -404,7 +404,9 @@
     color: gray;
     font-size: 12px;
 }
-
+.container > .workbench > .desktop > .column .column-left > .proj-region > .pr-tree > .pr-folders > .pr-folder > .folder-main > .folder-title > .folder-count >span{
+    padding-right: 10px;
+}
 .container > .workbench > .desktop > .column .column-left > .proj-region > .pr-tree > .pr-folders > .pr-folder > .folder-main > img {
     width: 20px;
     height: 20px;

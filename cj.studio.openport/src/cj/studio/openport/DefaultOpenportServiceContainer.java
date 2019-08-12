@@ -175,7 +175,8 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
             cportsli.attr("portsurl", path);
             cportsli.select(".usage").html(ports.usage() + "");
 //            cportsli.select(".simpleHome").html(ports.simpleHome()+"");//这是给开发者自己看的，没必要公开出来
-            printPortMethodTree(context, path, cportsli);
+            int count=printPortMethodTree(context, path, cportsli);
+            cportsli.select(".folder-count .count").html(count+"个");
             portsUL.appendChild(cportsli);
         }
 
@@ -200,11 +201,12 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         }
     }
 
-    private void printPortMethodTree(OpenportContext context, String portPath, Element portli) {
+    private int printPortMethodTree(OpenportContext context, String portPath, Element portli) {
         Element ul = portli.select(".pr-objs").first();
         Element li = ul.select(".pr-obj").first().clone();
         ul.empty();
 
+        int count=0;
 
         for (Map.Entry<String, OpenportCommand> entry : this.commands.entrySet()) {
             String path = entry.getKey();
@@ -220,6 +222,8 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
 
 
             ul.appendChild(cli);
+            count++;
         }
+        return count;
     }
 }
