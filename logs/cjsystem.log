@@ -144,3 +144,181 @@
 2019年08月12日 14:29:30  信息 : -------------网关启动完毕-------------------
 2019年08月12日 14:32:37  信息 : -------------网关启动完毕-------------------
 2019年08月12日 14:35:32  信息 : -------------网关启动完毕-------------------
+2019年08月12日 16:05:28  信息 : 已装载共享库/Users/cj/studio/cj.netos.openport/cmdtools/gateway-2.3.6/lib/share
+2019年08月12日 16:05:28  信息 : openports插件发现配置：
+2019年08月12日 16:05:28  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年08月12日 16:05:28  信息 : 		openportInterface=cj.netos.microapp.ports.IGberaSearcherPorts remoteOpenportsUrl=rest://gbera.com/microapp/searcher.ports token=xx
+2019年08月12日 16:05:28  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年08月12日 16:05:28  信息 : 系统开放api地址是：/portsapi
+2019年08月12日 16:05:28  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年08月12日 16:05:28  信息 : 		服务命令：test
+2019年08月12日 16:05:28  信息 : 				参数：list java.util.LinkedList parameter
+2019年08月12日 16:05:28  信息 : 				参数：set java.util.List parameter
+2019年08月12日 16:05:28  信息 : 				参数：map java.util.TreeMap parameter
+2019年08月12日 16:05:28  信息 : 		服务命令：authenticate
+2019年08月12日 16:05:28  信息 : 				参数：authName java.lang.String parameter
+2019年08月12日 16:05:28  信息 : 				参数：tenant java.lang.String parameter
+2019年08月12日 16:05:28  信息 : 				参数：principals java.lang.String header
+2019年08月12日 16:05:28  信息 : 				参数：password java.lang.String content
+2019年08月12日 16:05:28  信息 : 				参数：ttlMillis long parameter
+2019年08月12日 16:05:28  信息 : 		服务命令：test2
+2019年08月12日 16:05:28  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年08月12日 16:05:28  信息 : 				参数：v java.math.BigDecimal parameter
+2019年08月12日 16:05:28  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年08月12日 16:05:28  信息 : 		服务命令：getAcl
+2019年08月12日 16:05:28  信息 : 				参数：list java.util.LinkedList parameter
+2019年08月12日 16:05:28  信息 : 				参数：set java.util.List parameter
+2019年08月12日 16:05:28  信息 : 				参数：map java.util.TreeMap parameter
+2019年08月12日 16:05:28  信息 : 发现安全服务：/gberaSearcher.ports，类型：cj.netos.openport.program.portimpl.GberaSearcherFrontendPorts
+2019年08月12日 16:05:28  信息 : 		服务命令：checkMicroAppVersions
+2019年08月12日 16:05:28  信息 : 				参数：versions java.util.List content
+2019年08月12日 16:05:28  信息 : 		服务命令：getMicroAppInfo
+2019年08月12日 16:05:28  信息 : 				参数：microapp java.lang.String parameter
+2019年08月12日 16:05:28  信息 : 		服务命令：listMicroAppVersion
+2019年08月12日 16:05:28  信息 : 				参数：appnameWithoutVersion java.lang.String parameter
+2019年08月12日 16:05:28  信息 : 		服务命令：getMicroPortalInfo
+2019年08月12日 16:05:28  信息 : 				参数：microportal java.lang.String parameter
+2019年08月13日 10:12:48  信息 : -------------网关启动完毕-------------------
+2019年08月13日 10:13:58  信息 : 已装载共享库/Users/cj/studio/cj.netos.openport/cmdtools/gateway-2.3.6/lib/share
+2019年08月13日 10:13:58  信息 : openports插件发现配置：
+2019年08月13日 10:13:58  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年08月13日 10:13:58  信息 : 		openportInterface=cj.netos.microapp.ports.IGberaSearcherPorts remoteOpenportsUrl=rest://gbera.com/microapp/searcher.ports token=xx
+2019年08月13日 10:13:58  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年08月13日 10:13:58  信息 : 系统开放api地址是：/portsapi
+2019年08月13日 10:13:58  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年08月13日 10:13:58  信息 : 		服务命令：test
+2019年08月13日 10:13:58  信息 : 				参数：list java.util.LinkedList parameter
+2019年08月13日 10:13:58  信息 : 				参数：set java.util.List parameter
+2019年08月13日 10:13:58  信息 : 				参数：map java.util.TreeMap parameter
+2019年08月13日 10:13:58  信息 : 		服务命令：test2
+2019年08月13日 10:13:58  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年08月13日 10:13:58  信息 : 				参数：v java.math.BigDecimal parameter
+2019年08月13日 10:13:58  信息 : 		服务命令：authenticate
+2019年08月13日 10:13:58  信息 : 				参数：authName java.lang.String parameter
+2019年08月13日 10:13:58  信息 : 				参数：tenant java.lang.String parameter
+2019年08月13日 10:13:58  信息 : 				参数：principals java.lang.String header
+2019年08月13日 10:13:58  信息 : 				参数：password java.lang.String content
+2019年08月13日 10:13:58  信息 : 				参数：ttlMillis long parameter
+2019年08月13日 10:13:58  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年08月13日 10:13:58  信息 : 		服务命令：getAcl
+2019年08月13日 10:13:58  信息 : 				参数：list java.util.LinkedList parameter
+2019年08月13日 10:13:58  信息 : 				参数：set java.util.List parameter
+2019年08月13日 10:13:58  信息 : 				参数：map java.util.TreeMap parameter
+2019年08月13日 10:13:58  信息 : 发现安全服务：/gberaSearcher.ports，类型：cj.netos.openport.program.portimpl.GberaSearcherFrontendPorts
+2019年08月13日 10:13:58  信息 : 		服务命令：checkMicroAppVersions
+2019年08月13日 10:13:58  信息 : 				参数：versions java.util.List content
+2019年08月13日 10:13:58  信息 : 		服务命令：getMicroAppInfo
+2019年08月13日 10:13:58  信息 : 				参数：microapp java.lang.String parameter
+2019年08月13日 10:13:58  信息 : 		服务命令：listMicroAppVersion
+2019年08月13日 10:13:58  信息 : 				参数：appnameWithoutVersion java.lang.String parameter
+2019年08月13日 10:13:58  信息 : 		服务命令：getMicroPortalInfo
+2019年08月13日 10:13:58  信息 : 				参数：microportal java.lang.String parameter
+2019年08月14日 02:20:27  信息 : -------------网关启动完毕-------------------
+2019年08月14日 02:23:07  信息 : -------------网关启动完毕-------------------
+2019年08月14日 02:25:32  信息 : 已装载共享库/Users/cj/studio/cj.netos.openport/cmdtools/gateway-2.3.6/lib/share
+2019年08月14日 02:25:32  信息 : openports插件发现配置：
+2019年08月14日 02:25:32  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年08月14日 02:25:32  信息 : 		openportInterface=cj.netos.microapp.ports.IGberaSearcherPorts remoteOpenportsUrl=rest://gbera.com/microapp/searcher.ports token=xx
+2019年08月14日 02:25:32  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年08月14日 02:25:32  信息 : 系统开放api地址是：/portsapi
+2019年08月14日 02:25:32  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年08月14日 02:25:32  信息 : 		服务命令：test
+2019年08月14日 02:25:32  信息 : 				参数：list java.util.LinkedList parameter
+2019年08月14日 02:25:32  信息 : 				参数：set java.util.List parameter
+2019年08月14日 02:25:32  信息 : 				参数：map java.util.TreeMap parameter
+2019年08月14日 02:25:32  信息 : 		服务命令：test2
+2019年08月14日 02:25:32  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年08月14日 02:25:32  信息 : 				参数：v java.math.BigDecimal parameter
+2019年08月14日 02:25:32  信息 : 		服务命令：authenticate
+2019年08月14日 02:25:32  信息 : 				参数：authName java.lang.String parameter
+2019年08月14日 02:25:32  信息 : 				参数：tenant java.lang.String parameter
+2019年08月14日 02:25:32  信息 : 				参数：principals java.lang.String header
+2019年08月14日 02:25:32  信息 : 				参数：password java.lang.String content
+2019年08月14日 02:25:32  信息 : 				参数：ttlMillis long parameter
+2019年08月14日 02:25:32  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年08月14日 02:25:32  信息 : 		服务命令：getAcl
+2019年08月14日 02:25:32  信息 : 				参数：list java.util.LinkedList parameter
+2019年08月14日 02:25:32  信息 : 				参数：set java.util.List parameter
+2019年08月14日 02:25:32  信息 : 				参数：map java.util.TreeMap parameter
+2019年08月14日 02:25:32  信息 : 发现安全服务：/gberaSearcher.ports，类型：cj.netos.openport.program.portimpl.GberaSearcherFrontendPorts
+2019年08月14日 02:25:32  信息 : 		服务命令：checkMicroAppVersions
+2019年08月14日 02:25:32  信息 : 				参数：versions java.util.List content
+2019年08月14日 02:25:32  信息 : 		服务命令：getMicroAppInfo
+2019年08月14日 02:25:32  信息 : 				参数：microapp java.lang.String parameter
+2019年08月14日 02:25:32  信息 : 		服务命令：listMicroAppVersion
+2019年08月14日 02:25:32  信息 : 				参数：appnameWithoutVersion java.lang.String parameter
+2019年08月14日 02:25:32  信息 : 		服务命令：getMicroPortalInfo
+2019年08月14日 02:25:32  信息 : 				参数：microportal java.lang.String parameter
+2019年08月14日 03:35:29  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:microapp
+2019年09月16日 17:12:10  信息 : -------------网关启动完毕-------------------
+2019年09月16日 17:12:35  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:portsapi
+2019年09月16日 17:14:20  错误: cj.studio.gateway.tools.sc.ServersConsole - 不认识的命令：bue
+2019年09月16日 17:14:58  信息 : 已装载共享库/Users/cj/studio/cj.netos.openport/cmdtools/gateway-2.3.6/lib/share
+2019年09月16日 17:14:58  信息 : openports插件发现配置：
+2019年09月16日 17:14:58  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年09月16日 17:14:58  信息 : 		openportInterface=cj.netos.microapp.ports.IGberaSearcherPorts remoteOpenportsUrl=rest://gbera.com/microapp/searcher.ports token=xx
+2019年09月16日 17:14:58  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年09月16日 17:14:58  信息 : 系统开放api地址是：/portsapi
+2019年09月16日 17:14:58  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年09月16日 17:14:58  信息 : 		服务命令：test
+2019年09月16日 17:14:58  信息 : 				参数：list java.util.LinkedList parameter
+2019年09月16日 17:14:58  信息 : 				参数：set java.util.List parameter
+2019年09月16日 17:14:58  信息 : 				参数：map java.util.TreeMap parameter
+2019年09月16日 17:14:58  信息 : 		服务命令：test2
+2019年09月16日 17:14:58  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年09月16日 17:14:58  信息 : 				参数：v java.math.BigDecimal parameter
+2019年09月16日 17:14:58  信息 : 		服务命令：authenticate
+2019年09月16日 17:14:58  信息 : 				参数：authName java.lang.String parameter
+2019年09月16日 17:14:58  信息 : 				参数：tenant java.lang.String parameter
+2019年09月16日 17:14:58  信息 : 				参数：principals java.lang.String header
+2019年09月16日 17:14:58  信息 : 				参数：password java.lang.String content
+2019年09月16日 17:14:58  信息 : 				参数：ttlMillis long parameter
+2019年09月16日 17:14:58  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年09月16日 17:14:58  信息 : 		服务命令：getAcl
+2019年09月16日 17:14:58  信息 : 				参数：list java.util.LinkedList parameter
+2019年09月16日 17:14:58  信息 : 				参数：set java.util.List parameter
+2019年09月16日 17:14:58  信息 : 				参数：map java.util.TreeMap parameter
+2019年09月16日 17:14:58  信息 : 发现安全服务：/gberaSearcher.ports，类型：cj.netos.openport.program.portimpl.GberaSearcherFrontendPorts
+2019年09月16日 17:14:58  信息 : 		服务命令：getMicroAppInfo
+2019年09月16日 17:14:58  信息 : 				参数：microapp java.lang.String parameter
+2019年09月16日 17:14:58  信息 : 		服务命令：checkMicroAppVersions
+2019年09月16日 17:14:58  信息 : 				参数：versions java.util.List content
+2019年09月16日 17:14:58  信息 : 		服务命令：listMicroAppVersion
+2019年09月16日 17:14:58  信息 : 				参数：appnameWithoutVersion java.lang.String parameter
+2019年09月16日 17:14:58  信息 : 		服务命令：getMicroPortalInfo
+2019年09月16日 17:14:58  信息 : 				参数：microportal java.lang.String parameter
+2019年09月16日 17:18:03  信息 : -------------网关启动完毕-------------------
+2019年09月16日 17:18:13  信息 : 已装载共享库/Users/cj/studio/cj.netos.openport/cmdtools/gateway-2.3.6/lib/share
+2019年09月16日 17:18:13  信息 : openports插件发现配置：
+2019年09月16日 17:18:13  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年09月16日 17:18:13  信息 : 		openportInterface=cj.netos.microapp.ports.IGberaSearcherPorts remoteOpenportsUrl=rest://gbera.com/microapp/searcher.ports token=xx
+2019年09月16日 17:18:13  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年09月16日 17:18:13  信息 : 系统开放api地址是：/portsapi
+2019年09月16日 17:18:13  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年09月16日 17:18:13  信息 : 		服务命令：test
+2019年09月16日 17:18:13  信息 : 				参数：list java.util.LinkedList parameter
+2019年09月16日 17:18:13  信息 : 				参数：set java.util.List parameter
+2019年09月16日 17:18:13  信息 : 				参数：map java.util.TreeMap parameter
+2019年09月16日 17:18:13  信息 : 		服务命令：test2
+2019年09月16日 17:18:13  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年09月16日 17:18:13  信息 : 				参数：v java.math.BigDecimal parameter
+2019年09月16日 17:18:13  信息 : 		服务命令：authenticate
+2019年09月16日 17:18:13  信息 : 				参数：authName java.lang.String parameter
+2019年09月16日 17:18:13  信息 : 				参数：tenant java.lang.String parameter
+2019年09月16日 17:18:13  信息 : 				参数：principals java.lang.String header
+2019年09月16日 17:18:13  信息 : 				参数：password java.lang.String content
+2019年09月16日 17:18:13  信息 : 				参数：ttlMillis long parameter
+2019年09月16日 17:18:13  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年09月16日 17:18:13  信息 : 		服务命令：getAcl
+2019年09月16日 17:18:13  信息 : 				参数：list java.util.LinkedList parameter
+2019年09月16日 17:18:13  信息 : 				参数：set java.util.List parameter
+2019年09月16日 17:18:13  信息 : 				参数：map java.util.TreeMap parameter
+2019年09月16日 17:18:13  信息 : 发现安全服务：/gberaSearcher.ports，类型：cj.netos.openport.program.portimpl.GberaSearcherFrontendPorts
+2019年09月16日 17:18:13  信息 : 		服务命令：checkMicroAppVersions
+2019年09月16日 17:18:13  信息 : 				参数：versions java.util.List content
+2019年09月16日 17:18:13  信息 : 		服务命令：getMicroAppInfo
+2019年09月16日 17:18:13  信息 : 				参数：microapp java.lang.String parameter
+2019年09月16日 17:18:13  信息 : 		服务命令：listMicroAppVersion
+2019年09月16日 17:18:13  信息 : 				参数：appnameWithoutVersion java.lang.String parameter
+2019年09月16日 17:18:13  信息 : 		服务命令：getMicroPortalInfo
+2019年09月16日 17:18:13  信息 : 				参数：microportal java.lang.String parameter

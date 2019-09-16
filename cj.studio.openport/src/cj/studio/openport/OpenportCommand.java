@@ -203,7 +203,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             sb2.append(st + "; ");
         }
         e.select(".port-usage .desc .restates").html(sb2.toString());
-        e.select(".headline .openportCommand").html(ot.command() + "");
+        e.select(".headline .cmd").html(ot.command() + "");
         e.select(".headline .url").html(this.openportPath + "");
         e.select(".headline .protocol").html(ot.protocol() + "");
 
