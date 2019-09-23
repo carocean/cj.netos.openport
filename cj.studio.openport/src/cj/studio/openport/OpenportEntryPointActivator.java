@@ -36,7 +36,7 @@ public class OpenportEntryPointActivator implements IEntryPointActivator {
         CJSystem.logging().info("系统开放api地址是：" + apipathStr);
         String acsclassStr = "";
         if (acs != null) {
-            acsclassStr = cts.getValue().getName();
+            acsclassStr = acs.getValue().getName();
         }
         if (StringUtil.isEmpty(acsclassStr)) {
             acsclassStr = DefaultAccessControlStrategy.class.getName();
