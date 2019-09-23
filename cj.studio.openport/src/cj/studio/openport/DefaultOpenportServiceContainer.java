@@ -36,6 +36,8 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         try {
             this.acsStrategy = (IAccessControlStrategy) Class.forName(acsStr,true,cl).newInstance();
             this.ctstrategy = (ICheckTokenStrategy) Class.forName(ctsStr,true,cl).newInstance();
+            this.acsStrategy.init(site);
+            this.ctstrategy.init(site);
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             throw new EcmException(e);
         }
