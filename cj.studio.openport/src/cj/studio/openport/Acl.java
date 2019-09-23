@@ -91,10 +91,13 @@ public class Acl {
 	public boolean hasUserOnInvisibles(String user) {
 		for(Ace e:invisibles) {
 			String[] whoisArr=e.whoisDetails();
-			if(!"user".equals(whoisArr[1])) {
+			if(!"user".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
-			if("*".equals(user)&&"*".equals(whoisArr[0])) {
+			if("*".equals(whoisArr[1])||"*".equals(whoisArr[0])) {
+				return true;
+			}
+			if(user.equals("*")) {
 				return true;
 			}
 			if(user.equals(whoisArr[0])) {
@@ -109,7 +112,10 @@ public class Acl {
 			if(!"role".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
-			if(roles.contains("*")&&"*".equals(whoisArr[0])) {
+			if("*".equals(whoisArr[1])||"*".equals(whoisArr[0])) {
+				return true;
+			}
+			if(roles.contains("*")) {
 				return true;
 			}
 			if(roles.contains(whoisArr[0])) {
@@ -121,10 +127,13 @@ public class Acl {
 	public boolean hasUserOnDenys(String user) {
 		for(Ace e:denys) {
 			String[] whoisArr=e.whoisDetails();
-			if(!"user".equals(whoisArr[1])) {
+			if(!"user".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
-			if("*".equals(user)&&"*".equals(whoisArr[0])) {
+			if("*".equals(whoisArr[1])||"*".equals(whoisArr[0])) {
+				return true;
+			}
+			if(user.equals("*")) {
 				return true;
 			}
 			if(user.equals(whoisArr[0])) {
@@ -139,7 +148,10 @@ public class Acl {
 			if(!"role".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
-			if(roles.contains("*")&&"*".equals(whoisArr[0])) {
+			if("*".equals(whoisArr[1])||"*".equals(whoisArr[0])) {
+				return true;
+			}
+			if(roles.contains("*")) {
 				return true;
 			}
 			if(roles.contains(whoisArr[0])) {
@@ -151,10 +163,13 @@ public class Acl {
 	public boolean hasUserOnAllows(String user) {
 		for(Ace e:allows) {
 			String[] whoisArr=e.whoisDetails();
-			if(!"user".equals(whoisArr[1])) {
+			if(!"user".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
-			if("*".equals(user)&&"*".equals(whoisArr[0])) {
+			if("*".equals(whoisArr[1])||"*".equals(whoisArr[0])) {
+				return true;
+			}
+			if(user.equals("*")) {
 				return true;
 			}
 			if(user.equals(whoisArr[0])) {
@@ -169,7 +184,10 @@ public class Acl {
 			if(!"role".equals(whoisArr[1])&&!"*".equals(whoisArr[1])) {
 				continue;
 			}
-			if(roles.contains("*")&&"*".equals(whoisArr[0])) {
+			if("*".equals(whoisArr[1])||"*".equals(whoisArr[0])) {
+				return true;
+			}
+			if(roles.contains("*")) {
 				return true;
 			}
 			if(roles.contains(whoisArr[0])) {
