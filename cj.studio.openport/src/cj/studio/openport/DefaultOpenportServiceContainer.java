@@ -8,6 +8,7 @@ import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
+import cj.studio.ecm.resource.IResource;
 import cj.studio.openport.annotations.CjOpenport;
 import cj.studio.openport.annotations.CjOpenports;
 import cj.ultimate.util.StringUtil;
@@ -31,9 +32,10 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         this.site = site;
         String acsStr = (String) site.getService("$.cj.studio.openport.accessControlStrategy");
         String ctsStr = (String) site.getService("$.cj.studio.openport.checkTokenStrategy");
+        ClassLoader cl=(ClassLoader)site.getService(IResource.class.getName());
         try {
-            this.acsStrategy = (IAccessControlStrategy) Class.forName(acsStr).newInstance();
-            this.ctstrategy = (ICheckTokenStrategy) Class.forName(ctsStr).newInstance();
+            this.acsStrategy = (IAccessControlStrategy) Class.forName(acsStr,true,cl).newInstance();
+            this.ctstrategy = (ICheckTokenStrategy) Class.forName(ctsStr,true,cl).newInstance();
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             throw new EcmException(e);
         }
