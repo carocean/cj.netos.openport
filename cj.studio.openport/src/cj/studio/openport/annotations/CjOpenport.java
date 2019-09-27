@@ -26,8 +26,8 @@ public @interface CjOpenport {
 	 * allow cj.user 表示为充许用户为cj的访问；<br>
 	 * allow test.role 充许所有角色为test的访问 ,<br>
 	 * deny zxt.user 拒绝用户为zxt的访问<br>
-	 * invisible * 表示方法不可见也不可用<br>
-	 * allow * 为方法默认权限
+	 * invisible *.* 表示方法不可见也不可用<br>
+	 * allow *.* 为方法默认权限
 	 * <pre>
 	 *
 	 *

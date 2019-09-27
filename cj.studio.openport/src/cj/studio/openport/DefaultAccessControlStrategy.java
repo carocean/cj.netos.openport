@@ -14,7 +14,7 @@ public class DefaultAccessControlStrategy implements IAccessControlStrategy {
 			return true;
 		for (int i = 0; i < acl.invisibleCount(); i++) {
 			Ace ace = acl.invisible(i);
-			if ("*".equals(ace.whois()) || "*.user".equals(ace.whois()) || "*.role".equals(ace.whois())) {
+			if ("*".equals(ace.whois())||"*.*".equals(ace.whois()) || "*.user".equals(ace.whois()) || "*.role".equals(ace.whois())) {
 				return true;
 			}
 		}
