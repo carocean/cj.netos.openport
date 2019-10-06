@@ -17,12 +17,12 @@ sourceSets {
     } 
  repositories { 
  	mavenCentral();
-	 flatDir(dirs: "$projectDir/global/lib") 
- } 
+ }
 
 dependencies {
+	compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.2.1'
+	compile group: 'log4j', name: 'log4j', version: '1.2.17'
 	compile(
             'commons-cli:commons-cli:1.2'
     )
-	compile fileTree('../global/runtime')
 }

@@ -14,29 +14,18 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 repositories {
-    flatDir(dirs: "../global/lib")
 }
 
 dependencies {
-    compile group: 'cj.netos.microapp', name: 'cj.netos.microapp.ports', version: ref_cj_microapp_ports_version
     compile project(':cj.studio.openport');
-    compile fileTree('../global/runtime')
-    //compile fileTree('src/cj/references')
 
 }
-task copyReferences(type: Copy) {
-    from configurations.compileClasspath.files {
-        include 'cj.netos.microapp.ports-*.jar'
-    }
-    into 'src/cj/references'
-}
-build.dependsOn('copyReferences')
 build.dependsOn(':cj.studio.openport:release')
 
 task releaseToHost(type: Copy) {
     dependsOn   "build"
     from 'build/libs/'
-    into '../cmdtools/gateway-2.3.6/assemblies/openport'
+    into '../cmdtools/gateway/assemblies/openport'
     include '**/*.jar'
     exclude '**/*-javadoc.jar', '**/*-sources.jar'
 }

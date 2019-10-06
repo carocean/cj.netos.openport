@@ -14,11 +14,9 @@ sourceSets {
         options.encoding = "UTF-8"  
     } 
  repositories { 
-	 flatDir(dirs: "../global/lib") 
- } 
+ }
 
 dependencies {
-	compile fileTree('../global/runtime')
 	compile fileTree('src/cj/refembeds')
 	compile fileTree('src/cj/references')
 }
