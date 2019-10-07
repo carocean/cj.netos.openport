@@ -141,3 +141,82 @@
 		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
 		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
 		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+2019年10月07日 01:33:43  信息 : -------------网关启动完毕-------------------
+2019年10月07日 01:33:43  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2019年10月07日 01:33:54  信息 : 已装载共享库/Users/caroceanjofers/studio/github/cj.netos.openport/cmdtools/gateway/lib/share
+2019年10月07日 01:33:54  信息 : openports插件发现配置：
+2019年10月07日 01:33:54  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年10月07日 01:33:54  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年10月07日 01:33:54  信息 : 系统开放api地址是：/portsapi
+2019年10月07日 01:33:54  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年10月07日 01:33:54  信息 : 		服务命令：test
+2019年10月07日 01:33:54  信息 : 				参数：list java.util.LinkedList parameter
+2019年10月07日 01:33:54  信息 : 				参数：set java.util.List parameter
+2019年10月07日 01:33:54  信息 : 				参数：map java.util.TreeMap parameter
+2019年10月07日 01:33:54  信息 : 		服务命令：test2
+2019年10月07日 01:33:54  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年10月07日 01:33:54  信息 : 				参数：v java.math.BigDecimal parameter
+2019年10月07日 01:33:54  信息 : 		服务命令：authenticate
+2019年10月07日 01:33:54  信息 : 				参数：authName java.lang.String parameter
+2019年10月07日 01:33:54  信息 : 				参数：tenant java.lang.String parameter
+2019年10月07日 01:33:54  信息 : 				参数：principals java.lang.String header
+2019年10月07日 01:33:54  信息 : 				参数：password java.lang.String content
+2019年10月07日 01:33:54  信息 : 				参数：ttlMillis long parameter
+2019年10月07日 01:33:54  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年10月07日 01:33:54  信息 : 		服务命令：getAcl
+2019年10月07日 01:33:54  信息 : 				参数：list java.util.LinkedList parameter
+2019年10月07日 01:33:54  信息 : 				参数：set java.util.List parameter
+2019年10月07日 01:33:54  信息 : 				参数：map java.util.TreeMap parameter
+2019年10月07日 01:34:08  信息 : 当前请求次数：0
+2019年10月08日 01:26:56  信息 : -------------网关启动完毕-------------------
+2019年10月08日 01:26:56  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2019年10月08日 01:26:59  信息 : 已装载共享库/Users/caroceanjofers/studio/github/cj.netos.openport/cmdtools/gateway/lib/share
+2019年10月08日 01:26:59  信息 : openports插件发现配置：
+2019年10月08日 01:26:59  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年10月08日 01:26:59  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年10月08日 01:26:59  信息 : 系统开放api地址是：/portsapi
+2019年10月08日 01:26:59  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年10月08日 01:26:59  信息 : 		服务命令：test
+2019年10月08日 01:26:59  信息 : 				参数：list java.util.LinkedList parameter
+2019年10月08日 01:26:59  信息 : 				参数：set java.util.List parameter
+2019年10月08日 01:26:59  信息 : 				参数：map java.util.TreeMap parameter
+2019年10月08日 01:26:59  信息 : 		服务命令：test2
+2019年10月08日 01:26:59  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年10月08日 01:26:59  信息 : 				参数：v java.math.BigDecimal parameter
+2019年10月08日 01:26:59  信息 : 		服务命令：authenticate
+2019年10月08日 01:26:59  信息 : 				参数：authName java.lang.String parameter
+2019年10月08日 01:26:59  信息 : 				参数：tenant java.lang.String parameter
+2019年10月08日 01:26:59  信息 : 				参数：principals java.lang.String header
+2019年10月08日 01:26:59  信息 : 				参数：password java.lang.String content
+2019年10月08日 01:26:59  信息 : 				参数：ttlMillis long parameter
+2019年10月08日 01:26:59  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年10月08日 01:26:59  信息 : 		服务命令：getAcl
+2019年10月08日 01:26:59  信息 : 				参数：list java.util.LinkedList parameter
+2019年10月08日 01:26:59  信息 : 				参数：set java.util.List parameter
+2019年10月08日 01:26:59  信息 : 				参数：map java.util.TreeMap parameter
+2019年10月08日 01:45:16  信息 : -------------网关启动完毕-------------------
+2019年10月08日 01:45:16  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2019年10月08日 01:45:18  信息 : 已装载共享库/Users/caroceanjofers/studio/github/cj.netos.openport/cmdtools/gateway/lib/share
+2019年10月08日 01:45:19  信息 : openports插件发现配置：
+2019年10月08日 01:45:19  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2019年10月08日 01:45:19  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2019年10月08日 01:45:19  信息 : 系统开放api地址是：/portsapi
+2019年10月08日 01:45:19  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2019年10月08日 01:45:19  信息 : 		服务命令：test
+2019年10月08日 01:45:19  信息 : 				参数：list java.util.LinkedList parameter
+2019年10月08日 01:45:19  信息 : 				参数：set java.util.List parameter
+2019年10月08日 01:45:19  信息 : 				参数：map java.util.TreeMap parameter
+2019年10月08日 01:45:19  信息 : 		服务命令：test2
+2019年10月08日 01:45:19  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2019年10月08日 01:45:19  信息 : 				参数：v java.math.BigDecimal parameter
+2019年10月08日 01:45:19  信息 : 		服务命令：authenticate
+2019年10月08日 01:45:19  信息 : 				参数：authName java.lang.String parameter
+2019年10月08日 01:45:19  信息 : 				参数：tenant java.lang.String parameter
+2019年10月08日 01:45:19  信息 : 				参数：principals java.lang.String header
+2019年10月08日 01:45:19  信息 : 				参数：password java.lang.String content
+2019年10月08日 01:45:19  信息 : 				参数：ttlMillis long parameter
+2019年10月08日 01:45:19  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2019年10月08日 01:45:19  信息 : 		服务命令：getAcl
+2019年10月08日 01:45:19  信息 : 				参数：list java.util.LinkedList parameter
+2019年10月08日 01:45:19  信息 : 				参数：set java.util.List parameter
+2019年10月08日 01:45:19  信息 : 				参数：map java.util.TreeMap parameter
