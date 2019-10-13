@@ -1,6 +1,7 @@
 package cj.studio.openport;
 
 import cj.studio.ecm.net.Circuit;
+import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.openport.annotations.CjOpenport;
 
@@ -9,12 +10,12 @@ import cj.studio.openport.annotations.CjOpenport;
  */
 public class NullOpenportInvoker implements IOpenportBeforeInvoker,IOpenportAfterInvoker{
     @Override
-    public void doAfter(String methodName, CjOpenport openportAnnotation, Frame frame, Circuit circuit) {
+    public void doAfter(String methodName, CjOpenport openportAnnotation, Frame frame, Circuit circuit)  throws CircuitException{
 
     }
 
     @Override
-    public void doBefore(String methodName, CjOpenport openport, TokenInfo tokenInfo, Frame frame, Circuit circuit) {
+    public void doBefore(String methodName, CjOpenport openport, TokenInfo tokenInfo, Frame frame, Circuit circuit) throws CircuitException {
 
     }
 }
