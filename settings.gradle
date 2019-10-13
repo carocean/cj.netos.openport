@@ -1,3 +1,2 @@
 include "cj.netos.openport.program"
-include "cj.netos.openport.main"
 include "cj.studio.openport"

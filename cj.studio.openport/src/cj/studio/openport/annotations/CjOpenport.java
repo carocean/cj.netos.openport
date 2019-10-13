@@ -102,4 +102,16 @@ public @interface CjOpenport {
 	 * @return
 	 */
 	Class<?>[] elementType() default Void.class;
+
+	/**
+	 * 在方法执行前拦截,该方法可以获取到解析后的令牌
+	 * @return
+	 */
+	Class<? extends IOpenportBeforeInvoker> beforeInvoker() default NullOpenportInvoker.class;
+
+	/**
+	 * 在方法执行后拦截
+	 * @return
+	 */
+	Class<? extends IOpenportAfterInvoker> afterInvoker() default NullOpenportInvoker.class;
 }

@@ -41,6 +41,9 @@ class OpenportContentRecieverAdapter implements IContentReciever {
     public void done(byte[] b, int pos, int length) throws CircuitException {
         target.ondataDone(b, pos, length);
         target.oninvoke(openportMethod, frame, circuit);
+        if(this.openportCommand.afterInvoker!=null){
+            this.openportCommand.afterInvoker.doAfter(openportMethod.getMethodName(),openportMethod.getOpenportAnnotation(),frame,circuit);
+        }
     }
 
 }

@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OpenportCommand implements IDisposable, IOpenportPrinter {
+    IOpenportBeforeInvoker beforeInvoker;
+    IOpenportAfterInvoker afterInvoker;
     Object openportService;
     String openportPath;
     Class<?> openportInterface;//openportService实现的开放接口
@@ -39,18 +41,35 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         this.ctstrategy = ctstrategy;
         this.openportService = openportService;
         this.acl = new Acl();
+        try {
+            instanceInvokers();
+        } catch (IllegalAccessException e) {
+            throw new EcmException(e);
+        } catch (InstantiationException e) {
+            throw new EcmException(e);
+        }
         parseApplyReturnType();
         parseMethodAcl();
         parseMethodParameters();
     }
 
+    private void instanceInvokers() throws IllegalAccessException, InstantiationException {
+        CjOpenport openport = method.getAnnotation(CjOpenport.class);
+        if (openport.beforeInvoker() != NullOpenportInvoker.class) {
+            this.beforeInvoker = openport.beforeInvoker().newInstance();
+        }
+        if (openport.afterInvoker() != NullOpenportInvoker.class) {
+            this.afterInvoker = openport.afterInvoker().newInstance();
+        }
+    }
+
     private void parseApplyReturnType() {
         CjOpenport openport = method.getAnnotation(CjOpenport.class);
         Class<?> applyType = openport.type();
-        if (applyType == null||applyType.equals(Void.class)) {
+        if (applyType == null || applyType.equals(Void.class)) {
             applyType = method.getReturnType();
         }
-        this.applyReturnType=applyType;
+        this.applyReturnType = applyType;
     }
 
     public CjOpenports getOpenportsAnnotation() {
@@ -122,14 +141,17 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         String token = "";
         TokenInfo tokenInfo = null;
         IContentReciever reciever = null;
-        String portsurl=frame.relativePath();
-        String methodName=method.getName();
+        String portsurl = frame.relativePath();
+        String methodName = method.getName();
         switch (mperm.tokenIn()) {
             case headersOfRequest:
                 token = frame.head(mperm.checkTokenName());
                 try {
-                    tokenInfo = this.ctstrategy.checkToken(portsurl,methodName,mperm,token);
+                    tokenInfo = this.ctstrategy.checkToken(portsurl, methodName, mperm, token);
                     this.acsStrategy.checkRight(tokenInfo, acl);
+                    if (this.beforeInvoker != null) {
+                        this.beforeInvoker.doBefore(methodName, mperm, tokenInfo, frame, circuit);
+                    }
                 } catch (Throwable e) {
                     ExceptionPrinter printer = new ExceptionPrinter();
                     printer.printException(e, circuit);
@@ -141,8 +163,11 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             case parametersOfRequest:
                 token = frame.parameter(mperm.checkTokenName());
                 try {
-                    tokenInfo = this.ctstrategy.checkToken(portsurl,methodName,mperm,token);
+                    tokenInfo = this.ctstrategy.checkToken(portsurl, methodName, mperm, token);
                     this.acsStrategy.checkRight(tokenInfo, acl);
+                    if (this.beforeInvoker != null) {
+                        this.beforeInvoker.doBefore(methodName, mperm, tokenInfo, frame, circuit);
+                    }
                 } catch (Throwable e) {
                     ExceptionPrinter printer = new ExceptionPrinter();
                     printer.printException(e, circuit);
@@ -183,14 +208,14 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         e.select(".port-title span").html(method.getName());
         e.select(".port-usage .desc .usage").html(ot.usage() + "");
         e.select(".port-usage .desc .command").html(method.getName());
-        if(ot.tokenIn()==TokenIn.nope){
-            String tokenInfo=String.format("%s(<b style='color:red;'>注：<b/>nope表示该方法不需要领牌)",ot.tokenIn());
+        if (ot.tokenIn() == TokenIn.nope) {
+            String tokenInfo = String.format("%s(<b style='color:red;'>注：<b/>nope表示该方法不需要领牌)", ot.tokenIn());
             e.select(".port-usage .desc .tokenin").html(tokenInfo);
             e.select(".port-usage .desc .tokenname").html(ot.checkTokenName() + "");
-            e.select(".request-token").attr("style","display:none;");
+            e.select(".request-token").attr("style", "display:none;");
             e.select(".port-usage .desc .tokenname").html("无");
-        }else{
-            e.select(".port-usage .desc .tokenin").html(ot.tokenIn()+"");
+        } else {
+            e.select(".port-usage .desc .tokenin").html(ot.tokenIn() + "");
             e.select(".port-usage .desc .tokenname").html(ot.checkTokenName() + "");
         }
         StringBuffer sb = new StringBuffer();

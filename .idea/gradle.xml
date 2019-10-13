@@ -12,7 +12,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/cj.netos.openport.main" />
             <option value="$PROJECT_DIR$/cj.netos.openport.program" />
             <option value="$PROJECT_DIR$/cj.studio.openport" />
           </set>
