@@ -13,16 +13,21 @@ public class MethodParameter {
     public MethodParameter(String position, Parameter p,  Class<?> runType) {
         parameterAnnotation = p.getAnnotation(CjOpenportParameter.class);
         this.parameter = p;
-        if (parameterAnnotation.type() != null) {
-            if (runType.isAssignableFrom(parameterAnnotation.type())) {
-                applyType = parameterAnnotation.type();
+        if (parameterAnnotation == null) {
+            applyType=runType;
+            CJSystem.logging().info(String.format("\t\t\t\t参数：%s %s %s", p.getName(), applyType.getName(), "内部参数"));
+        }else {
+            if (parameterAnnotation.type() != null) {
+                if (runType.isAssignableFrom(parameterAnnotation.type())) {
+                    applyType = parameterAnnotation.type();
+                } else {
+                    applyType = runType;
+                }
             } else {
                 applyType = runType;
             }
-        } else {
-            applyType = runType;
+            CJSystem.logging().info(String.format("\t\t\t\t参数：%s %s %s", parameterAnnotation.name(), applyType.getName(), parameterAnnotation.in().name()));
         }
-        CJSystem.logging().info(String.format("\t\t\t\t参数：%s %s %s", parameterAnnotation.name(), applyType.getName(), parameterAnnotation.in().name()));
     }
 
     /**

@@ -2,24 +2,24 @@ package cj.studio.openport;
 
 import cj.studio.ecm.net.CircuitException;
 
-public class CheckTokenException extends CircuitException {
+public class CheckAccessTokenException extends CircuitException {
 
-	public CheckTokenException(String status, boolean isSystemException, String e) {
+	public CheckAccessTokenException(String status, boolean isSystemException, String e) {
 		super(status, isSystemException, e);
 		// TODO Auto-generated constructor stub
 	}
 
-	public CheckTokenException(String status, boolean isSystemException, Throwable e) {
+	public CheckAccessTokenException(String status, boolean isSystemException, Throwable e) {
 		super(status, isSystemException, e);
 		// TODO Auto-generated constructor stub
 	}
 
-	public CheckTokenException(String status, String e) {
+	public CheckAccessTokenException(String status, String e) {
 		super(status, e);
 		// TODO Auto-generated constructor stub
 	}
 
-	public CheckTokenException(String status, Throwable e) {
+	public CheckAccessTokenException(String status, Throwable e) {
 		super(status, e);
 		// TODO Auto-generated constructor stub
 	}

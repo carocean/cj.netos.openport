@@ -16,11 +16,12 @@ class OpenportContentRecieverAdapter implements IContentReciever {
     Frame frame;
     IOpenportContentReciever target;
     private DefaultOpenportMethod openportMethod;
-
-    public OpenportContentRecieverAdapter(IOpenportContentReciever target, OpenportCommand openportCommand, Circuit circuit) {
+    ISecuritySession iSecuritySession;
+    public OpenportContentRecieverAdapter(IOpenportContentReciever target, ISecuritySession iSecuritySession, OpenportCommand openportCommand, Circuit circuit) {
         this.circuit = circuit;
         this.openportCommand = openportCommand;
         this.target = target;
+        this.iSecuritySession = iSecuritySession;
         this.openportMethod = new DefaultOpenportMethod(openportCommand);
     }
 
@@ -40,9 +41,9 @@ class OpenportContentRecieverAdapter implements IContentReciever {
     @Override
     public void done(byte[] b, int pos, int length) throws CircuitException {
         target.ondataDone(b, pos, length);
-        target.oninvoke(openportMethod, frame, circuit);
+        target.oninvoke(openportMethod, iSecuritySession, frame, circuit);
         if(this.openportCommand.afterInvoker!=null){
-            this.openportCommand.afterInvoker.doAfter(openportMethod.getMethodName(),openportMethod.getOpenportAnnotation(),frame,circuit);
+            this.openportCommand.afterInvoker.doAfter(iSecuritySession,frame,circuit);
         }
     }
 

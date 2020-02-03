@@ -20,8 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DefaultOpenportServiceContainer implements IOpenportServiceContainer, IOpenportPrinter {
-    IAccessControlStrategy acsStrategy;
-    ICheckTokenStrategy ctstrategy;
+    ICheckAppSignStrategy checkAppSignStrategy;
+    ICheckAccessTokenStrategy checkAccessTokenStrategy;
     Map<String, OpenportCommand> commands;// key为地址：/myservice.openportService#method1则直接访问到方法,/myservice#method1,因此服务名的索引直接以此作key
     Map<String, CjOpenports> portsMap;//收集服务注解为打印需要
     IServiceSite site;
@@ -30,14 +30,14 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         portsMap = new HashMap<>();
         commands = new HashMap<>();
         this.site = site;
-        String acsStr = (String) site.getService("$.cj.studio.openport.accessControlStrategy");
-        String ctsStr = (String) site.getService("$.cj.studio.openport.checkTokenStrategy");
+        String acsStr = (String) site.getService("$.cj.studio.openport.checkAppSignStrategy");
+        String ctsStr = (String) site.getService("$.cj.studio.openport.checkAccessTokenStrategy");
         ClassLoader cl=(ClassLoader)site.getService(IResource.class.getName());
         try {
-            this.acsStrategy = (IAccessControlStrategy) Class.forName(acsStr,true,cl).newInstance();
-            this.ctstrategy = (ICheckTokenStrategy) Class.forName(ctsStr,true,cl).newInstance();
-            this.acsStrategy.init(site);
-            this.ctstrategy.init(site);
+            this.checkAppSignStrategy = (ICheckAppSignStrategy) Class.forName(acsStr,true,cl).newInstance();
+            this.checkAccessTokenStrategy = (ICheckAccessTokenStrategy) Class.forName(ctsStr,true,cl).newInstance();
+            this.checkAppSignStrategy.init(site);
+            this.checkAccessTokenStrategy.init(site);
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             throw new EcmException(e);
         }
@@ -95,12 +95,7 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
 
             String key = String.format("%s#%s", servicepath, m.getName());
             CJSystem.logging().info(String.format("\t\t服务命令：%s", m.getName()));
-            OpenportCommand cmd = new OpenportCommand(openportService, servicepath, face, m, this.acsStrategy, this.ctstrategy);
-            if (acsStrategy.isInvisible(cmd.acl)) {
-                CJSystem.logging().warn(String.format("\t\t\t %s 由于对所有人不可见因此被忽略", m.getName()));
-                cmd.dispose();
-                continue;
-            }
+            OpenportCommand cmd = new OpenportCommand(openportService, servicepath, face, m, this.checkAppSignStrategy, this.checkAccessTokenStrategy);
             commands.put(key, cmd);
         }
     }

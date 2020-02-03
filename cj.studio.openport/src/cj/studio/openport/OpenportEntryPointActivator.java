@@ -20,8 +20,8 @@ public class OpenportEntryPointActivator implements IEntryPointActivator {
 
     @Override
     public void activate(IServiceSite site, IElement args) {
-        IProperty acs = (IProperty) args.getNode("accessControlStrategy");
-        IProperty cts = (IProperty) args.getNode("checkTokenStrategy");
+        IProperty acs = (IProperty) args.getNode("checkAppSignStrategy");
+        IProperty cts = (IProperty) args.getNode("checkAccessTokenStrategy");
         IProperty apipath = (IProperty) args.getNode("publicAPIPath");
         String apipathStr = "";
         if (apipath != null) {
@@ -39,21 +39,21 @@ public class OpenportEntryPointActivator implements IEntryPointActivator {
             acsclassStr = acs.getValue().getName();
         }
         if (StringUtil.isEmpty(acsclassStr)) {
-            acsclassStr = DefaultAccessControlStrategy.class.getName();
+            acsclassStr = DefaultCheckAppSignStrategy.class.getName();
         }
         String ctsclassStr = "";
         if (cts != null) {
             ctsclassStr = cts.getValue().getName();
         }
         if (StringUtil.isEmpty(ctsclassStr)) {
-            ctsclassStr = EmptyTokenCheckerStrategy.class.getName();
+            ctsclassStr = DefaultCheckAccessTokenStrategy.class.getName();
         }
 
         Map<String, Object> props = new HashMap<>();
         props.put("$.cj.studio.openport.publicAPIPath", apipathStr);
 
-        props.put("$.cj.studio.openport.accessControlStrategy", acsclassStr);
-        props.put("$.cj.studio.openport.checkTokenStrategy", ctsclassStr);
+        props.put("$.cj.studio.openport.checkAppSignStrategy", acsclassStr);
+        props.put("$.cj.studio.openport.checkAccessTokenStrategy", ctsclassStr);
 
         DefaultServiceSite dsite = new DefaultServiceSite(site, props);
         container = new DefaultOpenportServiceContainer(dsite);

@@ -79,8 +79,7 @@
                                         </li>
                                         <li style="color: #999; font-style: italic;"><span >注：在请求头或请求参数中设置键
 													Rest-Command = </span><span class="command">addAccount</span>，传入的token应放在:
-                                            <span class="tokenin">x</span>，token名是：<span class="tokenname"></span>，您需要的权限是：<span
-                                                    class="acl"></span><br><span>晌应代码：</span><span class="restates"></span></li>
+                                            <span class="tokenin">x</span>，token名是：<span class="tokenname"></span><br><span>晌应代码：</span><span class="restates"></span></li>
                                     </ul>
                                 </div>
                                 <ul class="port-header">
@@ -92,6 +91,21 @@
                                             type="button" value="查看样本" action="viewSimple"></li>
                                 </ul>
                                 <div class="request-token" style="text-align:center;"><textarea style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 100px;padding: 10px;resize: none;" placeholder="输入令牌"></textarea></div>
+                                <div class="port-appsign">
+                                    <span class="port-appsign-label">应用签名验证参数:</span>
+                                    <ul class="port-appsign-port-params">
+                                        <li class="port-appsign-port-param"><span>tenantCode</span>
+                                            <div>
+                                                <p class="port-appsign-desc">租户编码<span></span></p>
+                                                <p class="port-appsign-notic" style="font-size:12px;color: #999; font-style: italic;">注：该参数应放在请求的<span class="in"></span></p>
+                                            </div>
+                                            <div>
+                                                <input class="port-appsign-argument" placeholder="java.lang.String" type="text">
+                                                <p class="type"> <span>类型</span><span class="port-appsign-type">class java.lang.String</span><span></span> </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <div class="port-parambox">
                                     <span class="label">参数:</span>
                                     <ul class="port-params">

@@ -6,6 +6,7 @@ import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.ecm.net.IContentReciever;
 import cj.studio.openport.annotations.CjOpenport;
+import cj.studio.openport.annotations.CjOpenportAppSecurity;
 import cj.studio.openport.annotations.CjOpenportParameter;
 import cj.studio.openport.annotations.CjOpenports;
 import cj.studio.openport.util.ExceptionPrinter;
@@ -27,20 +28,18 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
     Class<?> openportInterface;//openportService实现的开放接口
     Method method;
     List<MethodParameter> parameters;
-    IAccessControlStrategy acsStrategy;
-    ICheckTokenStrategy ctstrategy;
-    Acl acl;
+    ICheckAppSignStrategy checkAppSignStrategy;
+    ICheckAccessTokenStrategy checkAccessTokenStrategy;
     Class<?> applyReturnType;
 
     public OpenportCommand(Object openportService, String servicepath, Class<?> face, Method method,
-                           IAccessControlStrategy acsStrategy, ICheckTokenStrategy ctstrategy) {
+                           ICheckAppSignStrategy checkAppSignStrategy, ICheckAccessTokenStrategy checkAccessTokenStrategy) {
         this.openportPath = servicepath;
         this.openportInterface = face;
         this.method = method;
-        this.acsStrategy = acsStrategy;
-        this.ctstrategy = ctstrategy;
+        this.checkAppSignStrategy = checkAppSignStrategy;
+        this.checkAccessTokenStrategy = checkAccessTokenStrategy;
         this.openportService = openportService;
-        this.acl = new Acl();
         try {
             instanceInvokers();
         } catch (IllegalAccessException e) {
@@ -49,7 +48,6 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             throw new EcmException(e);
         }
         parseApplyReturnType();
-        parseMethodAcl();
         parseMethodParameters();
     }
 
@@ -99,20 +97,10 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         this.method = null;
         if (this.parameters != null)
             this.parameters.clear();
-        this.acsStrategy = null;
-        this.ctstrategy = null;
-        if (acl != null)
-            this.acl.empty();
+        this.checkAppSignStrategy = null;
+        this.checkAccessTokenStrategy = null;
     }
 
-    private void parseMethodAcl() {
-        CjOpenport mperm = method.getAnnotation(CjOpenport.class);
-        if (mperm == null) return;
-        String[] aclarr = mperm.acl();
-        for (String aceText : aclarr) {
-            acl.addAce(aceText);
-        }
-    }
 
     private void parseMethodParameters() {
         CjOpenport port = method.getAnnotation(CjOpenport.class);
@@ -120,10 +108,20 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         Parameter[] params = method.getParameters();
         for (Parameter p : params) {
             CjOpenportParameter pp = p.getAnnotation(CjOpenportParameter.class);
+            if (ISecuritySession.class.isAssignableFrom(p.getType())) {
+                if (pp != null) {
+                    throw new EcmException(String.format("声明的方法参数:%s.%s 是%s类型，不需要CjOpenportParameter注解！", method.getName(), pp.name(), DefaultSecuritySession.class.getName()));
+                }
+                Class<?> runType = p.getType();
+                String position = String.format("%s.%s->%s", openportInterface.getName(), method.getName(), p.getName());
+                MethodParameter mp = new MethodParameter(position, p, runType);
+                this.parameters.add(mp);
+                continue;
+            }
             if (pp == null) {
                 continue;
             }
-            if (pp.in() == InRequest.content && (!port.command().toLowerCase().equals("post"))) {
+            if (pp.in() == PKeyInRequest.content && (!port.command().toLowerCase().equals("post"))) {
                 throw new EcmException(String.format("声明的方法参数要求放入请求内容，但方法却未声明为post，参数：%s 在: %s", pp.name(), method));
             }
             Class<?> runType = p.getType();
@@ -134,57 +132,118 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
     }
 
     public void doCommand(Frame frame, Circuit circuit) throws CircuitException {
-        CjOpenport mperm = this.method.getAnnotation(CjOpenport.class);
-        if (mperm == null) {
-            throw new CircuitException("801", "拒绝访问");
+        CjOpenportAppSecurity cjOpenportAppSecurity = this.method.getAnnotation(CjOpenportAppSecurity.class);
+        if (cjOpenportAppSecurity == null) {
+            doAccessTokenCommand(frame, circuit);
+        } else {
+            doAppSignCommand(frame, circuit, cjOpenportAppSecurity);
         }
-        String token = "";
-        TokenInfo tokenInfo = null;
+    }
+
+    public void doAppSignCommand(Frame frame, Circuit circuit, CjOpenportAppSecurity cjOpenportAppSecurity) throws CircuitException {
+        ISecuritySession iSecuritySession = null;
         IContentReciever reciever = null;
         String portsurl = frame.relativePath();
         String methodName = method.getName();
-        switch (mperm.tokenIn()) {
-            case headersOfRequest:
-                token = frame.head(mperm.checkTokenName());
-                try {
-                    tokenInfo = this.ctstrategy.checkToken(portsurl, methodName, mperm, token);
-                    this.acsStrategy.checkRight(tokenInfo, acl);
-                    if (this.beforeInvoker != null) {
-                        this.beforeInvoker.doBefore(methodName, mperm, tokenInfo, frame, circuit);
-                    }
-                } catch (Throwable e) {
-                    ExceptionPrinter printer = new ExceptionPrinter();
-                    printer.printException(e, circuit);
-                    return;
-                }
-                reciever = createContentReciever(frame, circuit);
-                frame.content().accept(reciever);
+        String appId = null;
+        switch (cjOpenportAppSecurity.appIDIn()) {
+            case header:
+                appId = frame.head(cjOpenportAppSecurity.appIDName());
                 break;
-            case parametersOfRequest:
-                token = frame.parameter(mperm.checkTokenName());
-                try {
-                    tokenInfo = this.ctstrategy.checkToken(portsurl, methodName, mperm, token);
-                    this.acsStrategy.checkRight(tokenInfo, acl);
-                    if (this.beforeInvoker != null) {
-                        this.beforeInvoker.doBefore(methodName, mperm, tokenInfo, frame, circuit);
-                    }
-                } catch (Throwable e) {
-                    ExceptionPrinter printer = new ExceptionPrinter();
-                    printer.printException(e, circuit);
-                    return;
-                }
-                reciever = createContentReciever(frame, circuit);
-                frame.content().accept(reciever);
-                break;
-            case nope:
-                reciever = createContentReciever(frame, circuit);
-                frame.content().accept(reciever);
+            case parameter:
+                appId = frame.parameter(cjOpenportAppSecurity.appIDName());
                 break;
         }
-
+        if (StringUtil.isEmpty(appId)) {
+            throw new CircuitException("804", "拒绝访问,缺少appid");
+        }
+        String appKey = null;
+        switch (cjOpenportAppSecurity.appKeyIn()) {
+            case header:
+                appKey = frame.head(cjOpenportAppSecurity.appKeyName());
+                break;
+            case parameter:
+                appKey = frame.parameter(cjOpenportAppSecurity.appKeyName());
+                break;
+        }
+        if (StringUtil.isEmpty(appKey)) {
+            throw new CircuitException("804", "拒绝访问,缺少appKey");
+        }
+        String nonce = null;
+        switch (cjOpenportAppSecurity.nonceIn()) {
+            case header:
+                nonce = frame.head(cjOpenportAppSecurity.nonceName());
+                break;
+            case parameter:
+                nonce = frame.parameter(cjOpenportAppSecurity.nonceName());
+                break;
+        }
+        if (StringUtil.isEmpty(nonce)) {
+            throw new CircuitException("804", "拒绝访问,缺少nonce");
+        }
+        String sign = null;
+        switch (cjOpenportAppSecurity.signIn()) {
+            case header:
+                sign = frame.head(cjOpenportAppSecurity.signName());
+                break;
+            case parameter:
+                sign = frame.parameter(cjOpenportAppSecurity.signName());
+                break;
+        }
+        if (StringUtil.isEmpty(sign)) {
+            throw new CircuitException("804", "拒绝访问,缺少nonce");
+        }
+        try {
+            this.checkAppSignStrategy.checkAppSign(portsurl, methodName, appId, appKey, nonce, sign);
+            if (this.beforeInvoker != null) {
+                this.beforeInvoker.doBefore(true, iSecuritySession, frame, circuit);
+            }
+        } catch (Throwable e) {
+            ExceptionPrinter printer = new ExceptionPrinter();
+            printer.printException(e, circuit);
+            return;
+        }
+        reciever = createContentReciever(iSecuritySession, frame, circuit);
+        frame.content().accept(reciever);
     }
 
-    protected IContentReciever createContentReciever(Frame frame, Circuit circuit) throws CircuitException {
+    public void doAccessTokenCommand(Frame frame, Circuit circuit) throws CircuitException {
+        CjOpenport cjOpenport = this.method.getAnnotation(CjOpenport.class);
+        if (cjOpenport == null) {
+            throw new CircuitException("801", "拒绝访问");
+        }
+        String token = "";
+        ISecuritySession iSecuritySession = null;
+        IContentReciever reciever = null;
+        String portsurl = frame.relativePath();
+        String methodName = method.getName();
+        switch (cjOpenport.tokenIn()) {
+            case headersOfRequest:
+                token = frame.head(cjOpenport.checkTokenName());
+                break;
+            case parametersOfRequest:
+                token = frame.parameter(cjOpenport.checkTokenName());
+                break;
+            case nope:
+                break;
+        }
+        try {
+            if (cjOpenport.tokenIn() != AccessTokenIn.nope) {
+                iSecuritySession = this.checkAccessTokenStrategy.checkAccessToken(portsurl, methodName, token);
+            }
+            if (this.beforeInvoker != null) {
+                this.beforeInvoker.doBefore(cjOpenport.tokenIn() == AccessTokenIn.nope, iSecuritySession, frame, circuit);
+            }
+        } catch (Throwable e) {
+            ExceptionPrinter printer = new ExceptionPrinter();
+            printer.printException(e, circuit);
+            return;
+        }
+        reciever = createContentReciever(iSecuritySession, frame, circuit);
+        frame.content().accept(reciever);
+    }
+
+    protected IContentReciever createContentReciever(ISecuritySession iSecuritySession, Frame frame, Circuit circuit) throws CircuitException {
         CjOpenport cot = method.getAnnotation(CjOpenport.class);
         Class<? extends IOpenportContentReciever> clazz = cot.reciever();
         if (clazz == null) {
@@ -192,7 +251,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         }
         try {
             IOpenportContentReciever target = clazz.newInstance();
-            IContentReciever reciever = new OpenportContentRecieverAdapter(target, this, circuit);
+            IContentReciever reciever = new OpenportContentRecieverAdapter(target, iSecuritySession, this, circuit);
             return reciever;
         } catch (InstantiationException e) {
             throw new CircuitException("404", e);
@@ -208,8 +267,8 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         e.select(".port-title span").html(method.getName());
         e.select(".port-usage .desc .usage").html(ot.usage() + "");
         e.select(".port-usage .desc .command").html(method.getName());
-        if (ot.tokenIn() == TokenIn.nope) {
-            String tokenInfo = String.format("%s(<b style='color:red;'>注：<b/>nope表示该方法不需要领牌)", ot.tokenIn());
+        if (ot.tokenIn() == AccessTokenIn.nope) {
+            String tokenInfo = String.format("%s(<b style='color:red;'>注：<b/>nope表示该方法不需要访问令牌)", ot.tokenIn());
             e.select(".port-usage .desc .tokenin").html(tokenInfo);
             e.select(".port-usage .desc .tokenname").html(ot.checkTokenName() + "");
             e.select(".request-token").attr("style", "display:none;");
@@ -218,11 +277,6 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             e.select(".port-usage .desc .tokenin").html(ot.tokenIn() + "");
             e.select(".port-usage .desc .tokenname").html(ot.checkTokenName() + "");
         }
-        StringBuffer sb = new StringBuffer();
-        for (String ace : ot.acl()) {
-            sb.append(ace + "; ");
-        }
-        e.select(".port-usage .desc .acl").html(sb.toString());
         StringBuffer sb2 = new StringBuffer();
         for (String st : ot.responseStatus()) {
             sb2.append(st + "; ");
@@ -256,11 +310,24 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         rc.dataType = method.getReturnType().getName();
         String json = new Gson().toJson(rc);
         e.select(".port-ret .type").html(json);
+        //打印应用签名验证参数
+        Element signul = e.select(".port-appsign-port-params").first();
+        Element signli = signul.select(">li").first().clone();
+        signul.empty();
+        CjOpenportAppSecurity cjOpenportAppSecurity = this.method.getAnnotation(CjOpenportAppSecurity.class);
+        if (cjOpenportAppSecurity != null) {
+            printAppSignParams(signul, signli, cjOpenportAppSecurity);
+        } else {
+            e.select(".port-appsign").remove();
+        }
         //打印参数
         Element ul = e.select(".port-params").first();
         Element li = ul.select(">li").first().clone();
         ul.empty();
         for (MethodParameter mp : this.parameters) {
+            if (mp.parameterAnnotation == null) {
+                continue;
+            }
             Element cli = li.clone();
             cli.attr("paramter-name", mp.parameterAnnotation.name() + "");
             cli.attr("inrequest", mp.parameterAnnotation.in() + "");
@@ -289,6 +356,45 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             }
             ul.appendChild(cli);
         }
+    }
+
+    private void printAppSignParams(Element signul, Element signli, CjOpenportAppSecurity cjOpenportAppSecurity) {
+        Element cli = signli.clone();
+        cli.attr("paramter-name", cjOpenportAppSecurity.appIDName() + "");
+        cli.attr("inrequest", cjOpenportAppSecurity.appIDIn() + "");
+        cli.select(">span").html(cjOpenportAppSecurity.appIDName() + "");
+        cli.select(".port-appsign-desc").html("平台颁发给您的应用标识");
+        cli.select(".port-appsign-notic .in").html(cjOpenportAppSecurity.appIDIn() + "");
+        cli.select(".port-appsign-argument").attr("placeholder", "按类型" + String.class.getName() + "输入...");
+        cli.select("span.port-appsign-type").html(String.class.getName() + "");
+        signul.appendChild(cli);
+        cli = signli.clone();
+        cli.attr("paramter-name", cjOpenportAppSecurity.appKeyName() + "");
+        cli.attr("inrequest", cjOpenportAppSecurity.appKeyIn() + "");
+        cli.select(">span").html(cjOpenportAppSecurity.appKeyName() + "");
+        cli.select(".port-appsign-desc").html("平台颁发给您的应用标识");
+        cli.select(".port-appsign-notic .in").html(cjOpenportAppSecurity.appKeyIn() + "");
+        cli.select(".port-appsign-argument").attr("placeholder", "按类型" + String.class.getName() + "输入...");
+        cli.select("span.port-appsign-type").html(String.class.getName() + "");
+        signul.appendChild(cli);
+        cli = signli.clone();
+        cli.attr("paramter-name", cjOpenportAppSecurity.nonceName() + "");
+        cli.attr("inrequest", cjOpenportAppSecurity.nonceIn() + "");
+        cli.select(">span").html(cjOpenportAppSecurity.nonceName() + "");
+        cli.select(".port-appsign-desc").html("平台颁发给您的应用标识");
+        cli.select(".port-appsign-notic .in").html(cjOpenportAppSecurity.nonceIn() + "");
+        cli.select(".port-appsign-argument").attr("placeholder", "按类型" + String.class.getName() + "输入...");
+        cli.select("span.port-appsign-type").html(String.class.getName() + "");
+        signul.appendChild(cli);
+        cli = signli.clone();
+        cli.attr("paramter-name", cjOpenportAppSecurity.signName() + "");
+        cli.attr("inrequest", cjOpenportAppSecurity.signIn() + "");
+        cli.select(">span").html(cjOpenportAppSecurity.signName() + "");
+        cli.select(".port-appsign-desc").html("平台颁发给您的应用标识");
+        cli.select(".port-appsign-notic .in").html(cjOpenportAppSecurity.signIn() + "");
+        cli.select(".port-appsign-argument").attr("placeholder", "按类型" + String.class.getName() + "输入...");
+        cli.select("span.port-appsign-type").html(String.class.getName() + "");
+        signul.appendChild(cli);
     }
 }
 

@@ -52,6 +52,7 @@ $(document).ready(function(){
 	$('input[type=button][action=run]').on('click',function(e){
 		var portlet=$('.portlet.method-let.showing');
 		var params=portlet.find('.port-param');
+        var appsignParams=portlet.find('.port-appsign-port-param');
 		var reqcmd=portlet.attr('request-command');
 		var porturl=portlet.attr('request-url');
 		var portname=portlet.attr('portname');
@@ -69,6 +70,20 @@ $(document).ready(function(){
 		    parameters[checktokenname]=tokenval;
 		break;
 		}
+        for(var i=0;i<appsignParams.length;i++){
+            var p=appsignParams[i];
+            var paramName=$(p).attr('paramter-name');
+            var paramValue=$(p).find('.port-appsign-argument').val();
+            var inrequest=$(p).attr('inrequest');
+            switch(inrequest){
+                case "header":
+                    headers[paramName]=paramValue;
+                    break;
+                case "parameter":
+                    parameters[paramName]=paramValue;
+                    break;
+            }
+        }
 		for(var i=0;i<params.length;i++){
 		    var p=params[i];
 		    var paramName=$(p).attr('paramter-name');

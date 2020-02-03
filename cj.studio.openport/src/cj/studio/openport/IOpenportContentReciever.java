@@ -4,7 +4,6 @@ import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 
-import java.util.List;
 /**
  * 自开放口内容接收器，
  * <pre>
@@ -53,8 +52,9 @@ public interface IOpenportContentReciever {
      * <br>
      *
      * @param openportMethod 开放口方法,可执行目标方法，在执行前完成其内parametersArgsValues的填充
+     * @param iSecuritySession
      * @param frame 请求
      * @param circuit 响应，将执行目标方法的返回值解析并写回客户端
      */
-    void oninvoke( IOpenportMethod openportMethod,  Frame frame, Circuit circuit);
+    void oninvoke(IOpenportMethod openportMethod, ISecuritySession iSecuritySession, Frame frame, Circuit circuit);
 }

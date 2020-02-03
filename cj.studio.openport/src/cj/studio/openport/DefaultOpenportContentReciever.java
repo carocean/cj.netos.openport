@@ -55,8 +55,8 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
     }
 
     @Override
-    public void oninvoke(IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
-        doinvoke(openportMethod, frame, circuit);
+    public void oninvoke(IOpenportMethod openportMethod, ISecuritySession iSecuritySession, Frame frame, Circuit circuit) {
+        doinvoke(openportMethod, iSecuritySession, frame, circuit);
     }
 
     /**
@@ -66,18 +66,16 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
      * @param frame
      * @param circuit
      */
-    protected void doinvoke(IOpenportMethod openportMethod, Frame frame, Circuit circuit) {
+    protected void doinvoke(IOpenportMethod openportMethod, ISecuritySession iSecuritySession, Frame frame, Circuit circuit) {
         Object[] args = openportMethod.getParametersArgsValues();
         MemoryContentReciever reciever = (MemoryContentReciever) this.reciever;
         try {
-            Map<String, Object> contentMap = null;
-            if (frame.content().revcievedBytes() > 0) {
-                String json = new String(reciever.readFully());
-                contentMap = new Gson().fromJson(json, new TypeToken<Map<String, Object>>() {
-                }.getType());
-            }
             for (int i = 0; i < openportMethod.getParameters().size(); i++) {
                 MethodParameter p = openportMethod.getParameters().get(i);
+                if (ISecuritySession.class.isAssignableFrom(p.getApplyType())) {
+                    args[i]= iSecuritySession;
+                    continue;
+                }
                 switch (p.parameterAnnotation.in()) {
                     case header:
                         Object v = frame.head(p.parameterAnnotation.name());
@@ -95,6 +93,12 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
                         args[i] = reflactValue(v, p);
                         break;
                     case content:
+                        Map<String, Object> contentMap = null;
+                        if (frame.content().revcievedBytes() > 0) {
+                            String json = new String(reciever.readFully());
+                            contentMap = new Gson().fromJson(json, new TypeToken<Map<String, Object>>() {
+                            }.getType());
+                        }
                         if (contentMap != null) {
                             v = contentMap.get(p.parameterAnnotation.name());
                             args[i] = reflactValue(v, p);
@@ -148,7 +152,7 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
                 if (Map.class.isAssignableFrom(dataType)) {
                     @SuppressWarnings("unchecked")
                     Map<Object, Object> map = (Map<Object, Object>) result;
-                    if (!map.isEmpty()) {
+                    if (map!=null&&!map.isEmpty()) {
                         Set<Map.Entry<Object, Object>> set = map.entrySet();
                         Map.Entry<Object, Object> entry = null;
                         for (Map.Entry<Object, Object> _entry : set) {

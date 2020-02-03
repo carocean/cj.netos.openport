@@ -20,30 +20,13 @@ import cj.studio.openport.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CjOpenport {
 	/**
-	 * 访问控制列表<br>
-	 * 默认为：充许所有访问者只要对token验证通过的,token未验证通过的则永远被拒绝<br>
-	 * 写法：<br>
-	 * allow cj.user 表示为充许用户为cj的访问；<br>
-	 * allow test.role 充许所有角色为test的访问 ,<br>
-	 * deny zxt.user 拒绝用户为zxt的访问<br>
-	 * invisible *.* 表示方法不可见也不可用<br>
-	 * allow *.* 为方法默认权限
-	 * <pre>
-	 *
-	 *
-	 * </pre>
+	 * accessToken令牌在请求的哪里
 	 * @return
 	 */
-	String[] acl() default "allow *.*";
+	AccessTokenIn tokenIn() default AccessTokenIn.headersOfRequest;
 
 	/**
-	 * 令牌在请求的哪里
-	 * @return
-	 */
-	TokenIn tokenIn() default TokenIn.headersOfRequest;
-
-	/**
-	 * 令牌的名字，在请求中令牌的键
+	 *  accessToken令牌的名字，在请求中令牌的键
 	 * @return
 	 */
 	String checkTokenName() default "cjtoken";

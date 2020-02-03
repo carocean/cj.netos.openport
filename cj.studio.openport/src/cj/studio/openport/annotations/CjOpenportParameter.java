@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import cj.studio.openport.InRequest;
+import cj.studio.openport.PKeyInRequest;
 
 /**
  * 许可用法，用于注解许可服务的方法参数及返回值.<br>
@@ -27,7 +27,7 @@ public @interface CjOpenportParameter {
 	 * 参数放在请求的哪里
 	 * @return
 	 */
-	InRequest in() default InRequest.parameter;
+	PKeyInRequest in() default PKeyInRequest.parameter;
 
 	/**
 	 * 参数显式类型
