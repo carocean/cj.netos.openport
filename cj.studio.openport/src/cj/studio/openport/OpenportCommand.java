@@ -317,6 +317,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         CjOpenportAppSecurity cjOpenportAppSecurity = this.method.getAnnotation(CjOpenportAppSecurity.class);
         if (cjOpenportAppSecurity != null) {
             printAppSignParams(signul, signli, cjOpenportAppSecurity);
+            e.select(".port-appsign > .port-appsign-usage span").html(cjOpenportAppSecurity.usage()+"");
         } else {
             e.select(".port-appsign").remove();
         }

@@ -1167,7 +1167,12 @@
 .port-appsign > .port-appsign-label {
     color: gray;
 }
-
+.port-appsign > .port-appsign-usage {
+    color: gray;
+    padding: 0px 10px 0px 20px;
+    font-size: 12px;
+    margin: 0;
+}
 .port-appsign > .port-appsign-port-params {
     margin: 5px 0 5px 10px;
     color: gray;

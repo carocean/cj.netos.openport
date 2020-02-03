@@ -14,7 +14,7 @@ import cj.studio.openport.*;
  * 
  *
  * @author caroceanjofers
- *
+ * @see ICheckAccessTokenStrategy 如需访问令牌保护该方法，需要实现本接口，并在Assembly.json中注册
  */
 @Target(value = { ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
@@ -37,8 +37,10 @@ public @interface CjOpenport {
 	 * 声明响应代码<br>
 	 * 声明响应代码主要用于描述可能发生的异常类型，是给使用者看的，并不替换原始异常，它仅是对原始异常的说明。<br>
 	 * 写法：<br>
+	 *     <pre>
 	 * CjOpenport(responseStatus={"500 可能是内部哪错了.","200 说明成功,非200表示出错"})
-	 * 
+	 * 如果是访问令牌保护的模式下，可以声明ISecuritySession参数，该参数为内部参数，对外不可见
+	 * </pre>
 	 * @return
 	 */
 	String[] responseStatus() default { "200 ok" };

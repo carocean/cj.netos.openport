@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
  *     注意：该注解使得CjOpenport注解中的tokenIn配置无效
  *
  * @author caroceanjofers
- *
+ * @see ICheckAppSignStrategy 需要实现该接口以实现应用签名认证，并在Assembly.json中注册
  */
 @Target(value = { ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
@@ -63,4 +63,10 @@ public @interface CjOpenportAppSecurity {
 	 * @return
 	 */
 	String signName() default "App-Sign";
+
+	/**
+	 * 用法
+	 * @return
+	 */
+	String usage() default "";
 }
