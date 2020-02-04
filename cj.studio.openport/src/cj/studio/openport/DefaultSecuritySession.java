@@ -12,15 +12,33 @@ public class DefaultSecuritySession implements ISecuritySession {
         roles = new ArrayList<>();
     }
 
+    /**
+     * 以当事人构建
+     * @param principal person或appid
+     */
     public DefaultSecuritySession(String principal) {
         this();
         this.principal = principal;
+    }
+
+    public DefaultSecuritySession(String principal, List<String> roles, Map<String, Object> properties) {
+        this.principal = principal;
+        this.roles = roles;
+        this.properties = properties;
+        if (roles == null) {
+            this.roles = new ArrayList<>();
+        }
+        if (properties == null) {
+            this.properties = new HashMap<>();
+        }
+
     }
 
     @Override
     public void removeProperty(String key) {
         properties.remove(key);
     }
+
     @Override
     public Object property(String key) {
         return properties.get(key);
@@ -70,13 +88,9 @@ public class DefaultSecuritySession implements ISecuritySession {
     public void removeRole(String role) {
         roles.remove(role);
     }
+
     @Override
     public String principal() {
         return principal;
-    }
-
-    @Override
-    public void principal(String principal) {
-        this.principal = principal;
     }
 }

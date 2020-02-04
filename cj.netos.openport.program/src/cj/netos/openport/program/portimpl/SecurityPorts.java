@@ -9,7 +9,7 @@ import java.util.Map;
 @CjService(name = "/test/security")
 public class SecurityPorts implements ISecurityPorts {
     @Override
-    public String login(String accountName, String password) throws CircuitException {
+    public String login(ISecuritySession securitySession,String accountName, String password) throws CircuitException {
         System.out.println("---login--"+accountName+"  "+password);
         return null;
     }

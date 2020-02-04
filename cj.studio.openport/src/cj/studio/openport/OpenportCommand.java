@@ -194,7 +194,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             throw new CircuitException("804", "拒绝访问,缺少nonce");
         }
         try {
-            this.checkAppSignStrategy.checkAppSign(portsurl, methodName, appId, appKey, nonce, sign);
+            iSecuritySession=this.checkAppSignStrategy.checkAppSign(portsurl, methodName, appId, appKey, nonce, sign);
             if (this.beforeInvoker != null) {
                 this.beforeInvoker.doBefore(true, iSecuritySession, frame, circuit);
             }

@@ -144,13 +144,13 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
                            @CjOpenportParameter(name = "password", defaultValue = "1234", in = InRequest.content, usage = "密码") String password,
                            @CjOpenportParameter(name = "ttlMillis", usage = "过期毫秒数", defaultValue = "188383774949292") long ttlMillis) throws CircuitException;
    
-       @CjOpenport(usage = "测试", tokenIn = TokenIn.headersOfRequest, acl = {"allow *.role"})
+       @CjOpenport(usage = "测试", tokenIn = TokenIn.headersOfRequest})
        Map<Integer, TestArg> test(@CjOpenportParameter(name = "list", type = LinkedList.class, elementType = TestArg.class, usage = "吃了没") List<TestArg> list,
                                   @CjOpenportParameter(name = "set", elementType = TestArg.class, usage = "哈，这个好") List<TestArg> set,
                                   @CjOpenportParameter(name = "map", type = TreeMap.class, elementType = {Integer.class, TestArg.class}, usage = "型啥哩") Map<Integer, TestArg> map)
                throws CircuitException;
    
-       @CjOpenport(usage = "测试2",reciever = MyOpenportContentReciever.class, tokenIn = TokenIn.headersOfRequest, acl = {"allow *.role"}, command = "post", type = LinkedList.class)
+       @CjOpenport(usage = "测试2",reciever = MyOpenportContentReciever.class, tokenIn = TokenIn.headersOfRequest, command = "post", type = LinkedList.class)
        List<TestArg> test2(@CjOpenportParameter(name = "arg", usage = "列下", in = InRequest.content, defaultValue = "{\"name\":\"cj\",\"age\":23}") TestArg arg, @CjOpenportParameter(name = "v", usage = "中", defaultValue = "5.2") BigDecimal v);
    }
 
@@ -160,11 +160,57 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
 
 - 对开放口服务的访问优先于webview
 
-	说明：CjOpenport将服务和方法说明成开放口，即然要开放也要能保护隐私，因此其内隐含Permission概念，Permission为许可，许可概念类似于司法厅向社会生产单位发放许可执照一样概念，像卫生许可证，授予你之后方可经营，并限制你不能经营一些东西。
-	用法比如：MyService,声明为：@CjOpenPort(acl={'allow *.role','deny *.user '},checkTokenName='cjtoken')，意为：myService对所有人授预拒绝权限的许可。
+	说明：CjOpenport的api可受到保护，api方法的保护模式有三种：app签名验证、accessToken保护、完全开放。
+	app签名验证:
+	  - 需要注解：@CjOpenportAppSecurity(usage = "返回accessToken")
+      - 需实现接口：ICheckAppSignStrategy
+      - 可以定义方法参数ISecuritySession securitySession,以使用安全会话
+	accessToken保护:
+	  - 仅用@CjOpenport注解的方法
+	  - 需实现接口：ICheckAccessTokenStrategy
+	  - 可以定义方法参数ISecuritySession securitySession,以使用安全会话
+	完全开放：
+	  - 使用 AccessTokenIn.nope为完全开放： @CjOpenport(tokenIn = AccessTokenIn.nope
 
-	展望：未来可以将该安全机制作为基本定义，而优先微服务注册中心的定义。只有当微服务注册中心没有定义到该服务的访问控制权限才采用基本定义。这就很好的将两套机制融合。
-	只有具备了基本行走的能力才可以跳高，所以二者并未冲突。
+```java
 
-	
-	
+package cj.netos.openport.program.portface;
+
+import cj.studio.ecm.net.CircuitException;
+import cj.studio.openport.AccessTokenIn;
+import cj.studio.openport.IOpenportService;
+import cj.studio.openport.ISecuritySession;
+import cj.studio.openport.annotations.CjOpenport;
+import cj.studio.openport.annotations.CjOpenportAppSecurity;
+import cj.studio.openport.annotations.CjOpenportParameter;
+import cj.studio.openport.annotations.CjOpenports;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@CjOpenports(usage = "测试安全机制")
+public interface ISecurityPorts extends IOpenportService {
+    @CjOpenportAppSecurity(usage = "返回accessToken")
+    @CjOpenport(tokenIn = AccessTokenIn.nope, usage = "用户委托第三方app以登录，返回访问令牌")
+    public String login(ISecuritySession securitySession,@CjOpenportParameter(usage = "登录账号名", name = "accountName")String accountName,
+                        @CjOpenportParameter(usage = "登录密码", name = "password")String password) throws CircuitException;
+
+    @CjOpenportAppSecurity()
+    @CjOpenport(tokenIn = AccessTokenIn.nope, usage = "用户委托第三方app以生成新的访问令牌，返回包括：新的accessToken,下一次的refreshToken,等等")
+    public Map<String, String> refreshToken(@CjOpenportParameter(usage = "上传上一次的刷新令牌", name = "refreshToken") String refreshToken) throws CircuitException;
+
+    @CjOpenport(usage = "普通地受accessToken保护的方法")
+    public void testProtect(@CjOpenportParameter(usage = "a", name = "a") int a,
+                            @CjOpenportParameter(usage = "b", name = "b") boolean b,
+                            @CjOpenportParameter(usage = "c", name = "c", type = HashMap.class, elementType = {String.class, String.class}) Map<String, String> c,
+                            //用于接收安全会话信息，该参数对外不可见
+                            ISecuritySession iSecuritySession);
+
+    @CjOpenport(tokenIn = AccessTokenIn.nope, usage = "开放的方法")
+    public void testPublic(@CjOpenportParameter(usage = "a", name = "a") int a,
+                           @CjOpenportParameter(usage = "b", name = "b") boolean b,
+                           @CjOpenportParameter(usage = "c", name = "c", type = HashMap.class, elementType = {String.class, String.class}) Map<String, String> c);
+}
+
+
+```

@@ -25,7 +25,11 @@ public interface ISecuritySession {
 
     void removeRole(String role);
 
+    /**
+     * 返回person或appid
+     *
+     * @return
+     */
     String principal();
 
-    void principal(String principal);
 }
