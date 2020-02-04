@@ -2275,3 +2275,362 @@
 2020年02月04日 10:19:17  信息 : 				参数：a int parameter
 2020年02月04日 10:19:17  信息 : 				参数：b boolean parameter
 2020年02月04日 10:19:17  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:07:04  信息 : -------------网关启动完毕-------------------
+2020年02月04日 20:07:04  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2020年02月04日 20:07:10  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.netos.openport/cmdtools/gateway/lib/share
+2020年02月04日 20:07:10  信息 : openports插件发现配置：
+2020年02月04日 20:07:10  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2020年02月04日 20:07:10  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2020年02月04日 20:07:10  信息 : 系统开放api地址是：/portsapi
+2020年02月04日 20:07:10  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2020年02月04日 20:07:10  信息 : 		服务命令：test
+2020年02月04日 20:07:10  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:07:10  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:07:10  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:07:10  信息 : 		服务命令：test2
+2020年02月04日 20:07:10  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2020年02月04日 20:07:10  信息 : 				参数：v java.math.BigDecimal parameter
+2020年02月04日 20:07:10  信息 : 		服务命令：authenticate
+2020年02月04日 20:07:10  信息 : 				参数：authName java.lang.String parameter
+2020年02月04日 20:07:10  信息 : 				参数：tenant java.lang.String parameter
+2020年02月04日 20:07:10  信息 : 				参数：principals java.lang.String header
+2020年02月04日 20:07:10  信息 : 				参数：password java.lang.String content
+2020年02月04日 20:07:10  信息 : 				参数：ttlMillis long parameter
+2020年02月04日 20:07:10  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2020年02月04日 20:07:10  信息 : 		服务命令：getAcl
+2020年02月04日 20:07:10  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:07:10  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:07:10  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:07:10  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2020年02月04日 20:07:10  信息 : 		服务命令：login
+2020年02月04日 20:07:10  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:07:10  信息 : 				参数：accountName java.lang.String parameter
+2020年02月04日 20:07:10  信息 : 				参数：password java.lang.String parameter
+2020年02月04日 20:07:10  信息 : 		服务命令：refreshToken
+2020年02月04日 20:07:10  信息 : 				参数：refreshToken java.lang.String parameter
+2020年02月04日 20:07:10  信息 : 		服务命令：testProtect
+2020年02月04日 20:07:10  信息 : 				参数：a int parameter
+2020年02月04日 20:07:10  信息 : 				参数：b boolean parameter
+2020年02月04日 20:07:10  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:07:10  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:07:10  信息 : 		服务命令：testPublic
+2020年02月04日 20:07:10  信息 : 				参数：a int parameter
+2020年02月04日 20:07:10  信息 : 				参数：b boolean parameter
+2020年02月04日 20:07:10  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:07:46  信息 : -------------网关启动完毕-------------------
+2020年02月04日 20:07:46  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2020年02月04日 20:07:48  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.netos.openport/cmdtools/gateway/lib/share
+2020年02月04日 20:07:48  信息 : openports插件发现配置：
+2020年02月04日 20:07:48  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2020年02月04日 20:07:49  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2020年02月04日 20:07:49  信息 : 系统开放api地址是：/portsapi
+2020年02月04日 20:07:49  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2020年02月04日 20:07:49  信息 : 		服务命令：test
+2020年02月04日 20:07:49  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:07:49  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:07:49  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:07:49  信息 : 		服务命令：authenticate
+2020年02月04日 20:07:49  信息 : 				参数：authName java.lang.String parameter
+2020年02月04日 20:07:49  信息 : 				参数：tenant java.lang.String parameter
+2020年02月04日 20:07:49  信息 : 				参数：principals java.lang.String header
+2020年02月04日 20:07:49  信息 : 				参数：password java.lang.String content
+2020年02月04日 20:07:49  信息 : 				参数：ttlMillis long parameter
+2020年02月04日 20:07:49  信息 : 		服务命令：test2
+2020年02月04日 20:07:49  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2020年02月04日 20:07:49  信息 : 				参数：v java.math.BigDecimal parameter
+2020年02月04日 20:07:49  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2020年02月04日 20:07:49  信息 : 		服务命令：getAcl
+2020年02月04日 20:07:49  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:07:49  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:07:49  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:07:49  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2020年02月04日 20:07:49  信息 : 		服务命令：login
+2020年02月04日 20:07:49  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:07:49  信息 : 				参数：accountName java.lang.String parameter
+2020年02月04日 20:07:49  信息 : 				参数：password java.lang.String parameter
+2020年02月04日 20:07:49  信息 : 		服务命令：refreshToken
+2020年02月04日 20:07:49  信息 : 				参数：refreshToken java.lang.String parameter
+2020年02月04日 20:07:49  信息 : 		服务命令：testProtect
+2020年02月04日 20:07:49  信息 : 				参数：a int parameter
+2020年02月04日 20:07:49  信息 : 				参数：b boolean parameter
+2020年02月04日 20:07:49  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:07:49  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:07:49  信息 : 		服务命令：testPublic
+2020年02月04日 20:07:49  信息 : 				参数：a int parameter
+2020年02月04日 20:07:49  信息 : 				参数：b boolean parameter
+2020年02月04日 20:07:49  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:11:00  信息 : -------------网关启动完毕-------------------
+2020年02月04日 20:11:00  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2020年02月04日 20:11:05  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.netos.openport/cmdtools/gateway/lib/share
+2020年02月04日 20:11:05  信息 : openports插件发现配置：
+2020年02月04日 20:11:05  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2020年02月04日 20:11:05  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2020年02月04日 20:11:05  信息 : 系统开放api地址是：/portsapi
+2020年02月04日 20:11:05  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2020年02月04日 20:11:05  信息 : 		服务命令：test
+2020年02月04日 20:11:05  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:11:05  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:11:05  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:11:05  信息 : 		服务命令：test2
+2020年02月04日 20:11:05  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2020年02月04日 20:11:05  信息 : 				参数：v java.math.BigDecimal parameter
+2020年02月04日 20:11:05  信息 : 		服务命令：authenticate
+2020年02月04日 20:11:05  信息 : 				参数：authName java.lang.String parameter
+2020年02月04日 20:11:05  信息 : 				参数：tenant java.lang.String parameter
+2020年02月04日 20:11:05  信息 : 				参数：principals java.lang.String header
+2020年02月04日 20:11:05  信息 : 				参数：password java.lang.String content
+2020年02月04日 20:11:05  信息 : 				参数：ttlMillis long parameter
+2020年02月04日 20:11:05  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2020年02月04日 20:11:05  信息 : 		服务命令：getAcl
+2020年02月04日 20:11:05  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:11:05  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:11:05  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:11:05  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2020年02月04日 20:11:05  信息 : 		服务命令：testProtect
+2020年02月04日 20:11:05  信息 : 				参数：a int parameter
+2020年02月04日 20:11:05  信息 : 				参数：b boolean parameter
+2020年02月04日 20:11:05  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:11:05  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:11:05  信息 : 		服务命令：refreshToken
+2020年02月04日 20:11:05  信息 : 				参数：refreshToken java.lang.String parameter
+2020年02月04日 20:11:05  信息 : 		服务命令：testPublic
+2020年02月04日 20:11:05  信息 : 				参数：a int parameter
+2020年02月04日 20:11:05  信息 : 				参数：b boolean parameter
+2020年02月04日 20:11:05  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:11:05  信息 : 		服务命令：login
+2020年02月04日 20:11:05  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:11:05  信息 : 				参数：accountName java.lang.String parameter
+2020年02月04日 20:11:05  信息 : 				参数：password java.lang.String parameter
+2020年02月04日 20:11:39  信息 : -------------网关启动完毕-------------------
+2020年02月04日 20:11:39  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2020年02月04日 20:11:41  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.netos.openport/cmdtools/gateway/lib/share
+2020年02月04日 20:11:41  信息 : openports插件发现配置：
+2020年02月04日 20:11:41  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2020年02月04日 20:11:41  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2020年02月04日 20:11:41  信息 : 系统开放api地址是：/portsapi
+2020年02月04日 20:11:41  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2020年02月04日 20:11:41  信息 : 		服务命令：test
+2020年02月04日 20:11:41  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:11:41  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:11:41  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:11:41  信息 : 		服务命令：test2
+2020年02月04日 20:11:41  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2020年02月04日 20:11:41  信息 : 				参数：v java.math.BigDecimal parameter
+2020年02月04日 20:11:41  信息 : 		服务命令：authenticate
+2020年02月04日 20:11:41  信息 : 				参数：authName java.lang.String parameter
+2020年02月04日 20:11:41  信息 : 				参数：tenant java.lang.String parameter
+2020年02月04日 20:11:41  信息 : 				参数：principals java.lang.String header
+2020年02月04日 20:11:41  信息 : 				参数：password java.lang.String content
+2020年02月04日 20:11:41  信息 : 				参数：ttlMillis long parameter
+2020年02月04日 20:11:41  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2020年02月04日 20:11:41  信息 : 		服务命令：getAcl
+2020年02月04日 20:11:41  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:11:41  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:11:41  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:11:41  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2020年02月04日 20:11:41  信息 : 		服务命令：refreshToken
+2020年02月04日 20:11:41  信息 : 				参数：refreshToken java.lang.String parameter
+2020年02月04日 20:11:41  信息 : 		服务命令：login
+2020年02月04日 20:11:41  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:11:41  信息 : 				参数：accountName java.lang.String parameter
+2020年02月04日 20:11:41  信息 : 				参数：password java.lang.String parameter
+2020年02月04日 20:11:41  信息 : 		服务命令：testProtect
+2020年02月04日 20:11:41  信息 : 				参数：a int parameter
+2020年02月04日 20:11:41  信息 : 				参数：b boolean parameter
+2020年02月04日 20:11:41  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:11:41  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:11:41  信息 : 		服务命令：testPublic
+2020年02月04日 20:11:41  信息 : 				参数：a int parameter
+2020年02月04日 20:11:41  信息 : 				参数：b boolean parameter
+2020年02月04日 20:11:41  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:41:31  信息 : -------------网关启动完毕-------------------
+2020年02月04日 20:41:31  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2020年02月04日 20:41:38  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.netos.openport/cmdtools/gateway/lib/share
+2020年02月04日 20:41:38  信息 : openports插件发现配置：
+2020年02月04日 20:41:38  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2020年02月04日 20:41:38  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2020年02月04日 20:41:57  信息 : 系统开放api地址是：/portsapi
+2020年02月04日 20:42:41  信息 : 网关监视失败。原因：Bad file descriptor
+2020年02月04日 20:42:41  错误: cj.studio.gateway.server.handler.HttpChannelHandler -  异常：java.lang.RuntimeException: cj.studio.ecm.EcmException: java.lang.ClassNotFoundException: cj/netos/openport/programITestAppSignStrategy
+		at cj.studio.ecm.Assembly$EntryPoint.start(Assembly.java:623)
+		at cj.studio.ecm.Assembly.start(Assembly.java:404)
+		at cj.studio.gateway.socket.app.AppGatewaySocket.scanAssemblyAndLoad(AppGatewaySocket.java:157)
+		at cj.studio.gateway.socket.app.AppGatewaySocket.connect(AppGatewaySocket.java:120)
+		at cj.studio.gateway.DestinationLoader.load(DestinationLoader.java:40)
+		at cj.studio.gateway.GatewaySocketContainer.getAndCreate(GatewaySocketContainer.java:36)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.pipelineHttpBuild(HttpChannelHandler.java:496)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.flowHttpRequest(HttpChannelHandler.java:468)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.handleHttpRequest(HttpChannelHandler.java:209)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.messageReceived(HttpChannelHandler.java:105)
+		at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.channel.ChannelHandlerAdapter.channelRead(ChannelHandlerAdapter.java:143)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)
+		at io.netty.handler.codec.MessageToMessageCodec.channelRead(MessageToMessageCodec.java:111)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:243)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:956)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:514)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:471)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:385)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:351)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+	Cause by:
+		at cj.studio.openport.DefaultOpenportServiceContainer.<init>(DefaultOpenportServiceContainer.java:42)
+		at cj.studio.openport.OpenportEntryPointActivator.activate(OpenportEntryPointActivator.java:59)
+		at cj.studio.ecm.Assembly$EntryPoint.start(Assembly.java:619)
+		at cj.studio.ecm.Assembly.start(Assembly.java:404)
+		at cj.studio.gateway.socket.app.AppGatewaySocket.scanAssemblyAndLoad(AppGatewaySocket.java:157)
+		at cj.studio.gateway.socket.app.AppGatewaySocket.connect(AppGatewaySocket.java:120)
+		at cj.studio.gateway.DestinationLoader.load(DestinationLoader.java:40)
+		at cj.studio.gateway.GatewaySocketContainer.getAndCreate(GatewaySocketContainer.java:36)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.pipelineHttpBuild(HttpChannelHandler.java:496)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.flowHttpRequest(HttpChannelHandler.java:468)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.handleHttpRequest(HttpChannelHandler.java:209)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.messageReceived(HttpChannelHandler.java:105)
+		at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.channel.ChannelHandlerAdapter.channelRead(ChannelHandlerAdapter.java:143)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)
+		at io.netty.handler.codec.MessageToMessageCodec.channelRead(MessageToMessageCodec.java:111)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:243)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:956)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:514)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:471)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:385)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:351)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+		at java.lang.Class.forName0(Class.java:-2)
+		at java.lang.Class.forName(Class.java:348)
+		at cj.studio.openport.DefaultOpenportServiceContainer.<init>(DefaultOpenportServiceContainer.java:37)
+		at cj.studio.openport.OpenportEntryPointActivator.activate(OpenportEntryPointActivator.java:59)
+		at cj.studio.ecm.Assembly$EntryPoint.start(Assembly.java:619)
+		at cj.studio.ecm.Assembly.start(Assembly.java:404)
+		at cj.studio.gateway.socket.app.AppGatewaySocket.scanAssemblyAndLoad(AppGatewaySocket.java:157)
+		at cj.studio.gateway.socket.app.AppGatewaySocket.connect(AppGatewaySocket.java:120)
+		at cj.studio.gateway.DestinationLoader.load(DestinationLoader.java:40)
+		at cj.studio.gateway.GatewaySocketContainer.getAndCreate(GatewaySocketContainer.java:36)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.pipelineHttpBuild(HttpChannelHandler.java:496)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.flowHttpRequest(HttpChannelHandler.java:468)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.handleHttpRequest(HttpChannelHandler.java:209)
+		at cj.studio.gateway.server.handler.HttpChannelHandler.messageReceived(HttpChannelHandler.java:105)
+		at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.channel.ChannelHandlerAdapter.channelRead(ChannelHandlerAdapter.java:143)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)
+		at io.netty.handler.codec.MessageToMessageCodec.channelRead(MessageToMessageCodec.java:111)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:243)
+		at io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:84)
+		at io.netty.channel.DefaultChannelHandlerInvoker.invokeChannelRead(DefaultChannelHandlerInvoker.java:153)
+		at io.netty.channel.PausableChannelEventExecutor.invokeChannelRead(PausableChannelEventExecutor.java:86)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:389)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:956)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:127)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:514)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:471)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:385)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:351)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:116)
+		at io.netty.util.internal.chmv8.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1412)
+		at io.netty.util.internal.chmv8.ForkJoinTask.doExec(ForkJoinTask.java:280)
+		at io.netty.util.internal.chmv8.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:877)
+		at io.netty.util.internal.chmv8.ForkJoinPool.scan(ForkJoinPool.java:1706)
+		at io.netty.util.internal.chmv8.ForkJoinPool.runWorker(ForkJoinPool.java:1661)
+		at io.netty.util.internal.chmv8.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:126)
+2020年02月04日 20:43:18  信息 : -------------网关启动完毕-------------------
+2020年02月04日 20:43:18  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2020年02月04日 20:43:36  信息 : 已装载共享库/Users/caroceanjofers/studio/cj.netos.openport/cmdtools/gateway/lib/share
+2020年02月04日 20:43:36  信息 : openports插件发现配置：
+2020年02月04日 20:43:36  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2020年02月04日 20:43:36  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2020年02月04日 20:43:41  信息 : 系统开放api地址是：/portsapi
+2020年02月04日 20:44:25  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2020年02月04日 20:44:28  信息 : 		服务命令：test
+2020年02月04日 20:44:28  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:44:28  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:44:28  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:44:28  信息 : 		服务命令：authenticate
+2020年02月04日 20:44:28  信息 : 				参数：authName java.lang.String parameter
+2020年02月04日 20:44:28  信息 : 				参数：tenant java.lang.String parameter
+2020年02月04日 20:44:28  信息 : 				参数：principals java.lang.String header
+2020年02月04日 20:44:28  信息 : 				参数：password java.lang.String content
+2020年02月04日 20:44:28  信息 : 				参数：ttlMillis long parameter
+2020年02月04日 20:44:28  信息 : 		服务命令：test2
+2020年02月04日 20:44:28  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2020年02月04日 20:44:28  信息 : 				参数：v java.math.BigDecimal parameter
+2020年02月04日 20:44:28  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2020年02月04日 20:44:28  信息 : 		服务命令：getAcl
+2020年02月04日 20:44:28  信息 : 				参数：list java.util.LinkedList parameter
+2020年02月04日 20:44:28  信息 : 				参数：set java.util.List parameter
+2020年02月04日 20:44:28  信息 : 				参数：map java.util.TreeMap parameter
+2020年02月04日 20:44:28  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2020年02月04日 20:44:28  信息 : 		服务命令：login
+2020年02月04日 20:44:28  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:44:28  信息 : 				参数：accountName java.lang.String parameter
+2020年02月04日 20:44:28  信息 : 				参数：password java.lang.String parameter
+2020年02月04日 20:44:28  信息 : 		服务命令：refreshToken
+2020年02月04日 20:44:28  信息 : 				参数：refreshToken java.lang.String parameter
+2020年02月04日 20:44:28  信息 : 		服务命令：testProtect
+2020年02月04日 20:44:28  信息 : 				参数：a int parameter
+2020年02月04日 20:44:28  信息 : 				参数：b boolean parameter
+2020年02月04日 20:44:28  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:44:28  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2020年02月04日 20:44:28  信息 : 		服务命令：testPublic
+2020年02月04日 20:44:28  信息 : 				参数：a int parameter
+2020年02月04日 20:44:28  信息 : 				参数：b boolean parameter
+2020年02月04日 20:44:28  信息 : 				参数：c java.util.HashMap parameter
+2020年02月04日 20:46:57  信息 : 网关监视失败。原因：Bad file descriptor
