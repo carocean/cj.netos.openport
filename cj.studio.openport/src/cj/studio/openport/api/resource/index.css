@@ -348,7 +348,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    overflow: auto;
+    /*verflow: auto;*/
+    /*注释掉原因是在firefox遇到滚动整条树都不显示了，是firefox上的bug*/
 }
 
 .container > .workbench > .desktop > .column .column-left > .proj-region .popup-template {
