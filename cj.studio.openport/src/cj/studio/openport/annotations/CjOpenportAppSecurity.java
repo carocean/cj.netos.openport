@@ -44,25 +44,25 @@ public @interface CjOpenportAppSecurity {
 	SKeyInRequest signIn() default SKeyInRequest.header;
 
 	/**
-	 * appid在请求中的键名
+	 * appid在请求中的键名,键名尽量用小写，以兼容flutter的dio头，它会自动转小写
 	 * @return
 	 */
-	String appIDName() default "App-Id";
+	String appIDName() default "app-id";
 	/**
-	 * appKey在请求中的键名
+	 * appKey在请求中的键名,键名尽量用小写，以兼容flutter的dio头，它会自动转小写
 	 * @return
 	 */
-	String appKeyName() default "App-Key";
+	String appKeyName() default "app-key";
 	/**
-	 * nonce在请求中的键名
+	 * nonce在请求中的键名,键名尽量用小写，以兼容flutter的dio头，它会自动转小写
 	 * @return
 	 */
-	String nonceName() default "App-Nonce";
+	String nonceName() default "app-nonce";
 	/**
-	 * sign在请求中的键名
+	 * sign在请求中的键名,键名尽量用小写，以兼容flutter的dio头，它会自动转小写
 	 * @return
 	 */
-	String signName() default "App-Sign";
+	String signName() default "app-sign";
 
 	/**
 	 * 用法
