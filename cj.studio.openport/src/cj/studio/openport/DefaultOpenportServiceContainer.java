@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class DefaultOpenportServiceContainer implements IOpenportServiceContainer, IOpenportPrinter {
     ICheckAppSignStrategy checkAppSignStrategy;
@@ -166,7 +167,9 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         Element portsUL = canvas.select(".pr-tree>.pr-folders").first();
         Element portsLI = portsUL.select(".pr-folder").first().clone();
         portsUL.empty();
-        for (Map.Entry<String, CjOpenports> entry : portsMap.entrySet()) {
+        Map<String,CjOpenports> portsTree=new TreeMap<>();
+        portsTree.putAll(portsMap);
+        for (Map.Entry<String, CjOpenports> entry : portsTree.entrySet()) {
             String path = entry.getKey();
             CjOpenports ports = entry.getValue();
             Element cportsli = portsLI.clone();
@@ -183,7 +186,9 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         Element portletLI = e.clone();
         Elements letsEs = e.parents().select(".main-column-lets");
         context.canvas().select(".portlet.method-let").remove();
-        for (Map.Entry<String, OpenportCommand> entry : commands.entrySet()) {
+        Map<String,OpenportCommand> cmdsTree=new TreeMap<>();
+        cmdsTree.putAll(commands);
+        for (Map.Entry<String, OpenportCommand> entry : cmdsTree.entrySet()) {
             String path = entry.getKey();
             OpenportCommand cmd = entry.getValue();
             Element pli = portletLI.clone();
@@ -198,6 +203,8 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
             cmd.printPort(ctx);
             letsEs.append(ctx.canvas().outerHtml());
         }
+        cmdsTree.clear();
+        portsTree.clear();
     }
 
     private int printPortMethodTree(OpenportContext context, String portPath, Element portli) {
