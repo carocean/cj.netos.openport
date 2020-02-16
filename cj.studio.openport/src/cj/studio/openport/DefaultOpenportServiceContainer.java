@@ -16,6 +16,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -169,9 +170,9 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         portsUL.empty();
         Map<String,CjOpenports> portsTree=new TreeMap<>();
         portsTree.putAll(portsMap);
-        for (Map.Entry<String, CjOpenports> entry : portsTree.entrySet()) {
-            String path = entry.getKey();
-            CjOpenports ports = entry.getValue();
+        for (String key : portsTree.keySet()) {
+            String path = key;
+            CjOpenports ports = portsMap.get(key);
             Element cportsli = portsLI.clone();
             cportsli.select(".portsurl").html(path);
             cportsli.attr("portsurl", path);
@@ -186,11 +187,9 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         Element portletLI = e.clone();
         Elements letsEs = e.parents().select(".main-column-lets");
         context.canvas().select(".portlet.method-let").remove();
-        Map<String,OpenportCommand> cmdsTree=new TreeMap<>();
-        cmdsTree.putAll(commands);
-        for (Map.Entry<String, OpenportCommand> entry : cmdsTree.entrySet()) {
-            String path = entry.getKey();
-            OpenportCommand cmd = entry.getValue();
+        for (String key:commands.keySet()) {
+            String path = key;
+            OpenportCommand cmd = commands.get(key);
             Element pli = portletLI.clone();
             pli.attr("porturl", path);
             pli.attr("portname", cmd.method.getName());
@@ -203,8 +202,6 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
             cmd.printPort(ctx);
             letsEs.append(ctx.canvas().outerHtml());
         }
-        cmdsTree.clear();
-        portsTree.clear();
     }
 
     private int printPortMethodTree(OpenportContext context, String portPath, Element portli) {
@@ -213,8 +210,9 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         ul.empty();
 
         int count=0;
-
-        for (Map.Entry<String, OpenportCommand> entry : this.commands.entrySet()) {
+        Map<String,OpenportCommand> cmdTree=new TreeMap<>();
+        cmdTree.putAll(commands);
+        for (Map.Entry<String, OpenportCommand> entry : cmdTree.entrySet()) {
             String path = entry.getKey();
             OpenportCommand cmd = entry.getValue();
             if (!portPath.equals(cmd.openportPath)) {
