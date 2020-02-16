@@ -7,7 +7,7 @@ public interface ISecuritySession {
 
     Object property(String key);
 
-    void property(String key, String value);
+    void property(String key, Object value);
 
     int propertyCount();
 

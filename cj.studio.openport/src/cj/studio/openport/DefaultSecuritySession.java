@@ -45,7 +45,7 @@ public class DefaultSecuritySession implements ISecuritySession {
     }
 
     @Override
-    public void property(String key, String value) {
+    public void property(String key, Object value) {
         properties.put(key, value);
     }
 
