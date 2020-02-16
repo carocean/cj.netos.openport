@@ -133,16 +133,14 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
 
     public void doCommand(Frame frame, Circuit circuit) throws CircuitException {
         CjOpenportAppSecurity cjOpenportAppSecurity = this.method.getAnnotation(CjOpenportAppSecurity.class);
-        if (cjOpenportAppSecurity == null) {
-            doAccessTokenCommand(frame, circuit);
-        } else {
-            doAppSignCommand(frame, circuit, cjOpenportAppSecurity);
+        ISecuritySession securitySession = null;
+        if (cjOpenportAppSecurity != null) {
+            securitySession = doAppSignCommand(frame, circuit, cjOpenportAppSecurity);
         }
+        doAccessTokenCommand(frame, circuit, securitySession);
     }
 
-    public void doAppSignCommand(Frame frame, Circuit circuit, CjOpenportAppSecurity cjOpenportAppSecurity) throws CircuitException {
-        ISecuritySession iSecuritySession = null;
-        IContentReciever reciever = null;
+    public ISecuritySession doAppSignCommand(Frame frame, Circuit circuit, CjOpenportAppSecurity cjOpenportAppSecurity) throws CircuitException {
         String portsurl = frame.relativePath();
         String methodName = method.getName();
         String appId = null;
@@ -194,20 +192,17 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             throw new CircuitException("804", "拒绝访问,缺少nonce");
         }
         try {
-            iSecuritySession=this.checkAppSignStrategy.checkAppSign(portsurl, methodName, appId, appKey, nonce, sign);
-            if (this.beforeInvoker != null) {
-                this.beforeInvoker.doBefore(true, iSecuritySession, frame, circuit);
-            }
+            return this.checkAppSignStrategy.checkAppSign(portsurl, methodName, appId, appKey, nonce, sign);
         } catch (Throwable e) {
-            ExceptionPrinter printer = new ExceptionPrinter();
-            printer.printException(e, circuit);
-            return;
+            CircuitException ce = CircuitException.search(e);
+            if (ce != null) {
+                throw ce;
+            }
+            throw new CircuitException("801", e);
         }
-        reciever = createContentReciever(iSecuritySession, frame, circuit);
-        frame.content().accept(reciever);
     }
 
-    public void doAccessTokenCommand(Frame frame, Circuit circuit) throws CircuitException {
+    public void doAccessTokenCommand(Frame frame, Circuit circuit,ISecuritySession securitySession) throws CircuitException {
         CjOpenport cjOpenport = this.method.getAnnotation(CjOpenport.class);
         if (cjOpenport == null) {
             throw new CircuitException("801", "拒绝访问");
@@ -229,15 +224,17 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         }
         try {
             if (cjOpenport.tokenIn() != AccessTokenIn.nope) {
-                iSecuritySession = this.checkAccessTokenStrategy.checkAccessToken(portsurl, methodName, token);
+                iSecuritySession = this.checkAccessTokenStrategy.checkAccessToken(securitySession,portsurl, methodName, token);
             }
             if (this.beforeInvoker != null) {
                 this.beforeInvoker.doBefore(cjOpenport.tokenIn() == AccessTokenIn.nope, iSecuritySession, frame, circuit);
             }
         } catch (Throwable e) {
-            ExceptionPrinter printer = new ExceptionPrinter();
-            printer.printException(e, circuit);
-            return;
+            CircuitException ce = CircuitException.search(e);
+            if (ce != null) {
+                throw ce;
+            }
+            throw new CircuitException("801", e);
         }
         reciever = createContentReciever(iSecuritySession, frame, circuit);
         frame.content().accept(reciever);
@@ -317,7 +314,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
         CjOpenportAppSecurity cjOpenportAppSecurity = this.method.getAnnotation(CjOpenportAppSecurity.class);
         if (cjOpenportAppSecurity != null) {
             printAppSignParams(signul, signli, cjOpenportAppSecurity);
-            e.select(".port-appsign > .port-appsign-usage span").html(cjOpenportAppSecurity.usage()+"");
+            e.select(".port-appsign > .port-appsign-usage span").html(cjOpenportAppSecurity.usage() + "");
         } else {
             e.select(".port-appsign").remove();
         }

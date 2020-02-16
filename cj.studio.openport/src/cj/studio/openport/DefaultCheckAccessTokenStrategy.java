@@ -18,7 +18,7 @@ public class DefaultCheckAccessTokenStrategy implements ICheckAccessTokenStrateg
     }
 
     @Override
-    public ISecuritySession checkAccessToken(String portsurl, String methodName, String accessToken) throws CheckAccessTokenException {
+    public ISecuritySession checkAccessToken(ISecuritySession securitySession,String portsurl, String methodName, String accessToken) throws CheckAccessTokenException {
         //注掉原因：让令牌检查器决定为空时如何处理吧，否则内核要求上层开发者必输令牌岂不是太没天理了。
         if (StringUtil.isEmpty(accessToken)) {
             throw new CheckAccessTokenException("801", String.format("令牌为空，拒绝访问"));

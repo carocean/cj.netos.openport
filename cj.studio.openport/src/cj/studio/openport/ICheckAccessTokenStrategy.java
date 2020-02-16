@@ -13,11 +13,12 @@ public interface ICheckAccessTokenStrategy {
 
     /**
      * 检查令牌，并反回令牌信息<br>
+     * @param appCheckSecuritySession 如果有app验证注解则不为空，否则为空
      * @param portsurl 口服务地址，是无上下文的地址
      * @param methodName 方法名
      * @param accessToken 要验证的
      * @return
      * @throws CheckAccessTokenException 如果验证不通过则抛出异常
      */
-    ISecuritySession checkAccessToken(String portsurl, String methodName, String accessToken) throws CheckAccessTokenException;
+    ISecuritySession checkAccessToken(ISecuritySession appCheckSecuritySession,String portsurl, String methodName, String accessToken) throws CheckAccessTokenException;
 }

@@ -12,7 +12,7 @@ public class ITestAccessTokenStrategy implements ICheckAccessTokenStrategy {
     }
 
     @Override
-    public ISecuritySession checkAccessToken(String portsurl, String methodName, String accessToken) throws CheckAccessTokenException {
+    public ISecuritySession checkAccessToken(ISecuritySession securitySession,String portsurl, String methodName, String accessToken) throws CheckAccessTokenException {
         return null;
     }
 }

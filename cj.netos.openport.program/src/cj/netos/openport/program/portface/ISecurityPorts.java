@@ -15,7 +15,7 @@ import java.util.Map;
 @CjOpenports(usage = "测试安全机制")
 public interface ISecurityPorts extends IOpenportService {
     @CjOpenportAppSecurity(usage = "返回accessToken")
-    @CjOpenport(tokenIn = AccessTokenIn.nope, usage = "用户委托第三方app以登录，返回访问令牌")
+    @CjOpenport(tokenIn = AccessTokenIn.headersOfRequest, usage = "用户委托第三方app以登录，返回访问令牌")
     public String login(ISecuritySession securitySession,@CjOpenportParameter(usage = "登录账号名", name = "accountName")String accountName,
                         @CjOpenportParameter(usage = "登录密码", name = "password")String password) throws CircuitException;
 
