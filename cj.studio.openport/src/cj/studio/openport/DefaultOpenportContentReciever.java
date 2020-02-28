@@ -73,7 +73,7 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
             for (int i = 0; i < openportMethod.getParameters().size(); i++) {
                 MethodParameter p = openportMethod.getParameters().get(i);
                 if (ISecuritySession.class.isAssignableFrom(p.getApplyType())) {
-                    args[i]= iSecuritySession;
+                    args[i] = iSecuritySession;
                     continue;
                 }
                 switch (p.parameterAnnotation.in()) {
@@ -126,11 +126,11 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         String[] dataElements = null;
         String dataText = "";
 
-        if (dataType != null&&!void.class.equals(dataType) && !Void.class.equals(dataType)) {//有返回值类型，则计算元素可能的类型
+        if (dataType != null && !void.class.equals(dataType) && !Void.class.equals(dataType)) {//有返回值类型，则计算元素可能的类型
             dataText = new Gson().toJson(result);//有返回值则生成文本
             CjOpenport openport = openportMethod.getOpenportAnnotation();
-            Class<?>[] defElementTypes=openport.elementType();
-            if (defElementTypes != null&&defElementTypes.length>0&&!defElementTypes[0].equals(Void.class)) {//看看是否有配置的类型
+            Class<?>[] defElementTypes = openport.elementType();
+            if (defElementTypes != null && defElementTypes.length > 0 && !defElementTypes[0].equals(Void.class)) {//看看是否有配置的类型
                 dataElements = new String[defElementTypes.length];
                 for (int i = 0; i < dataElements.length; i++
                 ) {
@@ -140,19 +140,21 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
 
                 if (Collection.class.isAssignableFrom(dataType)) {
                     Collection<?> col = (Collection<?>) result;
-                    if (!col.isEmpty()) {
+                    if (col != null && !col.isEmpty()) {
                         Object obj = null;
                         for (Object o : col) {
                             obj = o;
                             break;
                         }
                         dataElements = new String[]{obj.getClass().getName()};
+                    } else {
+                        dataElements = new String[]{Void.class.getName()};
                     }
                 }
                 if (Map.class.isAssignableFrom(dataType)) {
                     @SuppressWarnings("unchecked")
                     Map<Object, Object> map = (Map<Object, Object>) result;
-                    if (map!=null&&!map.isEmpty()) {
+                    if (map != null && !map.isEmpty()) {
                         Set<Map.Entry<Object, Object>> set = map.entrySet();
                         Map.Entry<Object, Object> entry = null;
                         for (Map.Entry<Object, Object> _entry : set) {
@@ -169,7 +171,7 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
 
         rc.status = 200;
         rc.message = "ok";
-        rc.dataType = dataType==null?Void.class.getName():dataType.getName();
+        rc.dataType = dataType == null ? Void.class.getName() : dataType.getName();
         rc.dataText = dataText;
         if (dataElements != null && dataElements.length > 0) {
             rc.dataElementTypes = dataElements;
