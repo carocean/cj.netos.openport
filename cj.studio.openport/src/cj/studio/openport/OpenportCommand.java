@@ -208,7 +208,7 @@ public class OpenportCommand implements IDisposable, IOpenportPrinter {
             throw new CircuitException("801", "拒绝访问");
         }
         String token = "";
-        ISecuritySession iSecuritySession = null;
+        ISecuritySession iSecuritySession = securitySession;
         IContentReciever reciever = null;
         String portsurl = frame.relativePath();
         String methodName = method.getName();
