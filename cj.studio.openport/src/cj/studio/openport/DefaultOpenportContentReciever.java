@@ -6,9 +6,12 @@ import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.net.Frame;
 import cj.studio.ecm.net.IContentReciever;
 import cj.studio.ecm.net.io.MemoryContentReciever;
+import cj.studio.ecm.parser.JsonMapValueParser;
 import cj.studio.openport.annotations.CjOpenport;
 import cj.studio.openport.util.ExceptionPrinter;
 import cj.ultimate.gson2.com.google.gson.Gson;
+import cj.ultimate.gson2.com.google.gson.JsonElement;
+import cj.ultimate.gson2.com.google.gson.JsonObject;
 import cj.ultimate.gson2.com.google.gson.reflect.TypeToken;
 import cj.ultimate.util.StringUtil;
 
@@ -59,6 +62,35 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         doinvoke(openportMethod, iSecuritySession, frame, circuit);
     }
 
+    public static void main(String... args) {
+        JsonElement e = new Gson().fromJson("{\"a\":2532.00283883838399,\"b\":\"z\",\"c\":{\"d\":53.32}}", JsonElement.class);
+        if (!(e instanceof JsonObject)) {
+            return;
+        }
+        JsonObject object = (JsonObject) e;
+        Map<String, String> map = new HashMap<>();
+        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
+            String v = entry.getValue().toString();
+            map.put(entry.getKey(), v);
+            System.out.println(v);
+        }
+
+    }
+
+    protected Map<String, String> contentToMap(String json) {
+        JsonElement e = new Gson().fromJson(json, JsonElement.class);
+        if (!(e instanceof JsonObject)) {
+            throw new EcmException("参数格式错误，必须是Map对象");
+        }
+        JsonObject object = (JsonObject) e;
+        Map<String, String> map = new HashMap<>();
+        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
+            String v = entry.getValue().toString();
+            map.put(entry.getKey(), v);
+        }
+        return map;
+    }
+
     /**
      * 该类通过内存内容接收器接收参数并执行，派生类可用该类
      *
@@ -70,6 +102,12 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         Object[] args = openportMethod.getParametersArgsValues();
         MemoryContentReciever reciever = (MemoryContentReciever) this.reciever;
         try {
+            Map<String, String> contentMap = null;
+            if (frame.content().revcievedBytes() > 0) {
+
+                String json = new String(reciever.readFully());
+                contentMap = contentToMap(json);
+            }
             for (int i = 0; i < openportMethod.getParameters().size(); i++) {
                 MethodParameter p = openportMethod.getParameters().get(i);
                 if (ISecuritySession.class.isAssignableFrom(p.getApplyType())) {
@@ -93,12 +131,6 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
                         args[i] = reflactValue(v, p);
                         break;
                     case content:
-                        Map<String, Object> contentMap = null;
-                        if (frame.content().revcievedBytes() > 0) {
-                            String json = new String(reciever.readFully());
-                            contentMap = new Gson().fromJson(json, new TypeToken<Map<String, Object>>() {
-                            }.getType());
-                        }
                         if (contentMap != null) {
                             v = contentMap.get(p.parameterAnnotation.name());
                             args[i] = reflactValue(v, p);
