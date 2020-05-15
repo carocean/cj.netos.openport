@@ -63,7 +63,12 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
     }
 
     public static void main(String... args) {
-        JsonElement e = new Gson().fromJson("{\"a\":2532.00283883838399,\"b\":\"z\",\"c\":{\"d\":53.32}}", JsonElement.class);
+        Map<String, Object> jmap = new HashMap<>();
+        jmap.put("a", 2532.00283883838399);
+        jmap.put("b", "z");
+        jmap.put("c", "{\"d\":53.32}");
+        String json = new Gson().toJson(jmap);
+        JsonElement e = new Gson().fromJson(json, JsonElement.class);
         if (!(e instanceof JsonObject)) {
             return;
         }
@@ -71,7 +76,12 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         Map<String, String> map = new HashMap<>();
         for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
             String v = entry.getValue().toString();
+            v=new Gson().fromJson(v,String.class);
             map.put(entry.getKey(), v);
+            if (entry.getKey().equals("c")) {
+                Object o = new Gson().fromJson(v + "", HashMap.class);
+                System.out.println(o);
+            }
             System.out.println(v);
         }
 
@@ -86,6 +96,8 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         Map<String, String> map = new HashMap<>();
         for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
             String v = entry.getValue().toString();
+            //内容的值类型均是字串
+            v=new Gson().fromJson(v,String.class);
             map.put(entry.getKey(), v);
         }
         return map;
