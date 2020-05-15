@@ -66,7 +66,10 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         Map<String, Object> jmap = new HashMap<>();
         jmap.put("a", 2532.00283883838399);
         jmap.put("b", "z");
-        jmap.put("c", "{\"d\":53.32}");
+        Map<String, Object> child = new HashMap<>();
+        child.put("d", 53.32);
+        jmap.put("c", new Gson().toJson(child));
+        jmap.put("e", child);
         String json = new Gson().toJson(jmap);
         JsonElement e = new Gson().fromJson(json, JsonElement.class);
         if (!(e instanceof JsonObject)) {
@@ -75,16 +78,19 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         JsonObject object = (JsonObject) e;
         Map<String, String> map = new HashMap<>();
         for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
-            String v = entry.getValue().toString();
-            v=new Gson().fromJson(v,String.class);
-            map.put(entry.getKey(), v);
-            if (entry.getKey().equals("c")) {
-                Object o = new Gson().fromJson(v + "", HashMap.class);
-                System.out.println(o);
+            String key = entry.getKey();
+            JsonElement jsonElement = entry.getValue();
+            if (jsonElement == null) {
+                map.put(key, "");
+                continue;
             }
-            System.out.println(v);
+            String v = jsonElement.toString();
+            if (jsonElement.isJsonPrimitive()) {
+                v = new Gson().fromJson(v, String.class);
+            }
+            map.put(key, v);
         }
-
+        System.out.println(map);
     }
 
     protected Map<String, String> contentToMap(String json) {
@@ -95,10 +101,18 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
         JsonObject object = (JsonObject) e;
         Map<String, String> map = new HashMap<>();
         for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
-            String v = entry.getValue().toString();
-            //内容的值类型均是字串
-            v=new Gson().fromJson(v,String.class);
-            map.put(entry.getKey(), v);
+            //内容参数的值类型即可是字串也可是对象
+            String key = entry.getKey();
+            JsonElement jsonElement = entry.getValue();
+            if (jsonElement == null) {
+                map.put(key, "");
+                continue;
+            }
+            String v = jsonElement.toString();
+            if (jsonElement.isJsonPrimitive()) {
+                v = new Gson().fromJson(v, String.class);
+            }
+            map.put(key, v);
         }
         return map;
     }
