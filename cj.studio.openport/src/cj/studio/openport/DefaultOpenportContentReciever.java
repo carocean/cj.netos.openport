@@ -1,5 +1,6 @@
 package cj.studio.openport;
 
+import cj.studio.ecm.CJSystem;
 import cj.studio.ecm.EcmException;
 import cj.studio.ecm.net.Circuit;
 import cj.studio.ecm.net.CircuitException;
@@ -94,7 +95,8 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
     }
 
     protected Map<String, String> contentToMap(String json) {
-        if (StringUtil.isEmpty(json)) {
+//        CJSystem.logging().info(String.format("-----%s %s", json,json.length()));
+        if (StringUtil.isEmpty(json)||"null".equals(json)) {
             return new HashMap<>();
         }
         JsonElement e = new Gson().fromJson(json, JsonElement.class);
