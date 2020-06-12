@@ -94,6 +94,9 @@ public class DefaultOpenportContentReciever implements IOpenportContentReciever 
     }
 
     protected Map<String, String> contentToMap(String json) {
+        if (StringUtil.isEmpty(json)) {
+            return new HashMap<>();
+        }
         JsonElement e = new Gson().fromJson(json, JsonElement.class);
         if (!(e instanceof JsonObject)) {
             throw new EcmException("参数格式错误，必须是Map对象");
