@@ -1,31 +1,37 @@
-# 开放口
-- 用于向终端或第三方开放受限资源(openAPI 该功能在spring中没有找到对应组件）
-- 它不仅可以作为前置，还可以用它开发后台api，它的使用比做纯后台微服务的springboot和stub微服务机制更为简单
-- 它有着比spring swagger 更为友好的api调试界面
-- 在部署到docker k8s集群中时，建议结合mic（微服务管理中心），它支持微服务的远程部署和远程控制。
-## 图：
+# Open API
 
-- api界面，能直接测试（有图，加载慢，稍候...）
+	•	Used to expose restricted resources to terminals or third parties (OpenAPI; this feature does not have a corresponding component in Spring).
+	•	It can serve not only as a frontend but also be used to develop backend APIs. Its usage is simpler than pure backend microservices built with Spring Boot and stub microservice mechanisms.
+	•	It offers a more user-friendly API debugging interface than Spring Swagger.
+	•	When deployed in a Docker or Kubernetes cluster, it is recommended to integrate with MIC (Microservice Management Center), which supports remote deployment and remote control of microservices.
+	•	Based on the ECM development framework, it seamlessly integrates with cj.studio.gateway2 to form a microservice cluster.
+## Picture：
 
-    ![欢迎页](https://github.com/carocean/cj.netos.openport/blob/master/documents/welcome.png)
-    ![口服务Api详情](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewports.png)
-    ![查看返回值和参数样本数据](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewsimple.png)
-    ![运行测试](https://github.com/carocean/cj.netos.openport/blob/master/documents/runtest.png)
+- API interface, can be tested directly (image, loading slowly, please wait…)
+
+    ![welcome](https://github.com/carocean/cj.netos.openport/blob/master/documents/welcome.png)
+    ![API Service Details](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewports.png)
+    ![View Return Values and Sample Parameters](https://github.com/carocean/cj.netos.openport/blob/master/documents/viewsimple.png)
+    ![Run Test](https://github.com/carocean/cj.netos.openport/blob/master/documents/runtest.png)
 
 
-- 网关控制台窗口（有图，加载慢，稍候...）
-    ![网关控制台信息](https://github.com/carocean/cj.netos.openport/blob/master/documents/cmd.png)
+- Gateway Console Window (image, loading slowly, please wait…)
+    ![Gateway Console Information](https://github.com/carocean/cj.netos.openport/blob/master/documents/cmd.png)
 
-## 用法
-### 客户端调用远程ports
-- 一种是通过httpclient,dia等第三方客户端调用，请参考开放api界面中的描述，注：openport的请求头或参数中不再需要：Rest-StubFace
-- 一种是通过网关2应用调远程ports，又分为直接使用Openports帮助类和服务注入式调用。
->>> 直接使用Openports
-- 只需在项目的Assembly.json中配置服务容器监视器。 
+Usage
+
+Client Calls Remote Ports
+
+	•	One method is by using third-party clients like HttpClient, DIA, etc. Please refer to the descriptions in the OpenAPI interface. Note: The Rest-StubFace header or parameter is no longer required in the Openport request.
+	•	Another method is by using Gateway2 applications to call remote ports, which can be done either through directly using the Openports helper class or via service-injection calls.
+
+			Directly Using Openports
+
+	•	Simply configure the service container monitor in the project’s Assembly.json.
 ``` json
     monitor: "cj.studio.openport.client.DefaultOpenportsServicesMonitor",
 ```
-- 然后在代码段里即可像下面这样写：
+- Then in the code snippet, you can write it like this:
 ``` java
             IUCPorts iucPort = Openports.open(IUCPorts.class, "ports://openport.com/openport/uc.ports", "xx");
            
@@ -39,9 +45,10 @@
            Openports.close();//内核会安全关闭，此处关不关都无所谓
 
 ```
->>> 服务注入式调用
-- 需要jar: cj.studio.openport-1.x.jar放入项目的cj.refrences
-- 需要在Assembly.json中添加芯片插件：
+		>>> Service Injection Call
+
+-	The jar cj.studio.openport-1.x.jar needs to be placed in the project’s cj.references.
+-	The chip plugin needs to be added in the Assembly.json:
 ``` json
        plugins: [
          {
@@ -54,7 +61,7 @@
        ],
 
 ```
-- 然后即可按下面方法使用：
+- You can then use it as follows:
 ``` java
 @CjService(name="xxx")
 public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
@@ -86,7 +93,7 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
 ```
 
 ``` java
-    也可以使用请求适配器调用远程ports：
+    You can also use a request adapter to call remote ports:
 
     @CjServiceRef(refByName = "$openports.cj.studio.openport.client.IRequestAdapter")//IRequestAdapter是请求适配器
     IRequestAdapter requestAdapter;
@@ -117,9 +124,9 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
     }
 
 ```
-### ports服务开发
-- cj.studio.openport-1.x.jar放入项目的cj.refrences
-- 注册活动器cj.studio.openport.OpenportEntryPointActivator到项目Assembly.json
+### Ports Service Development
+	•	Place cj.studio.openport-1.x.jar in the project’s cj.references.
+	•	Register the activator cj.studio.openport.OpenportEntryPointActivator in the project’s Assembly.json.
 ``` json
     activators: [
           {
@@ -133,7 +140,7 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
           }
         ]
 ```
-- 使用注解@CjOpenports,@CjOpenport,@CjOpenportParameter,声明您的port接口，该接口必须派生于IOpenportService，例：
+- Use the annotations @CjOpenports, @CjOpenport, and @CjOpenportParameter to declare your port interface. This interface must inherit from IOpenportService, for example:
 ``` java
     @CjOpenports(usage = "用户中心的ports")
    public interface IUCPorts extends IOpenportService {
@@ -156,21 +163,20 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
 
 
 ```
->> 对于前置微服务的开发，往往是将客端和服端功能的功能整合在一起，即由前置将几个后置的ports服务包装了，向移动端提供开放api。具体参见cj.netos.openport 代码。
+		For the development of frontend microservices, the client and server functionalities are often integrated together. The frontend wraps several backend port services and provides an open API to the mobile client. For details, refer to the cj.netos.openport code.
 
-- 对开放口服务的访问优先于webview
-
-	说明：CjOpenport的api可受到保护，api方法的保护模式有三种：app签名验证、accessToken保护、完全开放。
-	app签名验证:
-	  - 需要注解：@CjOpenportAppSecurity(usage = "返回accessToken")
-      - 需实现接口：ICheckAppSignStrategy
-      - 可以定义方法参数ISecuritySession securitySession,以使用安全会话
-	accessToken保护:
-	  - 仅用@CjOpenport注解的方法
-	  - 需实现接口：ICheckAccessTokenStrategy
-	  - 可以定义方法参数ISecuritySession securitySession,以使用安全会话
-	完全开放：
-	  - 使用 AccessTokenIn.nope为完全开放： @CjOpenport(tokenIn = AccessTokenIn.nope
+	•	Access to the open port service takes priority over the webview.
+Note: The CjOpenport API can be protected, and there are three protection modes for the API methods: app signature verification, accessToken protection, and completely open.
+App Signature Verification:
+- Requires annotation: @CjOpenportAppSecurity(usage = "Return accessToken")
+- Must implement the interface: ICheckAppSignStrategy
+- You can define the method parameter ISecuritySession securitySession to use the security session.
+AccessToken Protection:
+- Only methods annotated with @CjOpenport.
+- Must implement the interface: ICheckAccessTokenStrategy
+- You can define the method parameter ISecuritySession securitySession to use the security session.
+Completely Open:
+- Use AccessTokenIn.nope for completely open: @CjOpenport(tokenIn = AccessTokenIn.nope)
 
 ```java
 
