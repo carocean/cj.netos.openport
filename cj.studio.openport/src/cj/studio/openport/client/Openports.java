@@ -5,7 +5,6 @@ import cj.studio.ecm.net.CircuitException;
 import cj.studio.ecm.resource.IResource;
 import cj.studio.gateway.socket.pipeline.IOutputSelector;
 import cj.studio.gateway.socket.pipeline.IOutputer;
-import cj.studio.openport.IOpenportService;
 import cj.studio.openport.annotations.CjOpenports;
 import cj.ultimate.net.sf.cglib.proxy.Enhancer;
 import cj.ultimate.util.StringUtil;
@@ -37,16 +36,17 @@ public class Openports {
 
     /**
      * 在出线程时关闭<br>
-     *     如果忘记关闭也没关系，最后内核会调用该方法<br>
-     *     注意：如果主动调用了该方法关闭也没问题，只是在关闭后又使用了先前创建的口对象，则口对象会重新建立管道，最后由内核回收。
+     * 如果忘记关闭也没关系，最后内核会调用该方法<br>
+     * 注意：如果主动调用了该方法关闭也没问题，只是在关闭后又使用了先前创建的口对象，则口对象会重新建立管道，最后由内核回收。
+     *
      * @throws CircuitException
      */
     public static synchronized void close() throws CircuitException {
-        if(local==null){
+        if (local == null) {
             return;
         }
         Map<String, IOutputer> map = local.get();
-        if (map == null||map.isEmpty()) {
+        if (map == null || map.isEmpty()) {
             return;
         }
         String[] keys = map.keySet().toArray(new String[0]);
@@ -133,17 +133,16 @@ public class Openports {
     }
 
     private static <T> IAdaptingAspect selectAsepct(Class<T> openportInterface) throws CircuitException {
-        if (IOpenportService.class.isAssignableFrom(openportInterface)) {
-            CjOpenports cjOpenports = openportInterface.getAnnotation(CjOpenports.class);
-            if (cjOpenports == null) {
-                throw new CircuitException("405", "接口没有CjOpenport注解。在：" + openportInterface);
-            }
-            return new OpenportAdaptingAspect();
-        }
         if (IRequestAdapter.class.isAssignableFrom(openportInterface)) {
             return new RequestAdapterAspect();
         }
-        throw new CircuitException("405", "没有可用的适配方面");
+
+        CjOpenports cjOpenports = openportInterface.getAnnotation(CjOpenports.class);
+        if (cjOpenports == null) {
+            throw new CircuitException("405", "接口没有CjOpenport注解。在：" + openportInterface);
+        }
+        return new OpenportAdaptingAspect();
+
     }
 
     /**

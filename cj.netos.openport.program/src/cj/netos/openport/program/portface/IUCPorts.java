@@ -18,7 +18,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 @CjOpenports(usage = "用户中心的ports")
-public interface IUCPorts extends IOpenportService {
+public interface IUCPorts {
     @CjOpenport(usage = "认证 port", command = "post", tokenIn = AccessTokenIn.nope)
     String authenticate(@CjOpenportParameter(name = "authName", defaultValue = "auth.password", usage = "认证器名") String authName,
                         @CjOpenportParameter(name = "tenant", defaultValue = "netos.nettest", usage = "租户") String tenant,

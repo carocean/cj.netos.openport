@@ -2,7 +2,6 @@ package cj.netos.openport.program.portface;
 
 import cj.studio.ecm.net.CircuitException;
 import cj.studio.openport.AccessTokenIn;
-import cj.studio.openport.IOpenportService;
 import cj.studio.openport.ISecuritySession;
 import cj.studio.openport.annotations.CjOpenport;
 import cj.studio.openport.annotations.CjOpenportAppSecurity;
@@ -13,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @CjOpenports(usage = "测试安全机制")
-public interface ISecurityPorts extends IOpenportService {
+public interface ISecurityPorts {
     @CjOpenportAppSecurity(usage = "返回accessToken")
     @CjOpenport(tokenIn = AccessTokenIn.headersOfRequest, usage = "用户委托第三方app以登录，返回访问令牌")
     public String login(ISecuritySession securitySession,@CjOpenportParameter(usage = "登录账号名", name = "accountName")String accountName,

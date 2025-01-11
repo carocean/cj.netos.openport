@@ -220,3 +220,99 @@
 2019年10月08日 01:45:19  信息 : 				参数：list java.util.LinkedList parameter
 2019年10月08日 01:45:19  信息 : 				参数：set java.util.List parameter
 2019年10月08日 01:45:19  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 02:05:18  信息 : -------------网关启动完毕-------------------
+2025年01月10日 02:05:18  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 02:07:48  信息 : -------------网关启动完毕-------------------
+2025年01月10日 02:07:48  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:00:30  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:00:30  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:03:17  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 缺少路由目标，请求侦被丢掉：/
+2025年01月10日 18:03:36  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:uc
+2025年01月10日 18:25:11  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:25:11  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:25:11  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:25:11  信息 : openports插件发现配置：
+2025年01月10日 18:25:11  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:25:11  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:25:11  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:25:11  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月10日 18:25:11  信息 : 		服务命令：authenticate
+2025年01月10日 18:25:11  信息 : 				参数：authName java.lang.String parameter
+2025年01月10日 18:25:11  信息 : 				参数：tenant java.lang.String parameter
+2025年01月10日 18:25:11  信息 : 				参数：principals java.lang.String header
+2025年01月10日 18:25:11  信息 : 				参数：password java.lang.String content
+2025年01月10日 18:25:11  信息 : 				参数：ttlMillis long parameter
+2025年01月10日 18:25:11  信息 : 		服务命令：test
+2025年01月10日 18:25:11  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:25:11  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:25:11  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:25:11  信息 : 		服务命令：test2
+2025年01月10日 18:25:11  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月10日 18:25:11  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月10日 18:25:11  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月10日 18:25:11  信息 : 		服务命令：getAcl
+2025年01月10日 18:25:11  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:25:11  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:25:11  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:25:11  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月10日 18:25:11  信息 : 		服务命令：refreshToken
+2025年01月10日 18:25:11  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月10日 18:25:11  信息 : 		服务命令：testProtect
+2025年01月10日 18:25:11  信息 : 				参数：a int parameter
+2025年01月10日 18:25:11  信息 : 				参数：b boolean parameter
+2025年01月10日 18:25:11  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:25:11  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:25:11  信息 : 		服务命令：testPublic
+2025年01月10日 18:25:11  信息 : 				参数：a int parameter
+2025年01月10日 18:25:11  信息 : 				参数：b boolean parameter
+2025年01月10日 18:25:11  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:25:11  信息 : 		服务命令：login
+2025年01月10日 18:25:11  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:25:11  信息 : 				参数：accountName java.lang.String parameter
+2025年01月10日 18:25:11  信息 : 				参数：password java.lang.String parameter
+2025年01月10日 18:25:11  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:25:11  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:33:46  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:33:46  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:33:46  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:33:46  信息 : openports插件发现配置：
+2025年01月10日 18:33:46  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:33:46  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:33:46  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:33:46  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月10日 18:33:46  信息 : 		服务命令：authenticate
+2025年01月10日 18:33:46  信息 : 				参数：authName java.lang.String parameter
+2025年01月10日 18:33:46  信息 : 				参数：tenant java.lang.String parameter
+2025年01月10日 18:33:46  信息 : 				参数：principals java.lang.String header
+2025年01月10日 18:33:46  信息 : 				参数：password java.lang.String content
+2025年01月10日 18:33:46  信息 : 				参数：ttlMillis long parameter
+2025年01月10日 18:33:46  信息 : 		服务命令：test
+2025年01月10日 18:33:46  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:33:46  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:33:46  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:33:46  信息 : 		服务命令：test2
+2025年01月10日 18:33:46  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月10日 18:33:46  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月10日 18:33:46  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月10日 18:33:46  信息 : 		服务命令：getAcl
+2025年01月10日 18:33:46  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:33:46  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:33:46  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:33:46  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月10日 18:33:46  信息 : 		服务命令：login
+2025年01月10日 18:33:46  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:33:46  信息 : 				参数：accountName java.lang.String parameter
+2025年01月10日 18:33:46  信息 : 				参数：password java.lang.String parameter
+2025年01月10日 18:33:46  信息 : 		服务命令：refreshToken
+2025年01月10日 18:33:46  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月10日 18:33:46  信息 : 		服务命令：testProtect
+2025年01月10日 18:33:46  信息 : 				参数：a int parameter
+2025年01月10日 18:33:46  信息 : 				参数：b boolean parameter
+2025年01月10日 18:33:46  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:33:46  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:33:46  信息 : 		服务命令：testPublic
+2025年01月10日 18:33:46  信息 : 				参数：a int parameter
+2025年01月10日 18:33:46  信息 : 				参数：b boolean parameter
+2025年01月10日 18:33:46  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:33:46  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:33:46  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动

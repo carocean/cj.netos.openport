@@ -47,17 +47,14 @@ public class DefaultOpenportServiceContainer implements IOpenportServiceContaine
         site.addService("$.cj.studio.openport.openportAPIController", controller);
         site.addService("$.security.container", this);
 
-        ServiceCollection<IOpenportService> col = site.getServices(IOpenportService.class);
+        ServiceCollection<?> col = site.getServices(CjOpenports.class);
 
-        for (IOpenportService ss : col) {
+        for (Object ss : col) {
             CjService cjService = ss.getClass().getAnnotation(CjService.class);
             String sname = cjService.name();
             Class<?>[] faces = ss.getClass().getInterfaces();
             int foundFace = 0;//一个开放服务只能实现一个开放接口
             for (Class<?> c : faces) {
-                if (!IOpenportService.class.isAssignableFrom(c)) {
-                    continue;
-                }
                 CjOpenports perm = c.getAnnotation(CjOpenports.class);
                 if (perm == null) {
                     CJSystem.logging().warn(getClass(), String.format("缺少注解@CjOpenports，在接口：%s", c.getName()));

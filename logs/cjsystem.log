@@ -2811,3 +2811,257 @@
 2020年02月16日 14:20:52  信息 : 				参数：b boolean parameter
 2020年02月16日 14:20:52  信息 : 				参数：c java.util.HashMap parameter
 2020年02月16日 14:21:49  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:39:07  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:39:07  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:39:07  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:39:07  信息 : openports插件发现配置：
+2025年01月10日 18:39:07  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:39:07  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:39:07  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:39:19  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月10日 18:39:19  信息 : 		服务命令：test
+2025年01月10日 18:39:19  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:39:19  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:39:19  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:39:19  信息 : 		服务命令：authenticate
+2025年01月10日 18:39:19  信息 : 				参数：authName java.lang.String parameter
+2025年01月10日 18:39:19  信息 : 				参数：tenant java.lang.String parameter
+2025年01月10日 18:39:19  信息 : 				参数：principals java.lang.String header
+2025年01月10日 18:39:19  信息 : 				参数：password java.lang.String content
+2025年01月10日 18:39:19  信息 : 				参数：ttlMillis long parameter
+2025年01月10日 18:39:19  信息 : 		服务命令：test2
+2025年01月10日 18:39:19  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月10日 18:39:19  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月10日 18:39:19  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月10日 18:39:19  信息 : 		服务命令：getAcl
+2025年01月10日 18:39:19  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:39:19  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:39:19  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:39:19  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月10日 18:39:19  信息 : 		服务命令：login
+2025年01月10日 18:39:19  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:39:19  信息 : 				参数：accountName java.lang.String parameter
+2025年01月10日 18:39:19  信息 : 				参数：password java.lang.String parameter
+2025年01月10日 18:39:19  信息 : 		服务命令：refreshToken
+2025年01月10日 18:39:19  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月10日 18:39:19  信息 : 		服务命令：testProtect
+2025年01月10日 18:39:19  信息 : 				参数：a int parameter
+2025年01月10日 18:39:19  信息 : 				参数：b boolean parameter
+2025年01月10日 18:39:19  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:39:19  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:39:19  信息 : 		服务命令：testPublic
+2025年01月10日 18:39:19  信息 : 				参数：a int parameter
+2025年01月10日 18:39:19  信息 : 				参数：b boolean parameter
+2025年01月10日 18:39:19  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:39:19  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:39:19  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:41:11  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:41:11  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:41:11  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:41:11  信息 : openports插件发现配置：
+2025年01月10日 18:41:11  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:41:11  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:41:11  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:41:25  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月10日 18:41:25  信息 : 		服务命令：authenticate
+2025年01月10日 18:41:25  信息 : 				参数：authName java.lang.String parameter
+2025年01月10日 18:41:25  信息 : 				参数：tenant java.lang.String parameter
+2025年01月10日 18:41:25  信息 : 				参数：principals java.lang.String header
+2025年01月10日 18:41:25  信息 : 				参数：password java.lang.String content
+2025年01月10日 18:41:25  信息 : 				参数：ttlMillis long parameter
+2025年01月10日 18:41:25  信息 : 		服务命令：test
+2025年01月10日 18:41:25  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:41:25  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:41:25  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:41:25  信息 : 		服务命令：test2
+2025年01月10日 18:41:25  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月10日 18:41:25  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月10日 18:41:25  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月10日 18:41:25  信息 : 		服务命令：getAcl
+2025年01月10日 18:41:25  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 18:41:25  信息 : 				参数：set java.util.List parameter
+2025年01月10日 18:41:25  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 18:41:25  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月10日 18:41:25  信息 : 		服务命令：login
+2025年01月10日 18:41:25  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:41:25  信息 : 				参数：accountName java.lang.String parameter
+2025年01月10日 18:41:25  信息 : 				参数：password java.lang.String parameter
+2025年01月10日 18:41:25  信息 : 		服务命令：refreshToken
+2025年01月10日 18:41:25  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月10日 18:41:25  信息 : 		服务命令：testProtect
+2025年01月10日 18:41:25  信息 : 				参数：a int parameter
+2025年01月10日 18:41:25  信息 : 				参数：b boolean parameter
+2025年01月10日 18:41:25  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:41:25  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 18:41:25  信息 : 		服务命令：testPublic
+2025年01月10日 18:41:25  信息 : 				参数：a int parameter
+2025年01月10日 18:41:25  信息 : 				参数：b boolean parameter
+2025年01月10日 18:41:25  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 18:41:25  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:41:25  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:41:25  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:42:20  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:42:20  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:42:20  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:42:20  信息 : openports插件发现配置：
+2025年01月10日 18:42:20  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:42:20  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:42:20  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:43:17  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:43:17  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:43:17  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:44:28  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:44:28  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:44:28  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:44:28  信息 : openports插件发现配置：
+2025年01月10日 18:44:28  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:44:28  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:44:28  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:44:43  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:44:43  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:44:44  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:44:47  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:44:47  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:44:47  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:44:47  信息 : openports插件发现配置：
+2025年01月10日 18:44:47  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:44:47  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:44:47  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:45:55  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:45:55  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:45:55  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:49:02  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:49:02  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:49:02  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:49:02  信息 : openports插件发现配置：
+2025年01月10日 18:49:02  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:49:02  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:49:02  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:50:05  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:50:05  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:50:07  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:50:09  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:50:09  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:50:09  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:50:09  信息 : openports插件发现配置：
+2025年01月10日 18:50:09  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:50:09  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:50:09  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:50:54  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:50:54  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:50:54  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:55:25  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:55:25  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:55:25  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:55:25  信息 : openports插件发现配置：
+2025年01月10日 18:55:25  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:55:25  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:55:25  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:55:34  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:55:34  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:55:36  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:55:39  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:55:39  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:55:39  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:55:39  信息 : openports插件发现配置：
+2025年01月10日 18:55:39  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:55:39  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:55:39  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:56:14  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:56:14  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:56:14  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:57:04  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:57:04  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:57:04  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:57:04  信息 : openports插件发现配置：
+2025年01月10日 18:57:04  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:57:04  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:57:04  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:57:18  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:57:18  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:57:18  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:57:36  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:57:36  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:57:36  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:57:36  信息 : openports插件发现配置：
+2025年01月10日 18:57:36  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:57:36  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:57:36  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:58:37  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:58:37  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:58:37  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 18:59:02  信息 : -------------网关启动完毕-------------------
+2025年01月10日 18:59:02  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 18:59:02  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 18:59:02  信息 : openports插件发现配置：
+2025年01月10日 18:59:02  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 18:59:03  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 18:59:03  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 18:59:22  信息 : -------------应用启动完毕-------------------
+2025年01月10日 18:59:22  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 18:59:24  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 19:01:15  信息 : -------------网关启动完毕-------------------
+2025年01月10日 19:01:15  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 19:01:15  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 19:01:15  信息 : openports插件发现配置：
+2025年01月10日 19:01:15  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 19:01:15  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 19:01:15  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 19:03:09  信息 : -------------应用启动完毕-------------------
+2025年01月10日 19:03:09  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 19:03:12  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月10日 19:06:44  信息 : -------------网关启动完毕-------------------
+2025年01月10日 19:06:44  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月10日 19:06:44  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月10日 19:06:44  信息 : openports插件发现配置：
+2025年01月10日 19:06:44  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月10日 19:06:44  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月10日 19:06:44  信息 : 系统开放api地址是：/portsapi
+2025年01月10日 19:06:59  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月10日 19:06:59  信息 : 		服务命令：authenticate
+2025年01月10日 19:06:59  信息 : 				参数：authName java.lang.String parameter
+2025年01月10日 19:06:59  信息 : 				参数：tenant java.lang.String parameter
+2025年01月10日 19:06:59  信息 : 				参数：principals java.lang.String header
+2025年01月10日 19:06:59  信息 : 				参数：password java.lang.String content
+2025年01月10日 19:06:59  信息 : 				参数：ttlMillis long parameter
+2025年01月10日 19:06:59  信息 : 		服务命令：test
+2025年01月10日 19:06:59  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 19:06:59  信息 : 				参数：set java.util.List parameter
+2025年01月10日 19:06:59  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 19:06:59  信息 : 		服务命令：test2
+2025年01月10日 19:06:59  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月10日 19:06:59  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月10日 19:06:59  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月10日 19:06:59  信息 : 		服务命令：getAcl
+2025年01月10日 19:06:59  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月10日 19:06:59  信息 : 				参数：set java.util.List parameter
+2025年01月10日 19:06:59  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月10日 19:06:59  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月10日 19:06:59  信息 : 		服务命令：login
+2025年01月10日 19:06:59  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 19:06:59  信息 : 				参数：accountName java.lang.String parameter
+2025年01月10日 19:06:59  信息 : 				参数：password java.lang.String parameter
+2025年01月10日 19:06:59  信息 : 		服务命令：refreshToken
+2025年01月10日 19:06:59  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月10日 19:06:59  信息 : 		服务命令：testProtect
+2025年01月10日 19:06:59  信息 : 				参数：a int parameter
+2025年01月10日 19:06:59  信息 : 				参数：b boolean parameter
+2025年01月10日 19:06:59  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 19:06:59  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月10日 19:06:59  信息 : 		服务命令：testPublic
+2025年01月10日 19:06:59  信息 : 				参数：a int parameter
+2025年01月10日 19:06:59  信息 : 				参数：b boolean parameter
+2025年01月10日 19:06:59  信息 : 				参数：c java.util.HashMap parameter
+2025年01月10日 19:06:59  信息 : -------------应用启动完毕-------------------
+2025年01月10日 19:06:59  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月10日 19:07:46  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:uc
+2025年01月10日 19:07:49  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 缺少路由目标，请求侦被丢掉：/uc.ports
+2025年01月10日 19:08:51  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:ports
+2025年01月10日 19:09:42  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:ports
+2025年01月10日 19:09:54  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:openports
+2025年01月10日 19:10:06  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:openports
+2025年01月10日 19:10:35  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports/?v=5.2 HTTP/1.1
+2025年01月10日 19:10:35  信息 : 当前请求次数：0
+2025年01月10日 19:10:35  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports/?v=5.2 HTTP/1.1
+2025年01月10日 19:11:08  错误: cj.studio.gateway.tools.RouterConsole - Bad file descriptor
+2025年01月10日 19:11:08  信息 : 网关监视失败。原因：Bad file descriptor

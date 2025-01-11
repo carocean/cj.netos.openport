@@ -15,8 +15,8 @@
         class: 'cj.studio.openport.OpenportEntryPointActivator',
         parameters: {
           "publicAPIPath": '/portsapi',
-          accessControlStrategy: '',
-          checkTokenStrategy: ''
+          checkAppSignStrategy: 'cj.netos.openport.program.ITestAppSignStrategy',
+          checkAccessTokenStrategy: 'cj.netos.openport.program.ITestAccessTokenStrategy'
         }
       }
     ]
