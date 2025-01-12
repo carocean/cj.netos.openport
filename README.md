@@ -155,10 +155,10 @@ public class GberaSearcherFrontendPorts implements IGberaSearcherFrontendPorts {
           }
         ]
 ```
-- Use the annotations @CjOpenports, @CjOpenport, and @CjOpenportParameter to declare your port interface. This interface must inherit from IOpenportService, for example:
+- Use the annotations @CjOpenports, @CjOpenport, and @CjOpenportParameter to declare your port interface.  for example:
 ``` java
     @CjOpenports(usage = "用户中心的ports")
-   public interface IUCPorts extends IOpenportService {
+   public interface IUCPorts{
        @CjOpenport(usage = "认证 port", command = "post",tokenIn = TokenIn.nope)
        String authenticate(@CjOpenportParameter(name = "authName", defaultValue = "auth.password", usage = "认证器名") String authName,
                            @CjOpenportParameter(name = "tenant", defaultValue = "netos.nettest", usage = "租户") String tenant,
@@ -210,7 +210,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @CjOpenports(usage = "测试安全机制")
-public interface ISecurityPorts extends IOpenportService {
+public interface ISecurityPorts  {
     @CjOpenportAppSecurity(usage = "返回accessToken")
     @CjOpenport(tokenIn = AccessTokenIn.nope, usage = "用户委托第三方app以登录，返回访问令牌")
     public String login(ISecuritySession securitySession,@CjOpenportParameter(usage = "登录账号名", name = "accountName")String accountName,
