@@ -2,10 +2,10 @@
 -charSet 'UTF-8'
 -classpath '/Users/andrewjoes/Studio/projects/cj.netos.openport/cj.studio.openport/build/classes/java/main:/Users/andrewjoes/Studio/projects/cj.netos.openport/cj.studio.openport/build/resources/main:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/cj.studio.gateway2/cj.studio.gateway.socket/2.4.6/84a2ee1c4359a4f40f0f813ed89a2b9e3e153370/cj.studio.gateway.socket-2.4.6.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/cj.studio.gateway2/cj.studio.ecm.net/2.4.6/44b10be16ea00066f03a02d930e7472c19687f81/cj.studio.ecm.net-2.4.6.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.studio.ecm.corelib/2.4.0/94c5ea17782775fca79a5260c03726499b5e77f5/cj.studio.ecm.corelib-2.4.0.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/cj.studio.ecm/cj.ultimate/2.4.0/db7cb6715bbf9898a1d71535b39bcc3bc9c402ed/cj.ultimate-2.4.0.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.26/a78a8747147d2c5807683e76ec2b633e95c14fe9/snakeyaml-1.26.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.8.1/1eb6690b0c629d7000c77a72df5e822fb974f521/jsoup-1.8.1.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/com.barchart.http/barchart-http-server/1.1.6/1abec176f4c5c5592b4a8479d99dcf2822c58bda/barchart-http-server-1.1.6.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/com.barchart.udt/barchart-udt-bundle/2.3.0/3d1a29b2b08d20533ad08918411528dd1880515e/barchart-udt-bundle-2.3.0.jar:/Users/andrewjoes/.gradle/caches/modules-2/files-2.1/io.netty/netty-all/5.0.0.Alpha2/9870d1ff5e71352077776a255f9d1494486af16/netty-all-5.0.0.Alpha2.jar'
 -d '/Users/andrewjoes/Studio/projects/cj.netos.openport/cj.studio.openport/build/docs/javadoc'
--doctitle 'cj.studio.openport 1.2.1 API'
+-doctitle 'cj.studio.openport 1.2.2 API'
 -encoding 'UTF-8'
 -quiet 
--windowtitle 'cj.studio.openport 1.2.1 API'
+-windowtitle 'cj.studio.openport 1.2.2 API'
 '/Users/andrewjoes/Studio/projects/cj.netos.openport/cj.studio.openport/src/cj/studio/openport/MethodParameter.java'
 '/Users/andrewjoes/Studio/projects/cj.netos.openport/cj.studio.openport/src/cj/studio/openport/DefaultCheckAccessTokenStrategy.java'
 '/Users/andrewjoes/Studio/projects/cj.netos.openport/cj.studio.openport/src/cj/studio/openport/DefaultOpenportContentReciever.java'

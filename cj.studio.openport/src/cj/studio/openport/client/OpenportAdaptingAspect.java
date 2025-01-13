@@ -115,6 +115,9 @@ class OpenportAdaptingAspect implements IAdaptingAspect {
         for (int i = 0; i < parameters.length; i++) {
             Parameter p = parameters[i];
             CjOpenportParameter openportParameter = p.getAnnotation(CjOpenportParameter.class);
+            if(openportParameter == null) {
+                continue;
+            }
             switch (openportParameter.in()) {
                 case header:
                     String v = convertValue(args[i]);
