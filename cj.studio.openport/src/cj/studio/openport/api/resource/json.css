@@ -1,0 +1,34 @@
+/* 仅限 .content 内的 <pre> 生效 */
+.content pre {
+    background-color: #2d2d2d; /* 深色背景，护眼 */
+    color: #ffffff; /* 默认文字颜色为白色 */
+    padding: 15px; /* 增加内边距让内容不贴边 */
+    border-radius: 8px; /* 圆角效果 */
+    border: 1px solid #444; /* 边框颜色与背景区分 */
+    font-family: Consolas, "Courier New", monospace; /* 等宽字体 */
+    font-size: 14px; /* 合适的字体大小 */
+    line-height: 1.6; /* 提高行距，增加可读性 */
+    overflow-x: auto; /* 水平滚动条，防止内容溢出 */
+    white-space: pre-wrap; /* 保留换行符，自动换行 */
+}
+
+/* 针对 .content 内 JSON 内容的高亮 */
+.content pre .key {
+    color: #9cdcfe; /* 关键字蓝色 */
+}
+
+.content pre .string {
+    color: #ce9178; /* 字符串橙色 */
+}
+
+.content pre .number {
+    color: #b5cea8; /* 数字绿色 */
+}
+
+.content pre .boolean {
+    color: #569cd6; /* 布尔值蓝色 */
+}
+
+.content pre .null {
+    color: #dcdcaa; /* null 黄色 */
+}

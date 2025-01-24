@@ -37,10 +37,12 @@ public class DefaultOpenportAPIController implements IOpenportAPIController {
         publicAPIPath=apipath;
         String global_css=String.format("%sglobal.css",apipath);
         String index_css=String.format("%sindex.css",apipath);
+        String json_css=String.format("%sjson.css",apipath);
         String jquery_js=String.format("%sjquery.js",apipath);
         String openport_js=String.format("%sopenport.js",apipath);
         resources.put(global_css, "cj/studio/openport/api/resource/global.css");
         resources.put(index_css, "cj/studio/openport/api/resource/index.css");
+        resources.put(json_css, "cj/studio/openport/api/resource/json.css");
         resources.put(jquery_js, "cj/studio/openport/api/resource/jquery-2.1.4.js");
         resources.put(openport_js, "cj/studio/openport/api/resource/openport.js");
     }

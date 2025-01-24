@@ -3065,3 +3065,1484 @@
 2025年01月10日 19:10:35  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports/?v=5.2 HTTP/1.1
 2025年01月10日 19:11:08  错误: cj.studio.gateway.tools.RouterConsole - Bad file descriptor
 2025年01月10日 19:11:08  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 13:43:18  信息 : -------------网关启动完毕-------------------
+2025年01月24日 13:43:18  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 13:43:18  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 13:43:18  信息 : openports插件发现配置：
+2025年01月24日 13:43:18  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 13:43:18  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 13:43:18  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 13:43:18  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 13:43:18  信息 : 		服务命令：authenticate
+2025年01月24日 13:43:18  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 13:43:18  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 13:43:18  信息 : 				参数：principals java.lang.String header
+2025年01月24日 13:43:18  信息 : 				参数：password java.lang.String content
+2025年01月24日 13:43:18  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 13:43:18  信息 : 		服务命令：test
+2025年01月24日 13:43:18  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:43:18  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:43:18  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:43:18  信息 : 		服务命令：test2
+2025年01月24日 13:43:18  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 13:43:18  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 13:43:18  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 13:43:18  信息 : 		服务命令：getAcl
+2025年01月24日 13:43:18  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:43:18  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:43:18  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:43:18  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 13:43:18  信息 : 		服务命令：refreshToken
+2025年01月24日 13:43:18  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 13:43:18  信息 : 		服务命令：testProtect
+2025年01月24日 13:43:18  信息 : 				参数：a int parameter
+2025年01月24日 13:43:18  信息 : 				参数：b boolean parameter
+2025年01月24日 13:43:18  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:43:18  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:43:18  信息 : 		服务命令：testPublic
+2025年01月24日 13:43:18  信息 : 				参数：a int parameter
+2025年01月24日 13:43:18  信息 : 				参数：b boolean parameter
+2025年01月24日 13:43:18  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:43:18  信息 : 		服务命令：login
+2025年01月24日 13:43:18  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:43:18  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 13:43:18  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 13:43:18  信息 : -------------应用启动完毕-------------------
+2025年01月24日 13:43:18  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 13:43:46  错误: cj.studio.gateway.server.handler.HttpChannelHandler - 404 簇中缺少目标:hello
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:44:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:26  错误: cj.studio.gateway.tools.RouterConsole - Bad file descriptor
+2025年01月24日 13:46:26  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 13:46:34  信息 : -------------网关启动完毕-------------------
+2025年01月24日 13:46:34  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 13:46:34  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 13:46:34  信息 : openports插件发现配置：
+2025年01月24日 13:46:34  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 13:46:34  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 13:46:34  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 13:46:34  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 13:46:34  信息 : 		服务命令：test
+2025年01月24日 13:46:34  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:46:34  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:46:34  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:46:34  信息 : 		服务命令：authenticate
+2025年01月24日 13:46:34  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 13:46:34  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 13:46:34  信息 : 				参数：principals java.lang.String header
+2025年01月24日 13:46:34  信息 : 				参数：password java.lang.String content
+2025年01月24日 13:46:34  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 13:46:34  信息 : 		服务命令：test2
+2025年01月24日 13:46:34  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 13:46:34  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 13:46:34  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 13:46:34  信息 : 		服务命令：getAcl
+2025年01月24日 13:46:34  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:46:34  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:46:34  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:46:34  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 13:46:34  信息 : 		服务命令：login
+2025年01月24日 13:46:34  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:46:34  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 13:46:34  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 13:46:34  信息 : 		服务命令：refreshToken
+2025年01月24日 13:46:34  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 13:46:34  信息 : 		服务命令：testProtect
+2025年01月24日 13:46:34  信息 : 				参数：a int parameter
+2025年01月24日 13:46:34  信息 : 				参数：b boolean parameter
+2025年01月24日 13:46:34  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:46:34  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:46:34  信息 : 		服务命令：testPublic
+2025年01月24日 13:46:34  信息 : 				参数：a int parameter
+2025年01月24日 13:46:34  信息 : 				参数：b boolean parameter
+2025年01月24日 13:46:34  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:46:34  信息 : -------------应用启动完毕-------------------
+2025年01月24日 13:46:34  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:46:52  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:41  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 13:51:43  信息 : -------------网关启动完毕-------------------
+2025年01月24日 13:51:43  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 13:51:43  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 13:51:43  信息 : openports插件发现配置：
+2025年01月24日 13:51:43  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 13:51:43  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 13:51:43  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 13:51:43  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 13:51:43  信息 : 		服务命令：test
+2025年01月24日 13:51:43  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:51:43  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:51:43  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:51:43  信息 : 		服务命令：authenticate
+2025年01月24日 13:51:43  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 13:51:43  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 13:51:43  信息 : 				参数：principals java.lang.String header
+2025年01月24日 13:51:43  信息 : 				参数：password java.lang.String content
+2025年01月24日 13:51:43  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 13:51:43  信息 : 		服务命令：test2
+2025年01月24日 13:51:43  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 13:51:43  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 13:51:43  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 13:51:43  信息 : 		服务命令：getAcl
+2025年01月24日 13:51:43  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:51:43  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:51:43  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:51:43  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 13:51:43  信息 : 		服务命令：login
+2025年01月24日 13:51:43  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:51:43  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 13:51:43  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 13:51:43  信息 : 		服务命令：refreshToken
+2025年01月24日 13:51:43  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 13:51:43  信息 : 		服务命令：testProtect
+2025年01月24日 13:51:43  信息 : 				参数：a int parameter
+2025年01月24日 13:51:43  信息 : 				参数：b boolean parameter
+2025年01月24日 13:51:43  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:51:43  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:51:43  信息 : 		服务命令：testPublic
+2025年01月24日 13:51:43  信息 : 				参数：a int parameter
+2025年01月24日 13:51:43  信息 : 				参数：b boolean parameter
+2025年01月24日 13:51:43  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:51:43  信息 : -------------应用启动完毕-------------------
+2025年01月24日 13:51:43  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:51:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:05  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 13:53:06  信息 : -------------网关启动完毕-------------------
+2025年01月24日 13:53:06  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 13:53:06  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 13:53:06  信息 : openports插件发现配置：
+2025年01月24日 13:53:06  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 13:53:06  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 13:53:06  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 13:53:06  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 13:53:06  信息 : 		服务命令：authenticate
+2025年01月24日 13:53:06  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 13:53:06  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 13:53:06  信息 : 				参数：principals java.lang.String header
+2025年01月24日 13:53:06  信息 : 				参数：password java.lang.String content
+2025年01月24日 13:53:06  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 13:53:06  信息 : 		服务命令：test
+2025年01月24日 13:53:06  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:53:06  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:53:06  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:53:06  信息 : 		服务命令：test2
+2025年01月24日 13:53:06  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 13:53:06  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 13:53:06  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 13:53:06  信息 : 		服务命令：getAcl
+2025年01月24日 13:53:06  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:53:06  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:53:06  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:53:06  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 13:53:06  信息 : 		服务命令：login
+2025年01月24日 13:53:06  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:53:06  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 13:53:06  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 13:53:06  信息 : 		服务命令：refreshToken
+2025年01月24日 13:53:06  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 13:53:06  信息 : 		服务命令：testProtect
+2025年01月24日 13:53:06  信息 : 				参数：a int parameter
+2025年01月24日 13:53:06  信息 : 				参数：b boolean parameter
+2025年01月24日 13:53:06  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:53:06  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:53:06  信息 : 		服务命令：testPublic
+2025年01月24日 13:53:06  信息 : 				参数：a int parameter
+2025年01月24日 13:53:06  信息 : 				参数：b boolean parameter
+2025年01月24日 13:53:06  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:53:06  信息 : -------------应用启动完毕-------------------
+2025年01月24日 13:53:06  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:53:15  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:55:52  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 13:55:54  信息 : -------------网关启动完毕-------------------
+2025年01月24日 13:55:54  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 13:55:54  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 13:55:54  信息 : openports插件发现配置：
+2025年01月24日 13:55:54  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 13:55:54  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 13:55:54  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 13:55:54  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 13:55:54  信息 : 		服务命令：test
+2025年01月24日 13:55:54  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:55:54  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:55:54  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:55:54  信息 : 		服务命令：authenticate
+2025年01月24日 13:55:54  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 13:55:54  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 13:55:54  信息 : 				参数：principals java.lang.String header
+2025年01月24日 13:55:54  信息 : 				参数：password java.lang.String content
+2025年01月24日 13:55:54  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 13:55:54  信息 : 		服务命令：test2
+2025年01月24日 13:55:54  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 13:55:54  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 13:55:54  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 13:55:54  信息 : 		服务命令：getAcl
+2025年01月24日 13:55:54  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:55:54  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:55:54  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:55:54  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 13:55:54  信息 : 		服务命令：login
+2025年01月24日 13:55:54  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:55:54  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 13:55:54  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 13:55:54  信息 : 		服务命令：refreshToken
+2025年01月24日 13:55:54  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 13:55:54  信息 : 		服务命令：testProtect
+2025年01月24日 13:55:54  信息 : 				参数：a int parameter
+2025年01月24日 13:55:54  信息 : 				参数：b boolean parameter
+2025年01月24日 13:55:54  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:55:54  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:55:54  信息 : 		服务命令：testPublic
+2025年01月24日 13:55:54  信息 : 				参数：a int parameter
+2025年01月24日 13:55:54  信息 : 				参数：b boolean parameter
+2025年01月24日 13:55:54  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:55:54  信息 : -------------应用启动完毕-------------------
+2025年01月24日 13:55:54  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:56:04  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:07  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 13:57:09  信息 : -------------网关启动完毕-------------------
+2025年01月24日 13:57:09  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 13:57:09  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 13:57:09  信息 : openports插件发现配置：
+2025年01月24日 13:57:09  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 13:57:09  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 13:57:09  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 13:57:09  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 13:57:09  信息 : 		服务命令：authenticate
+2025年01月24日 13:57:09  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 13:57:09  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 13:57:09  信息 : 				参数：principals java.lang.String header
+2025年01月24日 13:57:09  信息 : 				参数：password java.lang.String content
+2025年01月24日 13:57:09  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 13:57:09  信息 : 		服务命令：test
+2025年01月24日 13:57:09  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:57:09  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:57:09  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:57:09  信息 : 		服务命令：test2
+2025年01月24日 13:57:09  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 13:57:09  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 13:57:09  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 13:57:09  信息 : 		服务命令：getAcl
+2025年01月24日 13:57:09  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 13:57:09  信息 : 				参数：set java.util.List parameter
+2025年01月24日 13:57:09  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 13:57:09  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 13:57:09  信息 : 		服务命令：login
+2025年01月24日 13:57:09  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:57:09  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 13:57:09  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 13:57:09  信息 : 		服务命令：refreshToken
+2025年01月24日 13:57:09  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 13:57:09  信息 : 		服务命令：testProtect
+2025年01月24日 13:57:09  信息 : 				参数：a int parameter
+2025年01月24日 13:57:09  信息 : 				参数：b boolean parameter
+2025年01月24日 13:57:09  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:57:09  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 13:57:09  信息 : 		服务命令：testPublic
+2025年01月24日 13:57:09  信息 : 				参数：a int parameter
+2025年01月24日 13:57:09  信息 : 				参数：b boolean parameter
+2025年01月24日 13:57:09  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 13:57:09  信息 : -------------应用启动完毕-------------------
+2025年01月24日 13:57:09  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:57:18  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 13:59:03  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:24  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:11:26  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:11:26  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:11:26  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:11:26  信息 : openports插件发现配置：
+2025年01月24日 14:11:26  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:11:26  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:11:26  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:11:26  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:11:26  信息 : 		服务命令：authenticate
+2025年01月24日 14:11:26  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:11:26  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:11:26  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:11:26  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:11:26  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:11:26  信息 : 		服务命令：test
+2025年01月24日 14:11:26  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:11:26  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:11:26  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:11:26  信息 : 		服务命令：test2
+2025年01月24日 14:11:26  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:11:26  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:11:26  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:11:26  信息 : 		服务命令：getAcl
+2025年01月24日 14:11:26  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:11:26  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:11:26  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:11:26  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:11:26  信息 : 		服务命令：login
+2025年01月24日 14:11:26  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:11:26  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:11:26  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:11:26  信息 : 		服务命令：refreshToken
+2025年01月24日 14:11:26  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:11:26  信息 : 		服务命令：testProtect
+2025年01月24日 14:11:26  信息 : 				参数：a int parameter
+2025年01月24日 14:11:26  信息 : 				参数：b boolean parameter
+2025年01月24日 14:11:26  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:11:26  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:11:26  信息 : 		服务命令：testPublic
+2025年01月24日 14:11:26  信息 : 				参数：a int parameter
+2025年01月24日 14:11:26  信息 : 				参数：b boolean parameter
+2025年01月24日 14:11:26  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:11:26  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:11:26  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:11:34  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:13:11  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:18:11  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:18:53  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:18:53  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:18:53  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:18:53  信息 : openports插件发现配置：
+2025年01月24日 14:18:53  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:18:53  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:18:53  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:18:53  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:18:53  信息 : 		服务命令：authenticate
+2025年01月24日 14:18:53  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:18:53  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:18:53  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:18:53  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:18:53  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:18:53  信息 : 		服务命令：test
+2025年01月24日 14:18:53  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:18:53  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:18:53  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:18:53  信息 : 		服务命令：test2
+2025年01月24日 14:18:53  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:18:53  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:18:53  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:18:53  信息 : 		服务命令：getAcl
+2025年01月24日 14:18:53  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:18:53  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:18:53  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:18:53  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:18:53  信息 : 		服务命令：login
+2025年01月24日 14:18:53  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:18:53  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:18:53  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:18:53  信息 : 		服务命令：refreshToken
+2025年01月24日 14:18:53  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:18:53  信息 : 		服务命令：testProtect
+2025年01月24日 14:18:53  信息 : 				参数：a int parameter
+2025年01月24日 14:18:53  信息 : 				参数：b boolean parameter
+2025年01月24日 14:18:53  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:18:53  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:18:53  信息 : 		服务命令：testPublic
+2025年01月24日 14:18:53  信息 : 				参数：a int parameter
+2025年01月24日 14:18:53  信息 : 				参数：b boolean parameter
+2025年01月24日 14:18:53  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:18:53  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:18:53  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:19:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:02  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:24:04  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:24:04  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:24:04  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:24:04  信息 : openports插件发现配置：
+2025年01月24日 14:24:04  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:24:04  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:24:04  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:24:04  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:24:04  信息 : 		服务命令：test
+2025年01月24日 14:24:04  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:24:04  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:24:04  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:24:04  信息 : 		服务命令：authenticate
+2025年01月24日 14:24:04  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:24:04  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:24:04  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:24:04  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:24:04  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:24:04  信息 : 		服务命令：test2
+2025年01月24日 14:24:04  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:24:04  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:24:04  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:24:04  信息 : 		服务命令：getAcl
+2025年01月24日 14:24:04  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:24:04  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:24:04  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:24:04  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:24:04  信息 : 		服务命令：login
+2025年01月24日 14:24:04  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:24:04  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:24:04  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:24:04  信息 : 		服务命令：refreshToken
+2025年01月24日 14:24:04  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:24:04  信息 : 		服务命令：testProtect
+2025年01月24日 14:24:04  信息 : 				参数：a int parameter
+2025年01月24日 14:24:04  信息 : 				参数：b boolean parameter
+2025年01月24日 14:24:04  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:24:04  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:24:04  信息 : 		服务命令：testPublic
+2025年01月24日 14:24:04  信息 : 				参数：a int parameter
+2025年01月24日 14:24:04  信息 : 				参数：b boolean parameter
+2025年01月24日 14:24:04  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:24:04  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:24:04  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:24:18  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:24:19  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:24:19  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:24:19  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:24:19  信息 : openports插件发现配置：
+2025年01月24日 14:24:19  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:24:19  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:24:19  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:24:19  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:24:19  信息 : 		服务命令：authenticate
+2025年01月24日 14:24:19  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:24:19  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:24:19  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:24:19  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:24:19  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:24:19  信息 : 		服务命令：test
+2025年01月24日 14:24:19  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:24:19  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:24:19  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:24:19  信息 : 		服务命令：test2
+2025年01月24日 14:24:19  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:24:19  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:24:19  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:24:19  信息 : 		服务命令：getAcl
+2025年01月24日 14:24:19  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:24:19  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:24:19  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:24:19  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:24:19  信息 : 		服务命令：refreshToken
+2025年01月24日 14:24:19  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:24:19  信息 : 		服务命令：testProtect
+2025年01月24日 14:24:19  信息 : 				参数：a int parameter
+2025年01月24日 14:24:19  信息 : 				参数：b boolean parameter
+2025年01月24日 14:24:19  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:24:19  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:24:19  信息 : 		服务命令：testPublic
+2025年01月24日 14:24:19  信息 : 				参数：a int parameter
+2025年01月24日 14:24:19  信息 : 				参数：b boolean parameter
+2025年01月24日 14:24:19  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:24:19  信息 : 		服务命令：login
+2025年01月24日 14:24:19  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:24:19  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:24:19  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:24:19  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:24:19  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:24:28  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:51  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:27:53  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:27:53  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:27:53  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:27:53  信息 : openports插件发现配置：
+2025年01月24日 14:27:53  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:27:53  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:27:53  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:27:53  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:27:53  信息 : 		服务命令：authenticate
+2025年01月24日 14:27:53  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:27:53  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:27:53  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:27:53  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:27:53  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:27:53  信息 : 		服务命令：test
+2025年01月24日 14:27:53  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:27:53  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:27:53  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:27:53  信息 : 		服务命令：test2
+2025年01月24日 14:27:53  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:27:53  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:27:53  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:27:53  信息 : 		服务命令：getAcl
+2025年01月24日 14:27:53  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:27:53  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:27:53  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:27:53  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:27:53  信息 : 		服务命令：refreshToken
+2025年01月24日 14:27:53  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:27:53  信息 : 		服务命令：testProtect
+2025年01月24日 14:27:53  信息 : 				参数：a int parameter
+2025年01月24日 14:27:53  信息 : 				参数：b boolean parameter
+2025年01月24日 14:27:53  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:27:53  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:27:53  信息 : 		服务命令：testPublic
+2025年01月24日 14:27:53  信息 : 				参数：a int parameter
+2025年01月24日 14:27:53  信息 : 				参数：b boolean parameter
+2025年01月24日 14:27:53  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:27:53  信息 : 		服务命令：login
+2025年01月24日 14:27:53  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:27:53  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:27:53  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:27:53  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:27:53  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:27:56  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:28:02  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:43  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:35:45  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:35:45  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:35:45  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:35:45  信息 : openports插件发现配置：
+2025年01月24日 14:35:45  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:35:45  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:35:45  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:35:45  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:35:45  信息 : 		服务命令：test
+2025年01月24日 14:35:45  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:35:45  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:35:45  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:35:45  信息 : 		服务命令：authenticate
+2025年01月24日 14:35:45  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:35:45  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:35:45  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:35:45  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:35:45  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:35:45  信息 : 		服务命令：test2
+2025年01月24日 14:35:45  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:35:45  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:35:45  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:35:45  信息 : 		服务命令：getAcl
+2025年01月24日 14:35:45  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:35:45  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:35:45  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:35:45  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:35:45  信息 : 		服务命令：refreshToken
+2025年01月24日 14:35:45  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:35:45  信息 : 		服务命令：testProtect
+2025年01月24日 14:35:45  信息 : 				参数：a int parameter
+2025年01月24日 14:35:45  信息 : 				参数：b boolean parameter
+2025年01月24日 14:35:45  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:35:45  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:35:45  信息 : 		服务命令：testPublic
+2025年01月24日 14:35:45  信息 : 				参数：a int parameter
+2025年01月24日 14:35:45  信息 : 				参数：b boolean parameter
+2025年01月24日 14:35:45  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:35:45  信息 : 		服务命令：login
+2025年01月24日 14:35:45  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:35:45  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:35:45  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:35:45  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:35:45  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:35:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:33  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:36:35  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:36:35  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:36:35  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:36:35  信息 : openports插件发现配置：
+2025年01月24日 14:36:35  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:36:35  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:36:35  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:36:35  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:36:35  信息 : 		服务命令：authenticate
+2025年01月24日 14:36:35  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:36:35  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:36:35  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:36:35  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:36:35  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:36:35  信息 : 		服务命令：test
+2025年01月24日 14:36:35  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:36:35  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:36:35  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:36:35  信息 : 		服务命令：test2
+2025年01月24日 14:36:35  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:36:35  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:36:35  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:36:35  信息 : 		服务命令：getAcl
+2025年01月24日 14:36:35  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:36:35  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:36:35  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:36:35  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:36:35  信息 : 		服务命令：refreshToken
+2025年01月24日 14:36:35  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:36:35  信息 : 		服务命令：testProtect
+2025年01月24日 14:36:35  信息 : 				参数：a int parameter
+2025年01月24日 14:36:35  信息 : 				参数：b boolean parameter
+2025年01月24日 14:36:35  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:36:35  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:36:35  信息 : 		服务命令：testPublic
+2025年01月24日 14:36:35  信息 : 				参数：a int parameter
+2025年01月24日 14:36:35  信息 : 				参数：b boolean parameter
+2025年01月24日 14:36:35  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:36:35  信息 : 		服务命令：login
+2025年01月24日 14:36:35  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:36:35  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:36:35  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:36:35  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:36:35  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:36:42  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:10  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:42:12  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:42:12  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:42:12  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:42:12  信息 : openports插件发现配置：
+2025年01月24日 14:42:12  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:42:12  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:42:12  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:42:12  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:42:12  信息 : 		服务命令：test
+2025年01月24日 14:42:12  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:42:12  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:42:12  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:42:12  信息 : 		服务命令：authenticate
+2025年01月24日 14:42:12  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:42:12  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:42:12  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:42:12  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:42:12  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:42:12  信息 : 		服务命令：test2
+2025年01月24日 14:42:12  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:42:12  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:42:12  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:42:12  信息 : 		服务命令：getAcl
+2025年01月24日 14:42:12  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:42:12  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:42:12  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:42:12  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:42:12  信息 : 		服务命令：login
+2025年01月24日 14:42:12  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:42:12  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:42:12  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:42:12  信息 : 		服务命令：refreshToken
+2025年01月24日 14:42:12  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:42:12  信息 : 		服务命令：testProtect
+2025年01月24日 14:42:12  信息 : 				参数：a int parameter
+2025年01月24日 14:42:12  信息 : 				参数：b boolean parameter
+2025年01月24日 14:42:12  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:42:12  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:42:12  信息 : 		服务命令：testPublic
+2025年01月24日 14:42:12  信息 : 				参数：a int parameter
+2025年01月24日 14:42:12  信息 : 				参数：b boolean parameter
+2025年01月24日 14:42:12  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:42:12  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:42:12  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:42:19  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:28  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:43:29  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:43:29  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:43:29  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:43:29  信息 : openports插件发现配置：
+2025年01月24日 14:43:29  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:43:29  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:43:29  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:43:29  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:43:29  信息 : 		服务命令：test
+2025年01月24日 14:43:29  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:43:29  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:43:29  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:43:29  信息 : 		服务命令：authenticate
+2025年01月24日 14:43:29  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:43:29  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:43:29  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:43:29  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:43:29  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:43:29  信息 : 		服务命令：test2
+2025年01月24日 14:43:29  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:43:29  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:43:29  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:43:29  信息 : 		服务命令：getAcl
+2025年01月24日 14:43:29  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:43:29  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:43:29  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:43:29  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:43:29  信息 : 		服务命令：login
+2025年01月24日 14:43:29  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:43:29  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:43:29  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:43:29  信息 : 		服务命令：refreshToken
+2025年01月24日 14:43:29  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:43:29  信息 : 		服务命令：testProtect
+2025年01月24日 14:43:29  信息 : 				参数：a int parameter
+2025年01月24日 14:43:29  信息 : 				参数：b boolean parameter
+2025年01月24日 14:43:29  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:43:29  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:43:29  信息 : 		服务命令：testPublic
+2025年01月24日 14:43:29  信息 : 				参数：a int parameter
+2025年01月24日 14:43:29  信息 : 				参数：b boolean parameter
+2025年01月24日 14:43:29  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:43:29  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:43:29  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:43:37  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:33  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:46:35  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:46:35  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:46:35  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:46:35  信息 : openports插件发现配置：
+2025年01月24日 14:46:35  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:46:35  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:46:35  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:46:35  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:46:35  信息 : 		服务命令：authenticate
+2025年01月24日 14:46:35  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:46:35  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:46:35  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:46:35  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:46:35  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:46:35  信息 : 		服务命令：test
+2025年01月24日 14:46:35  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:46:35  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:46:35  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:46:35  信息 : 		服务命令：test2
+2025年01月24日 14:46:35  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:46:35  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:46:35  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:46:35  信息 : 		服务命令：getAcl
+2025年01月24日 14:46:35  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:46:35  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:46:35  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:46:35  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:46:35  信息 : 		服务命令：login
+2025年01月24日 14:46:35  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:46:35  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:46:35  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:46:35  信息 : 		服务命令：refreshToken
+2025年01月24日 14:46:35  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:46:35  信息 : 		服务命令：testProtect
+2025年01月24日 14:46:35  信息 : 				参数：a int parameter
+2025年01月24日 14:46:35  信息 : 				参数：b boolean parameter
+2025年01月24日 14:46:35  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:46:35  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:46:35  信息 : 		服务命令：testPublic
+2025年01月24日 14:46:35  信息 : 				参数：a int parameter
+2025年01月24日 14:46:35  信息 : 				参数：b boolean parameter
+2025年01月24日 14:46:35  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:46:35  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:46:35  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:46:44  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:06  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:50:09  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:50:09  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:50:09  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:50:09  信息 : openports插件发现配置：
+2025年01月24日 14:50:09  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:50:09  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:50:09  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:50:09  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:50:09  信息 : 		服务命令：authenticate
+2025年01月24日 14:50:09  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:50:09  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:50:09  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:50:09  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:50:09  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:50:09  信息 : 		服务命令：test
+2025年01月24日 14:50:09  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:50:09  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:50:09  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:50:09  信息 : 		服务命令：test2
+2025年01月24日 14:50:09  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:50:09  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:50:09  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:50:09  信息 : 		服务命令：getAcl
+2025年01月24日 14:50:09  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:50:09  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:50:09  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:50:09  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:50:09  信息 : 		服务命令：refreshToken
+2025年01月24日 14:50:09  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:50:09  信息 : 		服务命令：testProtect
+2025年01月24日 14:50:09  信息 : 				参数：a int parameter
+2025年01月24日 14:50:09  信息 : 				参数：b boolean parameter
+2025年01月24日 14:50:09  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:50:09  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:50:09  信息 : 		服务命令：testPublic
+2025年01月24日 14:50:09  信息 : 				参数：a int parameter
+2025年01月24日 14:50:09  信息 : 				参数：b boolean parameter
+2025年01月24日 14:50:09  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:50:09  信息 : 		服务命令：login
+2025年01月24日 14:50:09  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:50:09  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:50:09  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:50:09  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:50:09  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:50:14  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:40  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:51:41  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:51:41  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:51:41  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:51:41  信息 : openports插件发现配置：
+2025年01月24日 14:51:41  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:51:41  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:51:41  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:51:41  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:51:41  信息 : 		服务命令：test
+2025年01月24日 14:51:41  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:51:41  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:51:41  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:51:41  信息 : 		服务命令：authenticate
+2025年01月24日 14:51:41  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:51:41  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:51:41  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:51:41  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:51:41  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:51:41  信息 : 		服务命令：test2
+2025年01月24日 14:51:41  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:51:41  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:51:41  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:51:41  信息 : 		服务命令：getAcl
+2025年01月24日 14:51:41  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:51:41  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:51:41  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:51:41  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:51:41  信息 : 		服务命令：login
+2025年01月24日 14:51:41  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:51:41  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:51:41  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:51:41  信息 : 		服务命令：refreshToken
+2025年01月24日 14:51:41  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:51:41  信息 : 		服务命令：testProtect
+2025年01月24日 14:51:41  信息 : 				参数：a int parameter
+2025年01月24日 14:51:41  信息 : 				参数：b boolean parameter
+2025年01月24日 14:51:41  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:51:41  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:51:41  信息 : 		服务命令：testPublic
+2025年01月24日 14:51:41  信息 : 				参数：a int parameter
+2025年01月24日 14:51:41  信息 : 				参数：b boolean parameter
+2025年01月24日 14:51:41  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:51:41  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:51:41  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:51:48  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:10  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:53:12  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:53:12  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:53:12  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:53:12  信息 : openports插件发现配置：
+2025年01月24日 14:53:12  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:53:12  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:53:12  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:53:12  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:53:12  信息 : 		服务命令：test
+2025年01月24日 14:53:12  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:53:12  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:53:12  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:53:12  信息 : 		服务命令：authenticate
+2025年01月24日 14:53:12  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:53:12  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:53:12  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:53:12  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:53:12  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:53:12  信息 : 		服务命令：test2
+2025年01月24日 14:53:12  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:53:12  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:53:12  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:53:12  信息 : 		服务命令：getAcl
+2025年01月24日 14:53:12  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:53:12  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:53:12  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:53:12  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:53:12  信息 : 		服务命令：refreshToken
+2025年01月24日 14:53:12  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:53:12  信息 : 		服务命令：testProtect
+2025年01月24日 14:53:12  信息 : 				参数：a int parameter
+2025年01月24日 14:53:12  信息 : 				参数：b boolean parameter
+2025年01月24日 14:53:12  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:53:12  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:53:12  信息 : 		服务命令：testPublic
+2025年01月24日 14:53:12  信息 : 				参数：a int parameter
+2025年01月24日 14:53:12  信息 : 				参数：b boolean parameter
+2025年01月24日 14:53:12  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:53:12  信息 : 		服务命令：login
+2025年01月24日 14:53:12  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:53:12  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:53:12  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:53:12  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:53:12  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:20  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:53:59  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:54:01  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:54:01  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:54:01  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:54:01  信息 : openports插件发现配置：
+2025年01月24日 14:54:01  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:54:01  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:54:01  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:54:01  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:54:01  信息 : 		服务命令：authenticate
+2025年01月24日 14:54:01  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:54:01  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:54:01  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:54:01  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:54:01  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:54:01  信息 : 		服务命令：test
+2025年01月24日 14:54:01  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:54:01  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:54:01  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:54:01  信息 : 		服务命令：test2
+2025年01月24日 14:54:01  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:54:01  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:54:01  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:54:01  信息 : 		服务命令：getAcl
+2025年01月24日 14:54:01  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:54:01  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:54:01  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:54:01  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:54:01  信息 : 		服务命令：login
+2025年01月24日 14:54:01  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:54:01  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:54:01  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:54:01  信息 : 		服务命令：refreshToken
+2025年01月24日 14:54:01  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:54:01  信息 : 		服务命令：testProtect
+2025年01月24日 14:54:01  信息 : 				参数：a int parameter
+2025年01月24日 14:54:01  信息 : 				参数：b boolean parameter
+2025年01月24日 14:54:01  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:54:01  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:54:01  信息 : 		服务命令：testPublic
+2025年01月24日 14:54:01  信息 : 				参数：a int parameter
+2025年01月24日 14:54:01  信息 : 				参数：b boolean parameter
+2025年01月24日 14:54:01  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:54:01  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:54:01  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:54:13  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:40  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:55:41  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:55:41  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:55:41  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:55:41  信息 : openports插件发现配置：
+2025年01月24日 14:55:41  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:55:41  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:55:41  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:55:41  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:55:41  信息 : 		服务命令：authenticate
+2025年01月24日 14:55:41  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:55:41  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:55:41  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:55:41  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:55:41  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:55:41  信息 : 		服务命令：test
+2025年01月24日 14:55:41  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:55:41  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:55:41  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:55:41  信息 : 		服务命令：test2
+2025年01月24日 14:55:41  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:55:41  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:55:41  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:55:41  信息 : 		服务命令：getAcl
+2025年01月24日 14:55:41  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:55:41  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:55:41  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:55:41  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:55:42  信息 : 		服务命令：refreshToken
+2025年01月24日 14:55:42  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:55:42  信息 : 		服务命令：testProtect
+2025年01月24日 14:55:42  信息 : 				参数：a int parameter
+2025年01月24日 14:55:42  信息 : 				参数：b boolean parameter
+2025年01月24日 14:55:42  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:55:42  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:55:42  信息 : 		服务命令：testPublic
+2025年01月24日 14:55:42  信息 : 				参数：a int parameter
+2025年01月24日 14:55:42  信息 : 				参数：b boolean parameter
+2025年01月24日 14:55:42  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:55:42  信息 : 		服务命令：login
+2025年01月24日 14:55:42  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:55:42  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:55:42  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:55:42  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:55:42  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:55:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:42  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:56:43  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:56:43  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:56:43  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:56:44  信息 : openports插件发现配置：
+2025年01月24日 14:56:44  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:56:44  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:56:44  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:56:44  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:56:44  信息 : 		服务命令：test
+2025年01月24日 14:56:44  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:56:44  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:56:44  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:56:44  信息 : 		服务命令：authenticate
+2025年01月24日 14:56:44  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:56:44  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:56:44  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:56:44  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:56:44  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:56:44  信息 : 		服务命令：test2
+2025年01月24日 14:56:44  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:56:44  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:56:44  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:56:44  信息 : 		服务命令：getAcl
+2025年01月24日 14:56:44  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:56:44  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:56:44  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:56:44  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:56:44  信息 : 		服务命令：login
+2025年01月24日 14:56:44  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:56:44  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:56:44  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:56:44  信息 : 		服务命令：refreshToken
+2025年01月24日 14:56:44  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:56:44  信息 : 		服务命令：testProtect
+2025年01月24日 14:56:44  信息 : 				参数：a int parameter
+2025年01月24日 14:56:44  信息 : 				参数：b boolean parameter
+2025年01月24日 14:56:44  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:56:44  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:56:44  信息 : 		服务命令：testPublic
+2025年01月24日 14:56:44  信息 : 				参数：a int parameter
+2025年01月24日 14:56:44  信息 : 				参数：b boolean parameter
+2025年01月24日 14:56:44  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:56:44  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:56:44  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:56:50  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:00  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 14:59:01  信息 : -------------网关启动完毕-------------------
+2025年01月24日 14:59:01  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 14:59:01  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 14:59:01  信息 : openports插件发现配置：
+2025年01月24日 14:59:01  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 14:59:02  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 14:59:02  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 14:59:02  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 14:59:02  信息 : 		服务命令：authenticate
+2025年01月24日 14:59:02  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 14:59:02  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 14:59:02  信息 : 				参数：principals java.lang.String header
+2025年01月24日 14:59:02  信息 : 				参数：password java.lang.String content
+2025年01月24日 14:59:02  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 14:59:02  信息 : 		服务命令：test
+2025年01月24日 14:59:02  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:59:02  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:59:02  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:59:02  信息 : 		服务命令：test2
+2025年01月24日 14:59:02  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 14:59:02  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 14:59:02  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 14:59:02  信息 : 		服务命令：getAcl
+2025年01月24日 14:59:02  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 14:59:02  信息 : 				参数：set java.util.List parameter
+2025年01月24日 14:59:02  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 14:59:02  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 14:59:02  信息 : 		服务命令：login
+2025年01月24日 14:59:02  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:59:02  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 14:59:02  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 14:59:02  信息 : 		服务命令：refreshToken
+2025年01月24日 14:59:02  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 14:59:02  信息 : 		服务命令：testProtect
+2025年01月24日 14:59:02  信息 : 				参数：a int parameter
+2025年01月24日 14:59:02  信息 : 				参数：b boolean parameter
+2025年01月24日 14:59:02  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:59:02  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 14:59:02  信息 : 		服务命令：testPublic
+2025年01月24日 14:59:02  信息 : 				参数：a int parameter
+2025年01月24日 14:59:02  信息 : 				参数：b boolean parameter
+2025年01月24日 14:59:02  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 14:59:02  信息 : -------------应用启动完毕-------------------
+2025年01月24日 14:59:02  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 14:59:09  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:06  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 15:00:08  信息 : -------------网关启动完毕-------------------
+2025年01月24日 15:00:08  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 15:00:08  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 15:00:08  信息 : openports插件发现配置：
+2025年01月24日 15:00:08  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 15:00:08  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 15:00:08  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 15:00:08  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 15:00:08  信息 : 		服务命令：test
+2025年01月24日 15:00:08  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:00:08  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:00:08  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:00:08  信息 : 		服务命令：authenticate
+2025年01月24日 15:00:08  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 15:00:08  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 15:00:08  信息 : 				参数：principals java.lang.String header
+2025年01月24日 15:00:08  信息 : 				参数：password java.lang.String content
+2025年01月24日 15:00:08  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 15:00:08  信息 : 		服务命令：test2
+2025年01月24日 15:00:08  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 15:00:08  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 15:00:08  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 15:00:08  信息 : 		服务命令：getAcl
+2025年01月24日 15:00:08  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:00:08  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:00:08  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:00:08  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 15:00:08  信息 : 		服务命令：refreshToken
+2025年01月24日 15:00:08  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 15:00:08  信息 : 		服务命令：testProtect
+2025年01月24日 15:00:08  信息 : 				参数：a int parameter
+2025年01月24日 15:00:08  信息 : 				参数：b boolean parameter
+2025年01月24日 15:00:08  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:00:08  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:00:08  信息 : 		服务命令：testPublic
+2025年01月24日 15:00:08  信息 : 				参数：a int parameter
+2025年01月24日 15:00:08  信息 : 				参数：b boolean parameter
+2025年01月24日 15:00:08  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:00:08  信息 : 		服务命令：login
+2025年01月24日 15:00:08  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:00:08  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 15:00:08  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 15:00:08  信息 : -------------应用启动完毕-------------------
+2025年01月24日 15:00:08  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:00:16  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:28  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 15:01:29  信息 : -------------网关启动完毕-------------------
+2025年01月24日 15:01:29  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 15:01:29  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 15:01:29  信息 : openports插件发现配置：
+2025年01月24日 15:01:29  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 15:01:29  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 15:01:29  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 15:01:29  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 15:01:29  信息 : 		服务命令：authenticate
+2025年01月24日 15:01:29  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 15:01:29  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 15:01:29  信息 : 				参数：principals java.lang.String header
+2025年01月24日 15:01:29  信息 : 				参数：password java.lang.String content
+2025年01月24日 15:01:29  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 15:01:29  信息 : 		服务命令：test
+2025年01月24日 15:01:29  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:01:29  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:01:29  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:01:29  信息 : 		服务命令：test2
+2025年01月24日 15:01:29  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 15:01:29  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 15:01:29  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 15:01:29  信息 : 		服务命令：getAcl
+2025年01月24日 15:01:29  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:01:29  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:01:29  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:01:29  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 15:01:29  信息 : 		服务命令：login
+2025年01月24日 15:01:29  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:01:29  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 15:01:29  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 15:01:29  信息 : 		服务命令：refreshToken
+2025年01月24日 15:01:29  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 15:01:29  信息 : 		服务命令：testProtect
+2025年01月24日 15:01:29  信息 : 				参数：a int parameter
+2025年01月24日 15:01:29  信息 : 				参数：b boolean parameter
+2025年01月24日 15:01:29  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:01:29  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:01:29  信息 : 		服务命令：testPublic
+2025年01月24日 15:01:29  信息 : 				参数：a int parameter
+2025年01月24日 15:01:29  信息 : 				参数：b boolean parameter
+2025年01月24日 15:01:29  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:01:29  信息 : -------------应用启动完毕-------------------
+2025年01月24日 15:01:29  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:01:54  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:03:58  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 15:04:00  信息 : -------------网关启动完毕-------------------
+2025年01月24日 15:04:00  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 15:04:00  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 15:04:00  信息 : openports插件发现配置：
+2025年01月24日 15:04:00  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 15:04:00  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 15:04:00  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 15:04:00  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 15:04:00  信息 : 		服务命令：authenticate
+2025年01月24日 15:04:00  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 15:04:00  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 15:04:00  信息 : 				参数：principals java.lang.String header
+2025年01月24日 15:04:00  信息 : 				参数：password java.lang.String content
+2025年01月24日 15:04:00  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 15:04:00  信息 : 		服务命令：test
+2025年01月24日 15:04:00  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:04:00  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:04:00  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:04:00  信息 : 		服务命令：test2
+2025年01月24日 15:04:00  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 15:04:00  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 15:04:00  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 15:04:00  信息 : 		服务命令：getAcl
+2025年01月24日 15:04:00  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:04:00  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:04:00  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:04:00  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 15:04:00  信息 : 		服务命令：login
+2025年01月24日 15:04:00  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:04:00  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 15:04:00  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 15:04:00  信息 : 		服务命令：refreshToken
+2025年01月24日 15:04:00  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 15:04:00  信息 : 		服务命令：testProtect
+2025年01月24日 15:04:00  信息 : 				参数：a int parameter
+2025年01月24日 15:04:00  信息 : 				参数：b boolean parameter
+2025年01月24日 15:04:00  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:04:00  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:04:00  信息 : 		服务命令：testPublic
+2025年01月24日 15:04:00  信息 : 				参数：a int parameter
+2025年01月24日 15:04:00  信息 : 				参数：b boolean parameter
+2025年01月24日 15:04:00  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:04:00  信息 : -------------应用启动完毕-------------------
+2025年01月24日 15:04:00  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:04:08  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:19  信息 : 网关监视失败。原因：Bad file descriptor
+2025年01月24日 15:07:20  信息 : -------------网关启动完毕-------------------
+2025年01月24日 15:07:20  信息: cj.studio.gateway.GatewaySocketContainer - 发现应用:openport，加载...
+2025年01月24日 15:07:20  信息 : 已装载共享库/Users/andrewjoes/Studio/projects/cj.netos.openport/cmdtools/gateway/lib/share
+2025年01月24日 15:07:20  信息 : openports插件发现配置：
+2025年01月24日 15:07:20  信息 : 		openportInterface=cj.studio.openport.client.IRequestAdapter remoteOpenportsUrl=ports://usercenter.com/uc/authentication.service token=
+2025年01月24日 15:07:20  信息: cj.studio.openport.client.DefaultOpenportsServicesMonitor - Openports 初始化完成
+2025年01月24日 15:07:20  信息 : 系统开放api地址是：/portsapi
+2025年01月24日 15:07:20  信息 : 发现安全服务：/uc.ports，类型：cj.netos.openport.program.portimpl.UCPorts
+2025年01月24日 15:07:20  信息 : 		服务命令：authenticate
+2025年01月24日 15:07:20  信息 : 				参数：authName java.lang.String parameter
+2025年01月24日 15:07:20  信息 : 				参数：tenant java.lang.String parameter
+2025年01月24日 15:07:20  信息 : 				参数：principals java.lang.String header
+2025年01月24日 15:07:20  信息 : 				参数：password java.lang.String content
+2025年01月24日 15:07:20  信息 : 				参数：ttlMillis long parameter
+2025年01月24日 15:07:20  信息 : 		服务命令：test
+2025年01月24日 15:07:20  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:07:20  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:07:20  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:07:20  信息 : 		服务命令：test2
+2025年01月24日 15:07:20  信息 : 				参数：arg cj.netos.openport.program.args.TestArg content
+2025年01月24日 15:07:20  信息 : 				参数：v java.math.BigDecimal parameter
+2025年01月24日 15:07:20  信息 : 发现安全服务：/uaac.ports，类型：cj.netos.openport.program.portimpl.UAACPort
+2025年01月24日 15:07:20  信息 : 		服务命令：getAcl
+2025年01月24日 15:07:20  信息 : 				参数：list java.util.LinkedList parameter
+2025年01月24日 15:07:20  信息 : 				参数：set java.util.List parameter
+2025年01月24日 15:07:20  信息 : 				参数：map java.util.TreeMap parameter
+2025年01月24日 15:07:20  信息 : 发现安全服务：/test/security，类型：cj.netos.openport.program.portimpl.SecurityPorts
+2025年01月24日 15:07:20  信息 : 		服务命令：login
+2025年01月24日 15:07:20  信息 : 				参数：arg0 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:07:20  信息 : 				参数：accountName java.lang.String parameter
+2025年01月24日 15:07:20  信息 : 				参数：password java.lang.String parameter
+2025年01月24日 15:07:20  信息 : 		服务命令：refreshToken
+2025年01月24日 15:07:20  信息 : 				参数：refreshToken java.lang.String parameter
+2025年01月24日 15:07:20  信息 : 		服务命令：testProtect
+2025年01月24日 15:07:20  信息 : 				参数：a int parameter
+2025年01月24日 15:07:20  信息 : 				参数：b boolean parameter
+2025年01月24日 15:07:20  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:07:20  信息 : 				参数：arg3 cj.studio.openport.ISecuritySession 内部参数
+2025年01月24日 15:07:20  信息 : 		服务命令：testPublic
+2025年01月24日 15:07:20  信息 : 				参数：a int parameter
+2025年01月24日 15:07:20  信息 : 				参数：b boolean parameter
+2025年01月24日 15:07:20  信息 : 				参数：c java.util.HashMap parameter
+2025年01月24日 15:07:20  信息 : -------------应用启动完毕-------------------
+2025年01月24日 15:07:20  信息: cj.studio.gateway.tools.GatewayEntrypoint - 网关成功启动
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doBefore:  null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:27  信息: cj.netos.openport.program.portface.IUCPorts$TestInvoker - doAfter: null | POST /openport/uc.ports?v=2000.00 HTTP/1.1
+2025年01月24日 15:07:48  信息 : 网关监视失败。原因：Bad file descriptor
